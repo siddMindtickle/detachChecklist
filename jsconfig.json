@@ -1,0 +1,30 @@
+{
+  "exclude": [
+    "node_modules",
+    "dist"
+  ],
+  "compilerOptions": {
+    "target": "ES6",
+    "module": "commonjs",
+    "allowSyntheticDefaultImports": true,
+    "baseUrl": ".",
+    "paths": {
+      "~/*": [
+        "*",
+        "app/*"
+      ],
+      "@mt-ui-core/*": [
+        "*",
+        "node_modules/mt-ui-core/app/*"
+      ],
+      "@mt-ui-core": [
+        "*",
+        "node_modules/mt-ui-core/app/"
+      ],
+      "@mt-ui-components/*": [
+        "*",
+        "node_modules/@mindtickle/mt-ui-components/lib/*"
+      ]
+    }
+  }
+}

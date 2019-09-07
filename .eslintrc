@@ -1,0 +1,26 @@
+{
+	"plugins": ["babel", "react"],
+	"parserOptions": {
+		"ecmaVersion": 6,
+		"sourceType": "module",
+		"ecmaFeatures": {
+			"jsx": true,
+			"experimentalObjectRestSpread": true
+		}
+	},
+	"globals": {
+		"window": true,
+		"Promise": true,
+		"INFINITY": true,
+		"module": true,
+		"require": true,
+		"UploadeManager": true
+	},
+	"parser": "babel-eslint",
+	"env": {
+		"browser": true,
+		"node": true
+	},
+	"extends": ["eslint:recommended", "plugin:react/recommended"],
+	"rules": {"react/no-deprecated":0}
+}

@@ -1,0 +1,169 @@
+{
+  "scripts": {
+    "start": "better-npm-run start",
+    "start:spa": "better-npm-run start:spa",
+    "start:spa:prod": "better-npm-run start:spa:prod",
+    "build:clean": "rimraf ./dist",
+    "build": "better-npm-run build",
+    "build:prod": "better-npm-run build:prod",
+    "build:prod:analyse": "better-npm-run build:prod:analyse",
+    "precommit": "lint-staged"
+  },
+  "license": "ISC",
+  "dependencies": {
+    "@mindtickle/mt-ui-components": "git+ssh://git@github.com/MindTickle/mt-ui-components.git#track/prod",
+    "antd": "^3.8.4",
+    "axios": "^0.18.0",
+    "classnames": "^2.2.5",
+    "mt-ui-core": "git+ssh://git@github.com/MindTickle/mt-ui-core.git#track/prod",
+    "node-sass-utils": "^1.1.2",
+    "promise-polyfill": "^7.1.0",
+    "prop-types": "^15.6.1",
+    "query-string": "^6.0.0",
+    "react": "^16.5.2",
+    "react-dom": "^16.5.2",
+    "react-helmet": "^5.2.0",
+    "react-redux": "^5.0.7",
+    "react-router-dom": "^4.3.1",
+    "react-router-redux": "^4.0.8",
+    "redux": "^3.7.2",
+    "redux-saga": "^0.16.2",
+    "styled-components": "^3.3.3"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.0.0",
+    "@babel/plugin-proposal-class-properties": "^7.0.0",
+    "@babel/plugin-proposal-decorators": "^7.0.0",
+    "@babel/plugin-proposal-do-expressions": "^7.0.0",
+    "@babel/plugin-proposal-export-default-from": "^7.0.0",
+    "@babel/plugin-proposal-export-namespace-from": "^7.0.0",
+    "@babel/plugin-proposal-function-bind": "^7.0.0",
+    "@babel/plugin-proposal-function-sent": "^7.0.0",
+    "@babel/plugin-proposal-json-strings": "^7.0.0",
+    "@babel/plugin-proposal-logical-assignment-operators": "^7.0.0",
+    "@babel/plugin-proposal-nullish-coalescing-operator": "^7.0.0",
+    "@babel/plugin-proposal-numeric-separator": "^7.0.0",
+    "@babel/plugin-proposal-object-rest-spread": "^7.0.0",
+    "@babel/plugin-proposal-optional-chaining": "^7.0.0",
+    "@babel/plugin-proposal-pipeline-operator": "^7.0.0",
+    "@babel/plugin-proposal-throw-expressions": "^7.0.0",
+    "@babel/plugin-syntax-dynamic-import": "^7.0.0",
+    "@babel/plugin-syntax-import-meta": "^7.0.0",
+    "@babel/plugin-transform-runtime": "^7.0.0",
+    "@babel/preset-env": "^7.0.0",
+    "@babel/preset-react": "^7.0.0",
+    "@babel/register": "^7.0.0",
+    "access-log": "^0.4.1",
+    "app-root-dir": "^1.0.2",
+    "babel-eslint": "^9.0.0",
+    "babel-loader": "^8.0.0",
+    "babel-plugin-import": "^1.8.0",
+    "babel-plugin-module-alias": "^1.6.0",
+    "babel-plugin-root-import": "^5.1.0",
+    "babel-plugin-syntax-async-functions": "^6.13.0",
+    "better-npm-run": "^0.1.0",
+    "circular-dependency-plugin": "^5.0.1",
+    "compression-webpack-plugin": "^1.1.11",
+    "copy-webpack-plugin": "^4.5.1",
+    "css-loader": "^0.28.11",
+    "dotenv": "^5.0.1",
+    "duplicate-package-checker-webpack-plugin": "^3.0.0",
+    "eslint": "^4.19.1",
+    "eslint-loader": "^2.0.0",
+    "eslint-plugin-babel": "^4.1.2",
+    "eslint-plugin-import": "^2.9.0",
+    "eslint-plugin-jsx-a11y": "^6.0.2",
+    "eslint-plugin-react": "^7.7.0",
+    "extract-text-webpack-plugin": "^3.0.2",
+    "file-loader": "^1.1.11",
+    "getenv": "^0.7.0",
+    "html-webpack-plugin": "^3.1.0",
+    "http-proxy": "^1.16.2",
+    "http-proxy-rules": "^1.1.1",
+    "https": "^1.0.0",
+    "husky": "^0.14.3",
+    "image-webpack-loader": "^4.2.0",
+    "inline-chunk-manifest-html-webpack-plugin": "^2.0.0",
+    "less": "^3.8.1",
+    "less-loader": "^4.1.0",
+    "less-vars-to-js": "^1.3.0",
+    "lint-staged": "^7.0.0",
+    "local-web-server": "^2.5.1",
+    "mini-css-extract-plugin": "^0.2.0",
+    "name-all-modules-plugin": "^1.0.1",
+    "node": "^9.9.0",
+    "node-sass": "^4.7.2",
+    "prettier": "^1.11.1",
+    "rimraf": "^2.6.2",
+    "sass-loader": "^6.0.7",
+    "script-ext-html-webpack-plugin": "^2.0.1",
+    "style-loader": "^0.20.3",
+    "url-loader": "^1.0.1",
+    "webpack": "^4.2.0",
+    "webpack-cli": "^2.0.13",
+    "webpack-dev-server": "^3.1.1"
+  },
+  "lint-staged": {
+    "app/{,**/}*.{js,jsx,json,css}": [
+      "prettier --write",
+      "git add"
+    ],
+    "app/{,**/}*.{js,jsx}": [
+      "eslint"
+    ]
+  },
+  "pre-commit": "precommit",
+  "betterScripts": {
+    "build:prod": {
+      "command": "npm run build:clean && webpack --config ./webpack/webpack.config.js --progress --hide-modules",
+      "env": {
+        "NODE_ENV": "production",
+        "MOCK": false,
+        "HASHING": true,
+        "OPTIMISE": true,
+        "CHUNKING": true,
+        "UGLIFY": true,
+        "COMPRESS": true
+      }
+    },
+    "build:prod:analyse": {
+      "command": "npm run build:clean && webpack --config ./webpack/webpack.config.js --profile --json > stats.json",
+      "env": {
+        "NODE_ENV": "production",
+        "MOCK": false,
+        "HASHING": true,
+        "OPTIMISE": true,
+        "CHUNKING": true,
+        "UGLIFY": true,
+        "COMPRESS": false
+      }
+    },
+    "build": {
+      "command": "npm run build:clean && webpack --config ./webpack/webpack.config.js --progress"
+    },
+    "start": {
+      "command": "webpack-dev-server --hot --config ./webpack/webpack.config.js",
+      "env": {
+        "HASHING": false,
+        "OPTIMISE": false,
+        "CHUNKING": false,
+        "UGLIFY": false,
+        "COMPRESS": false
+      }
+    },
+    "start:spa": {
+      "command": "npm run build &&  ws --spa ./index.html -d ./dist/ -p 4000"
+    },
+    "start:spa:prod": {
+      "command": "npm run build:prod &&  ws --spa ./index.html -d ./dist/ -p 4000 --compress"
+    }
+  },
+  "directories": {
+    "test": "test"
+  },
+  "name": "detachchecklist",
+  "description": "Boilerplate for react",
+  "version": "1.0.0",
+  "main": "start_proxy.js",
+  "author": ""
+}
