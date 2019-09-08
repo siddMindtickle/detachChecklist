@@ -1,0 +1,33 @@
+@import "~appStyles/commonStyle.scss";
+@import "~appStyles/variableColor.scss";
+
+.counterStyle {
+  color: $color-mildgrey;
+  font-size: 12px;
+  margin-left: 0;
+  padding: 5px 10px;
+  border: none;
+  line-height: 20px;
+  float: left;
+}
+
+.error {
+  font-size: 12px;
+  bottom: -23px;
+  left: 0;
+  position: absolute;
+  color: $color-red-error;
+}
+
+.input {
+  border: 1px solid #ccc;
+  color: $color-black;
+  font-size: 13px;
+  padding: 4px 8px;
+  border-radius: 0px;
+  line-height: 20px;
+}
+
+.displayInline {
+  display: inline;
+}

@@ -1,0 +1,27 @@
+@import "~appStyles/commonStyle.scss";
+.trackWrapperEmptyState {
+  width: 100%;
+  height: calc(100% - 181px);
+  display: table;
+  position: absolute;
+  .trackWrapperCenterDiv {
+    text-align: center;
+    padding: 100px 0 0 0;
+    .heading {
+      color: black;
+      font-size: 20px;
+      line-height: 22px;
+      margin-bottom: 15px;
+    }
+    .subHeading {
+      color: #878787;
+      font-size: 16px;
+      line-height: 22px;
+      margin-bottom: 30px;
+    }
+    .emptyStateIcon {
+      font-size: 100px;
+      color: $icon-color;
+    }
+  }
+}

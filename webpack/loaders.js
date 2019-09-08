@@ -84,14 +84,30 @@ const minimizeCSS = () => {
   };
 };
 
+
 const transformStyles = () => {
   return {
     loader: "sass-loader",
     options: {
-      sourceMap: true
-    }
+      sourceMap: true,
+      sassOptions: {
+      functions: {
+        "get($keys)": function(keys) {
+          keys = keys.getValue().split(".");
+          let result = sassVars;
+          let i;
+          for (i = 0; i < keys.length; i++) {
+            result = result[keys[i]];
+          }
+          result = sassUtils.castToSass(result);
+          return result;
+        },
+      },
+    },
+    },
   };
 };
+
 const processCSS = (optimise, hashing) => {
   let processing = {
     loader: "css-loader",
@@ -191,10 +207,28 @@ const processLibStyles = () => {
   return processing;
 };
 
+const processLessStyles = () => {
+  let processing = {
+    test: Regex.lessStyles,
+    use: [],
+  };
+  processing.use.push(inlineCSS());
+  processing.use.push(processLibCSS());
+  processing.use.push({
+    loader: "less-loader",
+    options: {
+      javascriptEnabled: true,
+    },
+  });
+
+  return processing;
+};
+
 module.exports = {
   ImagesLoaders: processImages(),
   FontsLoaders: processFonts(),
   ScriptsLoaders: processScripts(),
   StylesLoaders: processStyles(),
-  LibStylesLoaders: processLibStyles()
+  LibStylesLoaders: processLibStyles(),
+  LessStylesLoaders:processLessStyles()
 };

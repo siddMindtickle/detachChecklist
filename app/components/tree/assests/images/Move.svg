@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 47.1 (45422) - http://www.bohemiancoding.com/sketch -->
+    <title>Move</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Admin-screens" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Icons" transform="translate(-300.000000, -63.000000)" fill-rule="nonzero" fill="#999999">
+            <path d="M308,63 L305.6,65.4 L310.4,65.4 L308,63 Z M300,67 L300,68.6 L316,68.6 L316,67 L300,67 Z M300,70.2 L300,71.8 L316,71.8 L316,70.2 L300,70.2 Z M300,73.4 L300,75 L316,75 L316,73.4 L300,73.4 Z M305.6,76.6 L308,79 L310.4,76.6 L305.6,76.6 Z" id="Move"></path>
+        </g>
+    </g>
+</svg>

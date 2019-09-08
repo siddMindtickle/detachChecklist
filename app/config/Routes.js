@@ -1,5 +1,5 @@
 const BaseRoutes = {
-  test: "/test-route",
+  test: "/ui",
   notFound: "/404"
 };
 

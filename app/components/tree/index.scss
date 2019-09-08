@@ -1,0 +1,508 @@
+@import "~appStyles/commonStyle.scss";
+
+.noData.checklistArea .actionBar {
+  border-bottom: 1px solid #ccc;
+  border-left: 1px solid #ccc;
+}
+.actionBar {
+  padding: 10px 20px;
+  background-color: #ffffff;
+  @include clearfix;
+  position: relative;
+  box-sizing: border-box;
+  height: 50px;
+
+  .duplicateIcon,
+  .moveIcon,
+  .removeIcon {
+    font-size: 18px;
+    padding: 5px;
+    margin-right: 5px;
+    cursor: pointer;
+    color: #9a9a9a;
+  }
+  .cnclText {
+    font-size: 13px;
+    color: #000;
+    padding: 5px;
+    margin-right: 2px;
+    cursor: pointer;
+    color: #9a9a9a;
+  }
+  .actionBarSectionLeft {
+    float: left;
+    // min-width: 245px;
+    .selectedText {
+      font-size: 13px;
+      color: #000;
+    }
+    .selectedDivider {
+      font-size: 20px;
+      color: #999;
+      margin: 0px 6px;
+    }
+  }
+  .actionBarSectionRight {
+    float: right;
+    margin-top: 5px;
+  }
+  .actionBarSectionMiddle {
+    float: left;
+    margin-top: 3px;
+    margin-left: 15px;
+    .selectAllLink {
+      .btnStyleNone {
+        margin: 0px 5px;
+        font-size: 18px;
+        color: #9a9a9a;
+      }
+    }
+  }
+  .buttonSearchRight {
+    position: absolute;
+    right: 20px;
+    @include z-index(absolute);
+  }
+}
+
+.inputStyle {
+  width: calc(100% - 20px);
+  border: 1px solid #ccc;
+  padding-left: 18px;
+  font-weight: normal;
+  overflow-x: hidden;
+  white-space: nowrap;
+  font-size: 13px;
+  display: block;
+}
+
+.customTreeInputPadding {
+  margin: 5px 0px 5px 10px;
+}
+
+.checklistArea {
+  @include z-index(checklistArea);
+  position: relative;
+  background: #fff;
+  border-right: 1px solid #ccc;
+}
+.checklistArea.no-data {
+  position: relative;
+}
+.checklistArea.no-data .treeCustomStyle {
+  position: absolute;
+}
+
+:global {
+  /* vendor css */
+
+  .rst__node {
+    min-width: 100%;
+    white-space: nowrap;
+    position: relative;
+    text-align: left;
+  }
+
+  .rst__nodeContent {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+  }
+
+  .rst__rowWrapper {
+    padding: 0px;
+    height: 100%;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+
+  .rst__row {
+    height: 100%;
+    white-space: nowrap;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  .rst__row > * {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+
+  .rst__rowContents,
+  .rst__rowLabel,
+  .rst__moveHandle {
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  .rst__rowContents {
+    position: relative;
+    height: 100%;
+    border: solid #bbb 1px;
+    border-left: none;
+    -webkit-box-shadow: 0 2px 2px -2px;
+    box-shadow: 0 2px 2px -2px;
+    padding: 0 5px 0 10px;
+    border-radius: 2px;
+    min-width: 230px;
+    -webkit-box-flex: 1;
+    -ms-flex: 1 0 auto;
+    flex: 1 0 auto;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    background-color: white;
+  }
+
+  .rst__moveHandle {
+    height: 100%;
+    width: 44px;
+    border: solid #aaa 1px;
+    -webkit-box-shadow: 0 2px 2px -2px;
+    box-shadow: 0 2px 2px -2px;
+    cursor: move;
+    border-radius: 1px;
+    z-index: 1;
+  }
+
+  /* vendor css */
+  .ReactVirtualized__Grid__innerScrollContainer {
+    margin-bottom: 50px;
+  }
+  .rst__rowLandingPad::before,
+  .rst__rowCancelPad::before {
+    background-color: #fff;
+    border: 3px dashed #ddd;
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+  }
+  .tree_noResultFound {
+    display: block;
+    text-align: center;
+
+    .tree_noResultText {
+      font-size: 18px;
+      font-weight: bold;
+      padding-top: 100px;
+      color: black;
+      padding-bottom: 5px;
+    }
+
+    .tree_noResultSubText {
+      font-size: 12px;
+      color: #ddd;
+    }
+  }
+
+  .rst_fade {
+    position: fixed;
+    @include z-index(buildFadeBg);
+    background: rgba(0, 0, 0, 0.7);
+    width: 100%;
+    height: 100%;
+    top: 0px;
+  }
+
+  .horizontalDropdownStyle {
+    font-size: 4px;
+    display: inline-block;
+    top: 0px;
+    position: relative;
+    color: #888;
+    button.caretStyle {
+      width: 45px;
+      height: 40px;
+      padding: 0px 10px;
+    }
+    .dropdown-menu {
+      top: 30px !important;
+      right: 11px !important;
+      min-width: 160px !important;
+
+      &:after {
+        margin-left: 43px !important;
+      }
+      &:before {
+        margin-left: 42px !important;
+      }
+    }
+  }
+  .verticalDropdownStyle {
+    font-size: 16px;
+    padding: 5px;
+    top: 0px;
+    display: inline-block;
+    position: relative;
+    color: #878787;
+    width: 20px;
+
+    .dropdown-menu {
+      top: 25px;
+      right: -11px;
+      min-width: 120px;
+
+      &:after {
+        margin-left: 23px;
+      }
+      &:before {
+        margin-left: 22px;
+      }
+    }
+  }
+
+  .rst__nodeContent {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 10px;
+  }
+  .rst__lineBlock,
+  .rst__absoluteLineBlock {
+    display: none;
+  }
+  .rst__collapseButton,
+  .rst__expandButton {
+    display: none;
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+  }
+  .rst__collapseButton:focus,
+  .rst__expandButton:focus {
+    outline: none;
+    -webkit-box-shadow: 0 0 0 1px transparent, 0 0 1px 3px transparent;
+    box-shadow: 0 0 0 1px transparent, 0 0 1px 3px transparent;
+  }
+  .rst__collapseButton:hover:not(:active),
+  .rst__expandButton:hover:not(:active) {
+    background: none;
+    height: auto;
+    width: auto;
+  }
+  .rst_collapseBtn {
+    background: none;
+    width: 0;
+    height: 0;
+    border-left: 7px solid #444;
+    border-bottom: 6px solid transparent;
+    border-top: 6px solid transparent;
+    box-shadow: none;
+    border-radius: 0;
+    position: absolute;
+    top: 15px;
+    left: 12px;
+    transition: transform 0.3s;
+
+    &.active {
+      transform: rotate(90deg);
+    }
+  }
+
+  .rst__expandButton {
+    background: none;
+    width: 0;
+    height: 0;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-bottom: 7px solid #000;
+    box-shadow: none;
+    border-radius: 0;
+    margin-left: 20px;
+  }
+  .rst__virtualScrollOverride * {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+  .rst__rowWrapper {
+    padding: 0px;
+    &:hover .rst__moveHandle {
+      visibility: visible;
+    }
+    .rst__moveHandle {
+      visibility: hidden;
+      margin: 10px 0px 0;
+      width: 13px;
+      height: 22px;
+      background: url(./assests/images/drag_icon.svg) no-repeat 6px 0px
+        transparent;
+      box-shadow: none;
+      border: 0;
+    }
+  }
+  .rst__rowTitle {
+    width: calc(100% - 80px);
+    position: absolute;
+    top: 0px;
+  }
+  .rst__rowTitleFull.level-0.selected {
+    .rst__rowTitle {
+      width: 100%;
+    }
+  }
+  .rst__rowTitleFull.level-1.selected {
+    .rst__rowTitle {
+      width: calc(100% - 9px);
+    }
+  }
+  .rst__lineChildren {
+    display: none;
+  }
+  .level {
+    position: relative;
+    margin-left: -10px;
+    cursor: pointer;
+    border-bottom: 1px solid #eee;
+    .counterStyle {
+      display: none;
+    }
+    &:hover {
+      .rst__rowToolbar {
+        display: block;
+      }
+    }
+    .rst__rowToolbar {
+      display: none;
+      margin-right: 12px;
+    }
+
+    label {
+      padding: 5px 10px;
+
+      &.defaultColorPlaceholder {
+        color: #999;
+      }
+    }
+    .inputStyle,
+    label {
+      overflow-x: hidden;
+      white-space: nowrap;
+      font-size: 13px;
+      line-height: 30px;
+      outline: none;
+      font-weight: bold;
+      display: block;
+    }
+    label {
+      width: 100%;
+      background: transparent;
+      border: 0px solid #cccccc;
+    }
+
+    .rst__rowContents {
+      padding: 0;
+      border-radius: 0px;
+      background: transparent;
+      box-shadow: none;
+      border: 0;
+    }
+    &.selected {
+      background: #f7f7f7;
+    }
+  }
+  .leaf {
+    background: #fff;
+
+    .rst__moveHandle {
+      @include margin(11px, 0, 11px, 0);
+    }
+
+    .rst__rowContents {
+      padding: 0;
+    }
+
+    &.level {
+      padding-left: 0px;
+    }
+    .rst__rowContents {
+      label {
+        font-weight: normal;
+      }
+    }
+  }
+  .level-1 {
+    margin-left: -20px;
+    counter-increment: section;
+    border-bottom: 1px solid #eee;
+    padding: 0 0 0 20px;
+
+    label {
+      font-size: 13px;
+      font-weight: normal;
+      display: block;
+
+      .labelText {
+        display: inline-block;
+      }
+    }
+    .inputStyle {
+      font-size: 14px;
+      font-weight: normal;
+      display: inline-block;
+      margin-left: 0;
+      width: 100%;
+    }
+    .rst__rowTitle {
+      font-weight: normal;
+    }
+  }
+  .multiSelect {
+    .level-0 {
+      .rst__rowContents {
+        &.rst__rowContentsDragDisabled {
+          padding: 0 0 0 13px;
+
+          label {
+            width: calc(100% - 20px);
+          }
+        }
+      }
+    }
+    .level-1 {
+      .rst__rowContents {
+        &.rst__rowContentsDragDisabled {
+          padding: 0 0 0 13px;
+        }
+      }
+    }
+    .rst__rowToolbar {
+      display: block;
+      @include z-index(treeCheckbox);
+    }
+  }
+  .checkBoxStyle {
+    color: #878787;
+
+    .icon-checkboxOn,
+    .icon-checkboxOff {
+      line-height: 40px;
+    }
+  }
+  .treeCustomStyle {
+    padding-bottom: 115px;
+    height: calc(100vh - 231px);
+    border-top: 1px solid #ccc;
+    overflow-y: scroll;
+  }
+}
+.rst__textPlaceholderStyle {
+  display: inline-block;
+  vertical-align: top;
+}
+.rst__indexStyle {
+  margin-right: 4px;
+  min-width: 20px;
+  display: inline-block;
+  vertical-align: top;
+}

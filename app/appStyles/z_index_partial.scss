@@ -1,0 +1,25 @@
+$z-index: (
+  getSupport: 99986,
+  scroller: 99987,
+  treeCheckbox: 99988,
+  accordian: 99989,
+  dropdown: 99990,
+  absolute: 99991,
+  errorPageStyle: 99992,
+  buildFadeBg: 99993,
+  checklistArea: 99994,
+  dropdownMenu: 99995,
+  popover: 99996,
+  modal: 99997,
+  toast: 99998,
+  loader: 99999,
+  calendar: 99999,
+  iframe: 99999
+);
+@function z-index($key) {
+  @return map-get($z-index, $key);
+}
+
+@mixin z-index($key) {
+  z-index: z-index($key);
+}

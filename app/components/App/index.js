@@ -1,11 +1,8 @@
 import React, { Component } from "react";
 import { Route, Switch } from "react-router-dom";
-//import NotFound from "@mt-ui-core/components/notFound";
 // import { showLoader } from "@mt-ui-core/utils/loader";
-import Test from "../Test";
-//import Routes from "~/config/Routes";
-
-//import TestModule from "~/modules/TestModule";
+import Auth from "~/modules/auth";
+import Routes from "~/config/Routes";
 
 class App extends Component {
   componentDidMount() {
@@ -15,9 +12,8 @@ class App extends Component {
   render() {
     return (
       <Switch>
-        <Route exact path="/" component={Test} />
-        {/*<Route exact path={Routes.notFound} component={NotFound} />*/}
-        {/*<Route path={Routes.test} component={TestModule} />*/}
+        <Route exact path="/" component={Auth} />
+        <Route path={Routes.test} component={Auth} />
       </Switch>
     );
   }

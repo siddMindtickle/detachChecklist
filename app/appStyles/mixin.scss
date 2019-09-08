@@ -1,0 +1,158 @@
+@import "~appStyles/variableColor.scss";
+@mixin fontStack_13 {
+  font-size: 13px;
+}
+@mixin fontStack_14 {
+  font-size: 14px;
+}
+@mixin fontStack_16 {
+  font-size: 16px;
+}
+@mixin fontStack_18 {
+  font-size: 18px;
+}
+
+@mixin borer_DD {
+  border: 1px solid #ddd;
+}
+
+@mixin truncate($truncation-boundary) {
+  max-width: $truncation-boundary;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+@mixin displayIB {
+  display: inline-block;
+  vertical-align: middle;
+}
+@mixin displayTableCell {
+  display: table-cell;
+  vertical-align: middle;
+}
+@mixin displayT {
+  display: table;
+  height: 100%;
+  width: 100%;
+}
+@mixin socialButton {
+  border: 1px solid transparent;
+  height: 34px;
+  color: $color-white;
+  border-radius: 2px;
+  line-height: 34px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+@mixin padding($top, $right, $bottom, $left) {
+  padding-top: $top;
+  padding-right: $right;
+  padding-bottom: $bottom;
+  padding-left: $left;
+}
+// @mixin infoHover($width, $right, $left) {
+//   width: $width;
+//   right: $right;
+//   left: $left;
+// }
+//Margin mixin
+@mixin margin($top, $right, $bottom, $left) {
+  margin-top: $top;
+  margin-right: $right;
+  margin-bottom: $bottom;
+  margin-left: $left;
+}
+@mixin borderRadius($radius) {
+  -webkit-border-radius: $radius;
+  -moz-border-radius: $radius;
+  -ms-border-radius: $radius;
+  border-radius: $radius;
+}
+@mixin lineHeight($height) {
+  line-height: $height;
+}
+// buttons
+@mixin buttonstyle {
+  line-height: 28px;
+  cursor: pointer;
+}
+@mixin border($top, $right, $bottom, $left, $color, $solid) {
+  border-top: $top;
+  border-right: $right;
+  border-bottom: $bottom;
+  border-left: $left;
+  border-color: $color;
+  border-style: $solid;
+}
+@function calc-percent($target, $container) {
+  @return ($target / $container) * 100%;
+}
+
+@mixin clearfix {
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+@mixin centerDiv {
+  top: 50%;
+  left: 50%;
+  bottom: auto;
+  right: auto;
+  transform: translate(-50%, -50%);
+}
+
+@mixin size($width, $height) {
+  width: $width;
+  height: $height;
+}
+
+@mixin square($size) {
+  @include size($size, $size);
+}
+
+@mixin opacity($opacity: 0.5) {
+  filter: alpha(opacity=$opacity * 100);
+  filter: progid:DXImageTransform.Microsoft.Alpha(opacity=#{$opacity*100});
+  opacity: $opacity;
+}
+
+/* cross browser pure css solution for multiline ellipsis,
+   works when you know the number of lines after which you want to truncate
+ */
+@mixin multiLineEllipsis($lineHeight: 1.2em, $lineCount: 1) {
+  overflow: hidden;
+  position: relative;
+  line-height: $lineHeight;
+  max-height: $lineHeight * $lineCount;
+
+  &::after {
+    content: "";
+    text-align: right;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 50%;
+    height: $lineHeight;
+    background: linear-gradient(
+      to right,
+      rgba(255, 255, 255, 0),
+      rgba(255, 255, 255, 1) 80%
+    );
+  }
+
+  @supports (-webkit-line-clamp: $lineCount) {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: $lineCount;
+    /*! autoprefixer: off */
+    -webkit-box-orient: vertical;
+    /*! autoprefixer: on */
+    &:after {
+      display: none;
+    }
+  }
+}

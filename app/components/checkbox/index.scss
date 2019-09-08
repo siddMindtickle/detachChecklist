@@ -1,0 +1,38 @@
+@import "~appStyles/commonStyle.scss";
+:global {
+  .checkboxWrapper {
+    cursor: pointer;
+    float: left;
+    margin-right: 10px;
+    @include clearfix;
+    .labelText {
+      color: $link-color-cerulean;
+      font-size: 13px;
+      float: left;
+    }
+    .checkbox {
+      color: #888;
+      font-size: 16px;
+      float: left;
+
+      .checkboxOff {
+        display: block;
+      }
+      .checkboxOn {
+        display: none;
+      }
+    }
+    .checkbox {
+      &.checked {
+        font-size: 16px;
+        float: left;
+        .checkboxOff {
+          display: none;
+        }
+        .checkboxOn {
+          display: block;
+        }
+      }
+    }
+  }
+}

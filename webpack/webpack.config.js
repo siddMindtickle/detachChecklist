@@ -5,7 +5,8 @@ const {
   FontsLoaders,
   ScriptsLoaders,
   StylesLoaders,
-  LibStylesLoaders
+  LibStylesLoaders,
+  LessStylesLoaders
 } = require("./loaders");
 
 const {
@@ -38,8 +39,8 @@ config.stats = "normal";
 config.resolve = {
   symlinks: false,
   alias: {
-    "~": resolve(__dirname, "../app"),
-    styles: resolve(__dirname, Dir.MINDTICKLE_COMMON + "/styles"),
+    "~": resolve(__dirname, "../","app"),
+    commonStyles: resolve(__dirname, Dir.MINDTICKLE_COMMON + "/styles"),
     images: resolve(__dirname, Dir.MT_CORE + "/images"),
     fonts: resolve(__dirname, Dir.MINDTICKLE_COMMON + "/styles/fonts"),
     react: resolve(__dirname, "../node_modules", "react"),
@@ -49,7 +50,18 @@ config.resolve = {
     "@mindtickle/mt-ui-components": Dir.MINDTICKLE_COMMON,
     "mt-ui-core": Dir.MT_CORE,
 		"@mt-ui-core":Dir.MT_CORE,
-    "@locales": resolve(__dirname, "../app/locales")
+    "@locales": resolve(__dirname, "../app/locales"),
+    "@core": resolve(__dirname, "../app/core"),
+    "@config": resolve(__dirname, "../app/config"),
+    "@components": resolve(__dirname, "../app/components"),
+    "@app": resolve(__dirname, "../app"),
+    "appStyles":resolve(__dirname, "../app/appStyles"),
+    "@utils": resolve(__dirname, "../app/utils"),
+    "@hocs": resolve(__dirname, "../app/hocs"),
+    "@modules": resolve(__dirname, "../app/modules"),
+    "@api": resolve(__dirname, "../app/api"),
+    "@mixpanel": resolve(__dirname, "../app/mixpanel"),
+    "@containers": resolve(__dirname, "../app/containers"),
   }
 };
 
@@ -62,7 +74,7 @@ config.devServer = {
 };
 
 config.module = {
-  rules: [ImagesLoaders, FontsLoaders, ScriptsLoaders, StylesLoaders, LibStylesLoaders]
+  rules: [ImagesLoaders, FontsLoaders, ScriptsLoaders, StylesLoaders, LibStylesLoaders, LessStylesLoaders]
 };
 
 config.plugins = [...AddGlobalsPlugin, ...CreateTemplatePlugins, ...HandleErrorsPlugins];

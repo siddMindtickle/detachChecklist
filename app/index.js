@@ -1,5 +1,5 @@
 import React from "react";
 import bootstrap from "@mt-ui-core";
-import App from "./components/App";
+import Root from "./components/Root";
 
-bootstrap("root", { Application: <App /> });
+bootstrap("root", { Application: <Root /> });

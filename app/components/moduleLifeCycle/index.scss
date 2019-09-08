@@ -1,0 +1,74 @@
+@import "~appStyles/commonStyle.scss";
+.item {
+  padding: 0px;
+  float: left;
+  @include clearfix;
+
+  :global {
+    .infoIcon {
+      float: left;
+    }
+    .dissableStage {
+      color: #999999;
+      text-transform: uppercase;
+      font-size: 14px;
+      padding: 10px 3px;
+      cursor: pointer;
+      border-bottom: 1px solid transparent;
+      display: inline-block;
+      margin-bottom: -0.1px;
+      text-decoration: none;
+      float: left;
+      cursor: default;
+      position: relative;
+      bottom: -1px;
+    }
+  }
+
+  .notification {
+    width: auto;
+    background-color: #ef3d3d;
+    border-radius: 25px;
+    color: #fff;
+    font-size: 11px;
+    text-align: center;
+    padding: 0px 7px;
+    margin-top: 2px;
+    margin-left: 5px;
+    float: left;
+    display: block;
+  }
+}
+
+.stageWrapper {
+  float: left;
+  @include clearfix;
+  .arrowIcon {
+    float: left;
+    display: block;
+    margin: 18px 23px 0px 23px;
+    font-size: 8px;
+    color: #cccccc;
+  }
+  .stage {
+    color: #999999;
+    text-transform: uppercase;
+    font-size: 14px;
+    padding: 10px 3px;
+    cursor: pointer;
+    border-bottom: 1px solid transparent;
+    display: inline-block;
+    margin-bottom: -0.1px;
+    text-decoration: none;
+    float: left;
+    position: relative;
+    bottom: -1px;
+
+    &:hover,
+    &:active,
+    &.active {
+      border-bottom: 1px solid #000;
+      color: #000;
+    }
+  }
+}

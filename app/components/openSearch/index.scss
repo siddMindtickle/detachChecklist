@@ -1,0 +1,47 @@
+@import "~appStyles/commonStyle.scss";
+@import "~appStyles/variableColor.scss";
+
+:global {
+  .openSearch {
+    color: #888;
+    font-size: 13px;
+    line-height: 16px;
+    position: relative;
+    display: inline-block;
+    vertical-align: top;
+    margin-bottom: 20px;
+    label {
+      line-height: 30px;
+    }
+
+    .search-icon {
+      font-size: 13px;
+      color: #888;
+      position: absolute;
+      left: 5px;
+      top: 9px;
+      @include z-index(absolute);
+    }
+
+    .openSearch-input {
+      border: none;
+      color: $color-black;
+      background: transparent;
+      font-size: 13px;
+      margin: 0;
+      padding: 0px 33px 0px 30px;
+      line-height: 30px;
+      width: 100%;
+    }
+
+    .close-icon {
+      font-size: 13px;
+      color: $color-mildgrey;
+      position: absolute;
+      right: 25px;
+      top: 7px;
+      @include z-index(absolute);
+      cursor: pointer;
+    }
+  }
+}

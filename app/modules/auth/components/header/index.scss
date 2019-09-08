@@ -1,0 +1,162 @@
+@import "~appStyles/commonStyle.scss";
+.header {
+  height: 50px;
+  position: relative;
+  background: $bg-color-header;
+  border-bottom: 1px solid $border-color-lightgrey;
+  @include padding(0px, 20px, 0px, 20px);
+  @include clearfix;
+
+  .headerRight {
+    @include padding(0px, 0px, 0px, 20px);
+    float: right;
+    @include clearfix;
+    height: 50px;
+
+    .getHelp,
+    .burgerMenu,
+    .viewInsights,
+    .cName {
+      float: left;
+      span {
+        font-size: 24px;
+        color: #999;
+      }
+    }
+    .cName {
+      float: left;
+      position: relative;
+      .cNameStyle {
+        background: #bccad9;
+        font-size: 13px;
+        line-height: 29px;
+        border-radius: 25px;
+        width: 32px;
+        height: 32px;
+        text-align: center;
+        cursor: pointer;
+
+        button {
+          color: #fff;
+          font-size: 13px;
+          padding: 0 5px;
+        }
+      }
+    }
+
+    .burgerMenu {
+      float: left;
+      position: relative;
+      span.icon {
+        font-size: 24px;
+        color: #999;
+        cursor: pointer;
+      }
+    }
+  }
+  .navBar {
+    width: 440px;
+    float: left;
+    margin: 18px 0 0 0px;
+    ul {
+      list-style: none;
+      @include clearfix;
+      margin: 0;
+      li {
+        display: inline-block;
+        float: left;
+
+        a {
+          color: #999999;
+          font-size: 14px;
+          text-decoration: none;
+          display: inline-block;
+          @include margin(0px, 40px, 0px, 0px);
+          padding: 5px;
+          border-bottom: 1px solid transparent;
+
+          &:hover,
+          &:active,
+          &.active {
+            color: #000;
+            border-bottom: 1px solid #000;
+          }
+        }
+      }
+    }
+  }
+}
+.burgerMenu,
+.cName {
+  :global {
+    .dropdown-menu {
+      top: 35px;
+      right: 0px;
+      min-width: 150px;
+    }
+  }
+}
+
+:global {
+  .appcues-widget {
+    display: block !important;
+  }
+  .appcues-widget-dropdown {
+    padding: 0 !important;
+    margin: -32px auto 0 -238px !important;
+    border: 1px solid #c7c7c7 !important;
+  }
+  .appcues-widget-dropdown:after,
+  .appcues-widget-dropdown:before {
+    display: none !important ;
+  }
+  .appcues-widget-list,
+  .appcues-widget-list li {
+    border-bottom: none !important;
+  }
+  .appcues-widget-list li {
+    padding: 10px !important;
+  }
+  .appcues-widget-list li.appcues-nothing-new {
+    display: none !important;
+  }
+  .appcues-widget-list li a:hover {
+    background-color: none !important;
+    text-decoration: none !important;
+  }
+  .appcues-widget-list li time {
+    top: 12px !important;
+    right: 10px !important;
+    bottom: auto !important;
+  }
+  .appcues-widget-list li a {
+    padding: 0 !important;
+    font-size: 13px !important;
+    color: #000 !important;
+    line-height: 18px !important;
+  }
+  .appcues-widget-list li.appcues-unread a {
+    font-size: 13px !important;
+    color: #000 !important;
+    font-weight: bold !important;
+    line-height: 18px !important;
+  }
+  .appcues-widget-list li:hover {
+    background: #f7f7f7 !important;
+    color: #000 !important;
+    cursor: pointer;
+  }
+  .appcues-widget-icon {
+    display: block !important;
+    font-size: 13px !important;
+    color: #000 !important;
+    line-height: 18px !important;
+  }
+  .appcues-widget-icon:after {
+    bottom: 2px !important;
+    right: 0 !important;
+    padding: 0 4px !important;
+    font-size: 10px !important;
+    line-height: 14px !important;
+  }
+}

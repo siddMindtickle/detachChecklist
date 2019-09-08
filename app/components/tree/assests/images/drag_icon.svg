@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="6px" height="22px" viewBox="0 0 6 22" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 47.1 (45422) - http://www.bohemiancoding.com/sketch -->
+    <title>drag_icon</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Admin-screens" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Icons" transform="translate(-316.000000, -144.000000)" fill="#CCCCCC">
+            <path d="M316,144 L318,144 L318,146 L316,146 L316,144 Z M320,144 L322,144 L322,146 L320,146 L320,144 Z M316,152 L318,152 L318,154 L316,154 L316,152 Z M320,152 L322,152 L322,154 L320,154 L320,152 Z M316,160 L318,160 L318,162 L316,162 L316,160 Z M320,160 L322,160 L322,162 L320,162 L320,160 Z M316,148 L318,148 L318,150 L316,150 L316,148 Z M320,148 L322,148 L322,150 L320,150 L320,148 Z M316,156 L318,156 L318,158 L316,158 L316,156 Z M320,156 L322,156 L322,158 L320,158 L320,156 Z M316,164 L318,164 L318,166 L316,166 L316,164 Z M320,164 L322,164 L322,166 L320,166 L320,164 Z" id="drag_icon"></path>
+        </g>
+    </g>
+</svg>
