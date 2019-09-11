@@ -1,0 +1,105 @@
+@import "~appStyles/commonStyle.scss";
+.wrapper {
+  width: 28%;
+  float: left;
+  margin-top: 25px;
+  margin-right: 20px;
+  height: 190px;
+}
+.textStyle {
+  font-size: 13px;
+}
+
+.radioStyleWrapper {
+  span {
+    vertical-align: top;
+    top: 1px;
+  }
+
+  span + span {
+    top: 0px;
+    min-width: 240px;
+    display: inline-block;
+    white-space: normal;
+    color: rgba(0, 0, 0, 0.65);
+    font-weight: 400;
+  }
+
+  .textStyle {
+    font-size: 13px;
+    color: rgba(0, 0, 0, 0.65);
+    font-weight: 400;
+  }
+
+  .radioGroupStyle {
+    white-space: unset;
+    vertical-align: top;
+    display: grid;
+  }
+
+  .radioOptionStyle {
+    margin-bottom: 10px;
+  }
+
+  .radioTextStyle {
+    font-size: 13px;
+    width: 100%;
+    color: rgba(0, 0, 0, 0.65);
+    font-weight: 400;
+  }
+
+  .infoIconContainer {
+    margin-left: 5px;
+    position: absolute;
+    top: 3px;
+  }
+
+  .infoIconHover {
+    margin-left: 5px;
+    position: absolute;
+    top: 3px;
+  }
+}
+
+.headerSection {
+  position: relative;
+  margin-bottom: 10px;
+  @include clearfix;
+
+  .heading {
+    float: left;
+    font-size: 13px;
+    font-weight: bold;
+    margin-right: 5px;
+    padding-top: 2px;
+  }
+}
+
+.infoBox {
+  width: 90%;
+  border: 1px solid #c7c7c7;
+  padding: 10px 9px;
+  background: #fff;
+  line-height: 20px;
+  font-size: 13px;
+  color: #666;
+  text-align: left;
+  margin-bottom: 10px;
+  @include clearfix;
+
+  .iconStyle {
+    color: #d49b49;
+    font-weight: bold;
+    margin-top: 4px;
+    float: left;
+    margin-right: 0px;
+  }
+}
+.noteText {
+  margin: 0 0 0px 25px;
+  color: #666;
+}
+
+.infoOverlay {
+  min-width: 500px;
+}

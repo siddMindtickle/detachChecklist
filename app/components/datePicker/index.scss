@@ -1,0 +1,10 @@
+@import "~appStyles/z_index_partial.scss";
+
+.datePicker {
+}
+:global {
+  .ant-calendar-picker-container,
+  .ant-time-picker-panel {
+    @include z-index(calendar);
+  }
+}

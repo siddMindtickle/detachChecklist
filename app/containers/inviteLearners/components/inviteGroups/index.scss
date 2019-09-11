@@ -1,0 +1,222 @@
+@import "~appStyles/commonStyle.scss";
+.inviteGroups {
+  @include clearfix;
+  position: relative;
+  td,
+  th {
+    padding: 10px 0px 10px 20px;
+  }
+  .header {
+    vertical-align: middle;
+    text-align: left;
+    width: 650px;
+  }
+
+  .topIcons {
+    display: inline-block;
+    width: 100px;
+    float: right;
+
+    .icon {
+      font-size: 20px;
+      color: #888;
+    }
+  }
+
+  .inviteGroupsHeading {
+    text-align: center;
+    font-size: 16px;
+    width: 640px;
+    margin: 20px auto;
+  }
+
+  .inviteGroupsFilters {
+    box-sizing: border-box;
+    width: 800px;
+    @include margin(20px, auto, 0, auto);
+    @include clearfix;
+    @include padding(15px, 10px, 25px, 10px);
+    border-bottom: 1px solid #ccc;
+    background: #f1f1f1;
+
+    .inviteGroupsFilter {
+      float: left;
+      font-size: 13px;
+      color: #888;
+      @include margin(8px, 0, 0, 0);
+    }
+
+    .linkFilters {
+      float: left;
+      @include margin(8px, 0, 0, 0);
+      text-decoration: none;
+
+      span {
+        @include margin(0, 0, 0, 5px);
+      }
+    }
+  }
+
+  .inviteGroupsSearchList {
+    width: 800px;
+    @include margin(0, auto, 0, auto);
+    line-height: 42px;
+    .inviteGroupsSearch {
+      width: 100%;
+    }
+  }
+
+  .btns {
+    position: absolute;
+    bottom: 0;
+    width: 100vw;
+    overflow-x: hidden;
+    text-align: center;
+    border-top: 1px solid #ddd;
+    @include padding(20px, 0, 20px, 0);
+
+    .btn1 {
+      @include margin(0, 10px, 0, 0);
+    }
+  }
+}
+
+.noGroups {
+}
+
+.inviteGroupNames {
+  width: 650px;
+}
+:global {
+  .inviteGroupsSearch {
+    width: 1024px;
+    margin: 25px auto 10px;
+    .multifilterDropdown {
+      border-left: 0px;
+      width: 40%;
+      padding: 0px;
+      .search-icon {
+        font-size: 13px;
+        color: #888;
+        position: absolute;
+        left: 0px;
+        top: 0px;
+      }
+    }
+  }
+
+  .inviteGroupsFiltersDrpdown {
+    background: #fff;
+    line-height: 18px;
+    border: 1px solid #ddd;
+    float: left;
+    width: 170px;
+    border-radius: 0;
+    @include margin(0, 10px, 0, 10px);
+    position: relative;
+    @include padding(5px, 10px, 5px, 5px);
+    // box-sizing: border-box;
+
+    .caretStyle {
+      text-overflow: ellipsis;
+      overflow: hidden;
+      width: 155px;
+    }
+
+    .caret {
+      right: 5px;
+      position: absolute;
+      top: 12px;
+    }
+
+    .dropdown-menu {
+      left: 0px;
+      width: 170;
+      top: 28px;
+
+      li a {
+        text-overflow: ellipsis;
+        overflow: hidden;
+        width: 155px;
+      }
+    }
+  }
+  .second,
+  .third {
+    @include clearfix;
+
+    .thirdCol {
+      float: left;
+    }
+  }
+
+  .inviteGroupsList {
+    table {
+      border-spacing: 0px;
+      width: 100%;
+
+      tr th {
+        background: #e9e9e9;
+      }
+      tr:hover {
+        background: #f1f1f1;
+      }
+      tr th,
+      tr td {
+        @include padding(0, 10px, 0, 10px);
+      }
+      tr th div {
+        margin: 0;
+        font-size: 14px;
+        font-weight: normal;
+        line-height: 42px;
+        text-align: left;
+        @include padding(0, 0, 0, 0);
+        color: #535353;
+      }
+      tr td div {
+        margin: 0;
+        font-size: 14px;
+        line-height: 42px;
+        text-align: left;
+        @include padding(0, 0, 0, 0);
+        float: left;
+      }
+      tr td {
+        @include clearfix;
+        border-bottom: 1px solid #ddd;
+      }
+    }
+  }
+
+  .icon-checkboxOn,
+  .icon-checkboxOff {
+    display: table-cell;
+  }
+  .iconSearch {
+    line-height: 14px;
+    font-size: 14px;
+    float: left;
+    color: #888;
+    @include margin(14px, 10px, 14px, 0);
+  }
+  .columnLearnersTableColumn {
+    vertical-align: middle;
+    margin-left: -2px;
+  }
+}
+.tableColumnSmallCommon {
+  color: #535353;
+  font-size: 14px;
+  @include padding(13px, 0, 13px, 0);
+  border-bottom: 1px solid #ddd;
+  background-color: #f1f1f1;
+  line-height: 24px;
+}
+
+input {
+  border: none;
+  outline: none;
+  color: #888;
+  font-size: 13px;
+}

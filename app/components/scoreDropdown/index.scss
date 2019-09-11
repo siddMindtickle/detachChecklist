@@ -1,0 +1,45 @@
+@import "~appStyles/commonStyle.scss";
+
+:global {
+  .scoreDropdown {
+    color: $color-black;
+    // line-height: 48px;
+    margin-right: 60px;
+    font-size: 13px;
+
+    .roundDropdown {
+      @include displayIB;
+      color: #1a2532;
+
+      button {
+        font-size: 12px;
+        border: 1px solid #999;
+        border-radius: 25px;
+        padding: 4px 20px;
+        line-height: 18px;
+        color: #1a2532;
+      }
+    }
+    .points {
+      color: #1a2532;
+      margin-left: 10px;
+    }
+    button {
+      font-size: 16px;
+    }
+    .dropdown-menu {
+      @include z-index(absolute);
+      background: #eee;
+      min-width: 60px;
+      margin: 0px;
+    }
+    .isOpenDD .points,
+    .isOpenDD .ptsInfo {
+      display: none;
+    }
+    .isClosedDD .points,
+    .isClosedDD .ptsInfo {
+      display: none;
+    }
+  }
+}

@@ -1,0 +1,138 @@
+@import "~appStyles/commonStyle.scss";
+.addInviteNewLearnersWrapper {
+  position: relative;
+
+  .topIcons {
+    display: inline-block;
+    width: 100px;
+    float: right;
+
+    .icon {
+      color: #888;
+      font-size: 20px;
+    }
+  }
+  .addInviteNewLearners {
+    // text-align: center;
+    width: 640px;
+    @include margin(20px, auto, 0, auto);
+
+    .addInviteNewLearnersHeading {
+      text-align: center;
+      font-size: 16px;
+      @include margin(0, 0, 20px, 0);
+    }
+
+    .btnAddToList {
+      display: block;
+    }
+    ul.ainl_newLearnerList {
+      @include margin(30px, 0, 0, 0);
+      border-top: 1px solid #eee;
+
+      li {
+        font-size: 13px;
+        list-style: none;
+        border-bottom: 1px solid #eee;
+        line-height: 20px;
+        @include padding(10px, 20px, 10px, 20px);
+        color: #999;
+        @include clearfix;
+
+        .ainl_close {
+          float: right;
+          font-size: 11px;
+          color: #999;
+          @include margin(6px, 0, 0, 0);
+        }
+      }
+    }
+  }
+  .btns {
+    position: absolute;
+    bottom: 0;
+    width: 100vw;
+    overflow-x: hidden;
+    text-align: center;
+    border-top: 1px solid #ddd;
+    @include padding(20px, 0, 20px, 0);
+
+    .btn1 {
+      @include margin(0, 10px, 0, 0);
+    }
+  }
+}
+
+.inputBox {
+  width: 370px;
+  border: 1px solid #ddd;
+  padding: 5px;
+  background: rgba(255, 255, 255, 0.5);
+  margin: 0 0 10px 0;
+}
+
+.fullNameInput {
+  margin: 0 0 10px 10px;
+  width: 260px;
+}
+
+:global {
+  .addInviteNewLearnersInput {
+    margin: 20px auto;
+    width: 640px;
+
+    .addInviteDropdown {
+      display: none;
+      background: white;
+      list-style: none;
+      border: 1px solid #ddd;
+      margin-top: -9px;
+      position: absolute;
+      width: 370px;
+      max-height: 300px;
+      overflow-y: scroll;
+      li {
+        list-style: none;
+        padding: 5px 3px;
+        a {
+          color: #888;
+          padding: 5px;
+          font-size: 12px;
+          &:hover {
+            color: black;
+          }
+        }
+      }
+      &.expanded {
+        display: block;
+      }
+    }
+
+    .ainl_Suggestions_DD {
+      width: 300px;
+      @include displayIB;
+      width: 300px;
+
+      .dropdown-menu:after,
+      .dropdown-menu:before {
+        display: none;
+      }
+      .dropdown-menu {
+        max-height: 200px;
+        width: 312px;
+        top: 19px;
+        left: 16px;
+        overflow-y: auto;
+      }
+      .caretStyle {
+        width: 100%;
+        label {
+          width: 100%;
+          input {
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+}

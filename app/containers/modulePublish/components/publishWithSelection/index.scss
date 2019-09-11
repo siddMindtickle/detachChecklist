@@ -1,0 +1,162 @@
+@import "~appStyles/commonStyle.scss";
+
+.publishWithSelection {
+  width: 660px;
+
+  .inviteWhoText {
+    line-height: 18px;
+    font-size: 13px;
+    color: #000;
+    @include margin(0, 0, 20px, 0);
+
+    .bold {
+      font-weight: bold;
+    }
+  }
+
+  .inviteLearnersBox {
+    @include margin(0, 0, 12px, 0);
+    @include clearfix;
+    font-size: 13px;
+    line-height: 26px;
+    cursor: pointer;
+
+    .inviteLearnersBoxLeft {
+      float: left;
+      width: calc(50%);
+      border: 1px solid #aaa;
+      border-radius: 4px;
+      background-color: #fff;
+      display: inline-block;
+      @include margin(0, 20px, 0, 0);
+      @include padding(18px, 13px, 18px, 13px);
+
+      .inviteLearnersText {
+        // width: calc(100% - 20px);
+      }
+    }
+    .inviteLearnersBoxRight {
+      float: left;
+      // box-sizing: border-box;
+      width: calc(50% - 20px);
+      border: 1px solid #aaa;
+      border-radius: 4px;
+      background-color: #fff;
+      display: inline-block;
+      @include padding(20px, 13px, 20px, 13px);
+    }
+
+    .innerInviteLearnersBox {
+      display: table;
+      height: 48px;
+
+      .innerInnerInviteLearnersBox {
+        @include displayTableCell;
+        @include clearfix;
+
+        .inviteLearner {
+          line-height: 26px;
+          float: left;
+          width: 260px;
+          @include clearfix;
+
+          div {
+            float: left;
+          }
+          .textSpace {
+            @include margin(0, 0, 0, 2px);
+          }
+        }
+      }
+    }
+  }
+}
+
+:global {
+  .inviteLearnersBox {
+    @include margin(0, 0, 12px, 0);
+    @include clearfix;
+    font-size: 13px;
+    line-height: 26px;
+
+    .inviteLearnersBoxLeft.selected,
+    .inviteLearnersBoxRight.selected {
+      box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.16);
+      border: 1px solid #0072bc;
+    }
+    .inviteLearnersBoxLeft {
+      float: left;
+      width: calc(50% - 40px);
+      border: 1px solid #aaa;
+      border-radius: 4px;
+      background-color: #fff;
+      display: inline-block;
+      @include margin(0, 20px, 0, 0);
+      @include padding(18px, 13px, 18px, 13px);
+    }
+    .inviteLearnersBoxRight {
+      float: left;
+      width: calc(50% - 40px);
+      border: 1px solid #aaa;
+      border-radius: 4px;
+      background-color: #fff;
+      display: inline-block;
+      @include padding(20px, 13px, 20px, 13px);
+    }
+  }
+
+  .radioBtnPublish {
+    @include margin(0, 5px, 0, 0);
+    float: left;
+  }
+  .checklistPublishDrpdown {
+    float: left;
+    display: inline-block;
+    background-color: #fff;
+    position: relative;
+    font-size: 13px;
+    border-radius: 2px;
+    @include margin(-2px, 4px, 0, 4px);
+
+    .caretStyle {
+      text-align: left;
+      line-height: 24px;
+      padding: 0px 20px 0 4px;
+      border: 1px solid #999;
+      font-weight: bold;
+      color: black;
+    }
+    .caret {
+      // display: none;
+      position: absolute;
+      right: 5px;
+      top: 14px;
+    }
+    .dropdown-menu {
+      @include margin(0, 0, 0, 0);
+      width: 388px;
+      left: 0px;
+      top: 28px;
+      @include padding(5px, 0, 5px, 0);
+      max-height: 200px;
+
+      li {
+        height: 56px;
+
+        :hover {
+          background: #f7f7f7;
+        }
+
+        a {
+          @include padding(8px, 10px, 8px, 10px);
+          display: inline-block;
+          width: auto;
+        }
+      }
+    }
+    .dropdown-menu:before,
+    .dropdown-menu:after {
+      display: none;
+    }
+  }
+}

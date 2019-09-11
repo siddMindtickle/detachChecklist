@@ -1,0 +1,76 @@
+@import "~appStyles/commonStyle.scss";
+
+.getSupport {
+  background: url(../images/getsupport2.png) 0 -40px;
+  height: 30px;
+  width: 40px;
+  cursor: pointer;
+  position: fixed;
+  bottom: 20px;
+  left: 0;
+  @include z-index(getSupport);
+
+  &:hover {
+    width: 130px;
+    background-position: 0 0;
+  }
+}
+
+// form css
+
+.formWrapper {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 62px;
+
+  .inputLg {
+    box-sizing: content-box;
+  }
+
+  .scrollWrapper {
+    @include fontStack_13;
+    width: 100%;
+    overflow-y: auto;
+    position: absolute;
+    height: calc(100vh - 200px);
+    .getSupportTextArea {
+      width: 530px;
+      color: #888;
+      box-sizing: content-box;
+      font-size: 13px;
+      float: left;
+      position: relative;
+      display: inline-flex;
+      height: 70px;
+      line-height: 18px;
+      background: $bg-color-white;
+      border: 1px solid $border-color-cloud;
+      @include fontStack_13;
+      resize: none;
+      padding: 6px 10px 6px 10px;
+    }
+
+    label {
+      border-radius: 2px;
+      @include margin(20px, 0, 0, 0);
+    }
+    .inputLg {
+      height: 20px;
+      border: 1px solid #cdcdcd;
+      @include lineHeight(28);
+      @include fontStack_13;
+      @include padding(4px, 10px, 4px, 10px);
+      width: 530px;
+      font-size: 13px;
+
+      &:focus {
+        border: 1px solid #cdcdcd;
+      }
+    }
+  }
+}
+
+.counterStyle {
+  display: none;
+}

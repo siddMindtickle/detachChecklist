@@ -1,0 +1,115 @@
+@import "~appStyles/commonStyle.scss";
+:global {
+  .th_wrapper {
+    width: 552px;
+    margin: 40px auto auto auto;
+    .th_text {
+      color: #aaa;
+      line-height: 30px;
+      font-size: 13px;
+    }
+    .th_Box {
+      @include displayIB;
+      border: 1px solid #ddd;
+      margin-right: 10px;
+      width: 290px;
+      height: 300px;
+      overflow-y: auto;
+      .th_List {
+        label.inputLabel {
+          float: left;
+          display: block;
+          border: 1px solid #ddd;
+          line-height: 28px;
+          input {
+            width: 190px;
+            padding: 0 5px;
+          }
+        }
+        .withBtns {
+          margin-top: 0px;
+        }
+        .dropdown-header {
+          font-size: 13px;
+          color: #aaa;
+          position: relative;
+
+          .th_heading {
+            @include displayIB;
+            position: relative;
+            background: #fff;
+            z-index: 9;
+            padding-right: 5px;
+            border-left: 10px solid #fff;
+          }
+          .th_legendLine {
+            @include displayIB;
+            width: 96%;
+            height: 1px;
+            position: absolute;
+            background: #ddd;
+            top: 17px;
+            left: 0px;
+            border-right: 10px solid #fff;
+          }
+        }
+        ul {
+          list-style: none;
+          div {
+            li {
+              line-height: 30px;
+              a {
+                font-size: 13px;
+                color: #000;
+                cursor: pointer;
+                @include padding(0px, 10px, 0px, 10px);
+                line-height: 30px;
+                display: block;
+                text-decoration: none;
+
+                .th_title {
+                  float: left;
+                  overflow: hidden;
+                  text-overflow: ellipsis;
+                  max-width: 220px;
+                  height: 30px;
+                  white-space: nowrap;
+                }
+                .th_hoverSate {
+                  float: right;
+                  display: none;
+                  color: #888;
+                  .icon-delete {
+                    margin-right: 8px;
+                  }
+                }
+                &:hover,
+                &:active,
+                &.active {
+                  background: #f7f7f7;
+                }
+                &:hover .th_hoverSate {
+                  display: block;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    .thumbnail {
+      display: inline-block;
+      vertical-align: top;
+      width: 200px;
+      height: 130px;
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+}
+
+.active {
+  background: #f7f7f7;
+}

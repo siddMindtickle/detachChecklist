@@ -1,0 +1,111 @@
+@import "~appStyles/commonStyle.scss";
+@import "~appStyles/variableColor.scss";
+.rightSection {
+  // background: #F7F7F7;
+  @include padding(53px, 50px, 53px, 50px);
+  margin-left: 540px;
+  height: calc(100vh - 197px);
+  overflow-y: auto;
+
+  .addDescriptionHeading {
+    cursor: pointer;
+    color: #0072bc;
+    font-size: 13px;
+    display: inline-block;
+    vertical-align: middle;
+    min-width: 80px;
+    padding-bottom: 10px;
+    padding-top: 2px;
+    margin: 0px 30px 0px 0px;
+    line-height: 22px;
+  }
+
+  .customCounterStylePadding {
+    padding-top: 6px;
+    padding-bottom: 6px;
+    border: none;
+  }
+
+  .taskNameInput {
+    position: relative;
+    padding-bottom: 20px;
+
+    :global {
+      .desc_editor {
+        width: 582px;
+        .customLength {
+          position: absolute;
+          right: -38px;
+          top: 0px;
+          color: $color-mildgrey;
+          font-size: 12px;
+          height: 32px;
+          text-align: left;
+          min-width: 30px;
+        }
+      }
+    }
+
+    .inputCustomClass {
+      width: 582px;
+      float: left;
+      font-size: 13px;
+      border: 1px solid $border-color-grey;
+      @include padding(6px, 10px, 6px, 10px);
+      background: $color-white;
+      color: #1a2532;
+    }
+    .textAreaCustomClass {
+      width: 582px;
+      font-size: 13px;
+      float: left;
+      position: relative;
+      display: inline-flex;
+      height: 70px;
+      line-height: 18px;
+      background: $bg-color-white;
+      border: 1px solid $border-color-cloud;
+      @include fontStack_13;
+      resize: none;
+      @include padding(6px, 10px, 6px, 10px);
+    }
+    .descText {
+      color: #1a2532;
+      font-size: 13px;
+      float: left;
+      padding-bottom: 8px;
+    }
+    .textAreaClass {
+      @include displayIB;
+      float: left;
+    }
+    .customLinkStyle {
+      float: right;
+      font-size: 13px;
+    }
+  }
+
+  .borderSection {
+    border: 1px solid #ddd;
+    width: 582px;
+    border-radius: 2px;
+    .scoresection {
+      padding: 0 0 15px 15px;
+      margin-top: 15px;
+    }
+    .textStyle {
+      color: #1a2532;
+      font-size: 13px;
+      margin-right: 10px;
+    }
+  }
+}
+
+.task_attach {
+  display: inline-block;
+  vertical-align: top;
+}
+.task_attachmented {
+  display: block;
+  vertical-align: top;
+}

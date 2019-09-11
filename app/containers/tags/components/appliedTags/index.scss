@@ -1,0 +1,7 @@
+@import "~appStyles/commonStyle.scss";
+
+.noTagsText {
+  color: #878787;
+  margin-right: 5px;
+  @include displayIB;
+}

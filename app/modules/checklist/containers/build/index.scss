@@ -1,0 +1,16 @@
+@import "~appStyles/commonStyle.scss";
+.leftSection {
+  width: 540px;
+  float: left;
+  border-right: 0px solid #ddd;
+}
+.noData.wrapper {
+  background: #f7f7f7;
+
+  .rightSection {
+    background: #f7f7f7;
+  }
+  .leftSection {
+    border-right: 0px solid #ddd;
+  }
+}

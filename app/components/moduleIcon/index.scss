@@ -1,0 +1,47 @@
+:global {
+  .moduleIcon {
+    width: 24px;
+    color: #fff;
+    height: 24px;
+    display: inline-block;
+    vertical-align: middle;
+    text-align: center;
+    font-size: 13px;
+    line-height: 24px;
+
+    &.moduleIcon-Small {
+      font-size: 9px;
+      line-height: 13px;
+      height: 16px;
+      width: 16px;
+    }
+
+    &.color-C {
+      background: #5bc786;
+      border: 1px solid #5fa86e;
+    }
+    &.color-Q {
+      background: #ea7079;
+      border: 1px solid #d06c6d;
+    }
+    &.color-M {
+      background: #789bb0;
+      border: 1px solid #64869d;
+    }
+    &.color-A {
+      background: #db9a3c;
+      border: 1px solid #d49b49;
+    }
+    &.color-S {
+      background: #05babf;
+      border: 1px solid #319fa6;
+    }
+    &.color-L {
+      background: #8e8cc2;
+      border: 1px solid #71709b;
+    }
+    &.color-I {
+      background: #76adec;
+    }
+  }
+}

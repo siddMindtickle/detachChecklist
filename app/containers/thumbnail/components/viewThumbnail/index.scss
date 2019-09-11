@@ -1,0 +1,33 @@
+@import "~appStyles/commonStyle.scss";
+
+:global {
+  .thumbnail-headerSection {
+    position: relative;
+    line-height: 20px;
+    margin-bottom: 10px;
+    @include clearfix;
+    .thumbnail-heading {
+      float: left;
+      font-size: 13px;
+      font-weight: bold;
+    }
+    .thumbnail-editLink {
+      float: right;
+    }
+  }
+  .thumbnail-section {
+    position: relative;
+    font-size: 13px;
+    margin-top: 10px;
+    color: #1a2532;
+
+    .thumbnail-noTagsText {
+      height: 134px;
+      width: 100%;
+      img {
+        max-height: 100%;
+        max-width: 100%;
+      }
+    }
+  }
+}

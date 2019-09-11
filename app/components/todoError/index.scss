@@ -1,0 +1,21 @@
+@import "~appStyles/commonStyle.scss";
+
+.todoError {
+  display: flex;
+  padding: 11px 10px;
+  margin: 0 0 20px 0;
+  border-radius: 4px;
+  background-color: #fae8e8;
+  color: #a2000a;
+  font-size: 13px;
+  line-height: 18px;
+  .icon {
+    font-size: 16px;
+    margin-top: 2px;
+  }
+
+  .itemCount {
+    text-decoration: underline;
+    cursor: pointer;
+  }
+}

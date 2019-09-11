@@ -1,0 +1,46 @@
+@import "~appStyles/commonStyle.scss";
+
+.summaryPanel {
+  box-sizing: border-box;
+  background: #fff;
+  border: 1px solid #ddd;
+  @include clearfix;
+  text-align: center;
+
+  .tabbing {
+    box-sizing: border-box;
+    width: 25%;
+    float: left;
+    cursor: pointer;
+    line-height: 20px;
+    padding: 10px 0px;
+    color: #666;
+    font-size: 13px;
+
+    &:last-child {
+      .tabbingElements {
+        border-right: 0px solid #fff;
+        padding: 10px 0px;
+      }
+    }
+
+    .tabbingElements {
+      border-right: 1px solid #ddd;
+      padding: 10px 0px;
+    }
+  }
+  .tabbing.active {
+    color: #000;
+    background: #e9e9e9;
+    font-weight: bold;
+  }
+
+  .summaryPanelInvited {
+    border-right: 1px solid #ddd;
+  }
+  .summaryPanelCompleted {
+    border-right: 1px solid #ddd;
+  }
+  .summaryPanelPending {
+  }
+}

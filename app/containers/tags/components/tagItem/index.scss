@@ -1,0 +1,42 @@
+@import "~appStyles/commonStyle.scss";
+
+:global {
+  .tagItem-tag {
+    float: left;
+    background: #fff;
+    color: #999;
+    @include padding(1px, 7px, 1px, 7px);
+    @include margin(0, 10px, 10px, 0);
+    border: 1px solid #999;
+    border-radius: 2px;
+    cursor: pointer;
+    max-width: 280px;
+    line-height: 16px;
+    @include clearfix;
+
+    .tagItem-tagname {
+      font-size: 12px;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      white-space: nowrap;
+      float: left;
+      max-width: 250px;
+    }
+
+    .tagItem-suggetsed-tagname {
+      max-width: 165px;
+    }
+
+    .icon {
+      font-size: 8px;
+      @include padding(4px, 0, 0, 5px);
+      float: left;
+      cursor: pointer;
+    }
+  }
+  .tagItem-tag.selected {
+    background: #999;
+    color: #fff;
+    cursor: auto;
+  }
+}

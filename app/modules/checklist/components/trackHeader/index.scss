@@ -1,0 +1,57 @@
+@import "~appStyles/commonStyle.scss";
+
+.taskNameRow {
+  padding: 20px 0px;
+  position: relative;
+  min-height: 72px;
+  color: #0b5cae;
+  font-size: 14px;
+  line-height: 20px;
+  right: 0px;
+
+  .taskName {
+    background-color: #ffffff;
+    border-radius: 4px;
+    border: 1px solid #0072bc;
+    float: left;
+    padding: 5px 10px;
+    color: #0b5cae;
+    font-size: 14px;
+    line-height: 20px;
+  }
+
+  .taskActions {
+    color: #0b5cae;
+    font-size: 14px;
+    line-height: 20px;
+    position: absolute;
+    right: 0px;
+
+    button {
+      padding: 0px 30px;
+    }
+
+    .taskActionReportCard {
+      float: left;
+      padding: 5px 10px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    .taskActionAnalytics {
+      float: left;
+      padding: 5px 15px 5px 10px;
+      cursor: pointer;
+      font-size: 16px;
+      border-right: 1px solid #ddd;
+    }
+    .taskActionUpload {
+      float: left;
+      padding: 5px 10px 5px 15px;
+      cursor: pointer;
+
+      .iconUpload {
+        font-size: 16px;
+      }
+    }
+  }
+}

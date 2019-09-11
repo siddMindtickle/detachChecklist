@@ -1,0 +1,58 @@
+@import "~appStyles/commonStyle.scss";
+.inviteLearnersModal {
+  :global {
+    .modal-body {
+      height: calc(100vh - 135px);
+      overflow-y: auto;
+    }
+  }
+}
+:global {
+  .ac_styleCustom {
+    .ac_wrapper {
+      @include z-index(accordian);
+      .panel-group {
+        background: #fff;
+        list-style: none;
+        font-size: 12px;
+        margin-top: 3px;
+        border: 1px solid #ddd;
+        padding: 0px;
+        max-width: 152px;
+        .panel-body {
+          background: #f7f7f7;
+          padding: 0px 6px;
+          li {
+            text-align: left;
+            padding: 5px 10px;
+            border-bottom: 1px solid #ddd;
+            font-size: 13px;
+            a {
+              color: #535353;
+            }
+          }
+          li:last-child {
+            border-bottom: none;
+          }
+        }
+        .panel-heading {
+          background: #fff;
+          text-align: left;
+          padding: 5px 10px;
+          border-bottom: 1px solid #ddd;
+          font-size: 13px;
+          .panel-title {
+            background: #fff;
+            padding: 0px;
+
+            @include truncate(150px);
+            a {
+              color: #535353;
+              text-decoration: none;
+            }
+          }
+        }
+      }
+    }
+  }
+}

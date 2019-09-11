@@ -1,0 +1,97 @@
+@import "../../variables.scss";
+
+.rulesHeaderContainer {
+  background: #ffffff;
+  border-radius: 8px 8px 0 0;
+  padding: $rule-header-p-y $rule-header-p-x;
+  width: $left-col-width;
+}
+
+.rulesHeader {
+  display: inline-flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 24px;
+  width: 100%;
+}
+
+.headerInfo {
+  display: flex;
+  align-items: center;
+}
+
+.headerIcon {
+  height: 20px;
+  margin-right: 10px;
+}
+
+.headerTitle {
+  color: #2a2e36;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: $rule-header-height;
+}
+
+.mainSwitch {
+  display: flex;
+  align-items: center;
+  :global {
+    .infoIcon {
+      font-size: 11px;
+      margin-left: 5px;
+    }
+  }
+}
+
+:global {
+  .msSwitch {
+    &.ant-switch {
+      background-color: #dddddd;
+      &::after {
+        background-color: #989ca6;
+      }
+
+      &.ant-switch-checked {
+        background-color: #d7f4de;
+        &::after {
+          background-color: #35c759;
+        }
+      }
+    }
+
+    &.ant-switch-disabled {
+      cursor: not-allowed;
+      pointer-events: auto;
+
+      &::after {
+        cursor: not-allowed;
+      }
+    }
+  }
+}
+
+.msTitle {
+  font-size: 11px;
+  margin-left: 5px;
+}
+
+.inActiveWarning {
+  background-color: #ffe1e1;
+  border-radius: 4px;
+  color: #ff6969;
+  font-size: 13px;
+  margin-top: 12px;
+  padding: 12px 8px;
+  position: relative;
+}
+
+.arrowTop {
+  position: absolute;
+  top: -6px;
+  right: 18%;
+  border-left: 6px solid transparent;
+  border-bottom: 6px solid #ffe1e1;
+  border-right: 6px solid transparent;
+  height: 0;
+  width: 0;
+}

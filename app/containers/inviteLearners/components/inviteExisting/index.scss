@@ -1,0 +1,117 @@
+@import "~appStyles/commonStyle.scss";
+:global {
+  .inviteExist_inviteLearner {
+    overflow-x: hidden;
+    overflow-y: auto;
+    height: calc(100vh - 130px);
+
+    .inviteExist_multifilter {
+      padding-bottom: 20px;
+      width: 1024px;
+      margin: 25px auto auto auto;
+      .filterOptionsDrpdown-ds {
+        padding: 0px 30px 0px 0px;
+        display: inline-block;
+        vertical-align: top;
+        border-right: 1px solid #ddd;
+        margin-right: 15px;
+        .checkboxWrapper {
+          margin-right: 8px;
+        }
+      }
+    }
+    .ps_container {
+      padding: 0 15px 0 0px;
+      display: inline-block;
+      vertical-align: top;
+      .profileFields {
+        border-left: 1px solid transparent;
+        padding-left: 0px;
+      }
+      .ps_addProfileFields {
+        color: #0072bc;
+        font-size: 12px;
+        margin-left: 0px;
+        margin-top: 8px;
+        cursor: pointer;
+        text-decoration: none;
+        .profileDrpdown {
+          .dropdown {
+            .caret {
+              position: absolute;
+              right: -10px;
+              top: 14px;
+            }
+          }
+        }
+      }
+      .profileFields:first-child {
+        border-right: 1px solid #ccc;
+      }
+    }
+
+    .modal-footer {
+      padding: 20px 0;
+      line-height: 20px;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      text-align: center;
+      background: white;
+    }
+  }
+}
+
+.inviteExistingTableCustom {
+  width: 1024px;
+  margin: auto;
+
+  table {
+    border-spacing: 0px;
+    margin: 0 auto;
+    tr th {
+      background: #f7f7f7;
+      border-top: 1px solid #ddd;
+      border-bottom: 1px solid #ddd;
+      padding: 10px 0px 10px 20px;
+      vertical-align: middle;
+    }
+    tr td {
+      @include clearfix;
+      border-bottom: 1px solid #ddd;
+      padding: 4px 0px 4px 20px;
+      vertical-align: middle;
+    }
+
+    tr:hover {
+      background: #f1f1f1;
+    }
+  }
+  .header {
+    font-weight: normal;
+  }
+  .learner {
+    width: 600px;
+
+    .learnerPicHolder {
+      @include displayIB;
+      height: 33px;
+      position: relative;
+      width: 30px;
+
+      .userProfileIcon {
+        font-size: 28px;
+        @include square(30px);
+        text-align: center;
+        color: #aaa;
+        @include displayIB;
+        top: 2px;
+        position: absolute;
+      }
+    }
+  }
+  .learnerDescText {
+    @include displayIB;
+    margin-left: 15px;
+  }
+}

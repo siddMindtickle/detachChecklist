@@ -1,0 +1,64 @@
+@import "~appStyles/commonStyle.scss";
+@import "~appStyles/variableColor.scss";
+
+$error-color: #c63434;
+
+.newLearner {
+  border-top: 1px solid #eee;
+  font-size: 13px;
+  line-height: 30px;
+  padding: 5px 10px;
+  @include clearfix;
+
+  .learnerPicHolder {
+    float: left;
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+
+    .userProfileIcon {
+      font-size: 30px;
+      color: #bcbcbc;
+    }
+    img {
+      max-width: 100%;
+      max-height: 100%;
+    }
+  }
+
+  .learner_emailText {
+    color: $color-mildgrey;
+    float: left;
+    margin-right: 15px;
+  }
+
+  .moduleRelevanceContainer {
+    position: absolute;
+    margin-left: 268px;
+  }
+
+  .closeIcon {
+    cursor: pointer;
+    float: right;
+    font-size: 11px;
+    color: $color-mildgrey;
+    margin: 10px 0 0 0;
+  }
+
+  .learner_errorStyle {
+    color: $error-color;
+    :global {
+      .infoIcon {
+        color: $error-color;
+        font-size: 13px;
+      }
+    }
+    width: 25%;
+  }
+
+  &.hasErrors {
+    .learner_emailText {
+      color: $error-color;
+    }
+  }
+}

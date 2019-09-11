@@ -1,0 +1,51 @@
+@import "~appStyles/commonStyle.scss";
+
+.sidebar {
+  width: 260px;
+  position: absolute;
+  height: calc(100vh - 185px);
+  overflow-y: auto;
+  border-right: 1px solid #dedede;
+  background: #fff;
+}
+:global {
+  .navbar {
+    float: none;
+    position: relative;
+    min-height: 0px;
+    margin-bottom: 0px;
+    border-radius: 0px;
+    border: 0;
+  }
+  .navbar-default {
+    background: transparent;
+    border-color: transparent;
+    .navbar-nav {
+      li.active {
+        a {
+          background-color: #f7f7f7;
+          // border-top:1px solid #ddd;
+          // border-bottom:1px solid #ddd;
+        }
+      }
+
+      li {
+        a {
+          // border-top:1px solid #fff;
+          border-bottom: 1px solid #ddd;
+          background-color: #fff;
+          display: block;
+          color: #000;
+          text-decoration: none;
+          font-size: 13px;
+          padding: 8px 20px;
+        }
+        a:hover {
+          background-color: #f7f7f7;
+          // border-top:1px solid #ddd;
+          // border-bottom:1px solid #ddd;
+        }
+      }
+    }
+  }
+}

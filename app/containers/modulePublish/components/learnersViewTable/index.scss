@@ -1,0 +1,91 @@
+@import "~appStyles/commonStyle.scss";
+:global {
+  .learnerTableCustom {
+    @include margin(0, 0, 0, 0);
+
+    table {
+      margin: 0px;
+      tr {
+        th,
+        td {
+          padding: 10px 20px;
+        }
+      }
+    }
+
+    .filterOptionsPanelALT {
+      @include margin(0, 0, 20px, 0);
+    }
+    .groupsMore {
+      .icon-more_horizontal {
+        font-size: 5px;
+        margin-left: 10px;
+        line-height: 20px;
+      }
+    }
+  }
+}
+
+.pd_learnerName {
+  @include displayIB;
+  margin-right: 10px;
+}
+.header {
+  vertical-align: middle;
+  text-align: left;
+  @include clearfix;
+}
+
+.groupCell {
+  position: relative;
+
+  :global {
+    .popover {
+      display: block;
+      top: 0;
+      left: 132px;
+
+      .popover-content {
+        ul {
+          list-style: none;
+          li {
+            a {
+              color: black;
+              &:hover {
+                background: #f5f5f5;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .groupsMore {
+    @include displayIB;
+    .moreGroups {
+      @include displayIB;
+    }
+  }
+}
+
+.moreHorizontalIcon {
+  @include displayIB;
+}
+
+.groupsOverlay {
+  :global {
+    .ant-tooltip-inner {
+      font-size: 13px;
+      line-height: 20px;
+    }
+  }
+}
+
+table {
+  tr {
+    td {
+      padding-left: 20px;
+    }
+  }
+}

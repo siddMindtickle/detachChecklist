@@ -1,0 +1,49 @@
+@import "~appStyles/commonStyle.scss";
+
+:global {
+  .createTag {
+    .label {
+      display: inline;
+    }
+
+    .createTag-input {
+      width: 200px;
+      line-height: 20px;
+      border: 1px solid #ddd;
+      @include padding(4px, 8px, 4px, 8px);
+      font-size: 13px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      float: left;
+    }
+    .createTag-dropdown {
+      float: left;
+      @include padding(3px, 8px, 3px, 8px);
+      @include margin(0, 0, 0, 10px);
+      border: 1px solid #ddd;
+      background: #fff;
+
+      .caretStyle {
+        line-height: 20px;
+        width: 200px;
+        text-align: left;
+      }
+      .caret {
+        position: absolute;
+        right: 5px;
+        top: 10px;
+      }
+
+      :before,
+      :after {
+        display: none;
+      }
+
+      .dropdown-menu {
+        width: calc(100% + 16px);
+        top: 16px;
+        left: -9px;
+      }
+    }
+  }
+}

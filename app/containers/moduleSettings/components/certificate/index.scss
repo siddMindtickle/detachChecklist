@@ -1,0 +1,60 @@
+@import "~appStyles/commonStyle.scss";
+
+.scoreWrapper {
+  width: 30%;
+  min-height: 196px;
+
+  .headingSection {
+    position: relative;
+    margin-bottom: 10px;
+    @include clearfix;
+
+    .heading {
+      font-size: 13px;
+      font-weight: bold;
+    }
+  }
+  .divider {
+    border-top: 1px solid #e6e6e6;
+    @include margin(25px, 0px, 13px, 0px);
+  }
+}
+
+:global {
+  .ss_customDropdownStyle {
+    display: inline-block;
+    position: relative;
+    border: 1px solid #ddd;
+    padding: 3px 5px;
+    margin-top: 10px;
+    min-width: 115px;
+    .dropdown {
+      button {
+        font-size: 13px;
+        width: 100%;
+        text-align: left;
+        padding-left: 0px;
+      }
+    }
+    .dropdown-menu {
+      top: 16px;
+      left: -6px;
+      width: 115px;
+      min-width: 115px;
+      max-height: 200px;
+      overflow-y: auto;
+    }
+    :after {
+      display: none;
+    }
+    :before {
+      display: none;
+    }
+
+    .caret {
+      position: absolute;
+      top: 7px;
+      right: 2px;
+    }
+  }
+}

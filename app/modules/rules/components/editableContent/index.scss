@@ -1,0 +1,32 @@
+.ecStatic {
+  padding: 0 10px;
+}
+
+.ecInputContainer {
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 999;
+
+  :global {
+    .withBtns {
+      display: flex;
+      margin-top: 0;
+    }
+  }
+}
+
+.ecInput {
+  border: 1px solid #bbbbbb;
+  border-radius: 4px;
+  color: #606369;
+  font-size: 14px;
+  height: 100%;
+  margin-right: 20px;
+  padding: 4px 12px;
+}

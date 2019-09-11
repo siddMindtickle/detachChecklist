@@ -1,0 +1,94 @@
+@import "~appStyles/commonStyle.scss";
+.bc_subHeader {
+  padding: 0px 0px 27px 0px;
+  line-height: 32px;
+  .bc_breadCrumbSection {
+    @include displayIB;
+    cursor: pointer;
+    margin-top: -2px;
+
+    .bc_breadCrumbText {
+      @include displayIB;
+      font-size: 14px;
+      color: #878787;
+      font-weight: 300;
+    }
+    .bc_icon {
+      font-size: 14px;
+      color: $icon-color;
+      @include displayIB;
+    }
+  }
+}
+.bc_moduleText {
+  @include displayIB;
+  line-height: 27px;
+}
+.bc_dropDownBlock {
+  @include displayIB;
+  // width: 145px;
+  vertical-align: middle;
+  margin-right: 10px;
+  margin-left: 0px;
+  border: none;
+}
+.bc_inputPlacholderBlocks {
+  .bc_inputCustomClass {
+    width: 240px;
+    color: #1a2532;
+    float: left;
+  }
+}
+
+:global {
+  .bc_seriesNameStyle {
+    color: #878787;
+    font-size: 14px;
+    font-weight: 500;
+    @include truncate(500px);
+  }
+  .bc_draftStyle {
+    color: #878787;
+    font-size: 13px;
+    margin-left: 0px;
+    font-style: italic;
+    @include displayIB;
+    font-weight: 500;
+  }
+  .bc_breadcrumDropdownStyle {
+    .titileDropdown {
+      max-width: 465px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    button.btn {
+      margin-top: -3px;
+      text-align: left;
+      min-width: 26px;
+      padding: 0px 20px 0 0;
+      color: black;
+      font-size: 16px;
+      line-height: 30px;
+    }
+    .caret {
+      position: absolute;
+      right: 0;
+      top: 13px;
+    }
+    .dropdown-menu {
+      top: 27px;
+      right: -3px;
+      min-width: 160px;
+
+      &:after {
+        right: 0;
+        margin-left: 49px;
+      }
+      &:before {
+        right: 0;
+        margin-left: 48px;
+      }
+    }
+  }
+}

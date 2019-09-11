@@ -1,0 +1,19 @@
+@import "variables.scss";
+
+$body-header-height: 50px;
+
+.rulesContainer * {
+  font-family: "Open Sans", Arial, sans-serif;
+}
+
+.rulesContainer a {
+  text-decoration: none;
+}
+
+.rulesContainer {
+  height: calc(100vh - #{$body-header-height});
+  overflow-y: scroll;
+  padding: $rule-container-p-y $rule-container-p-x;
+  position: relative;
+  width: 100%;
+}

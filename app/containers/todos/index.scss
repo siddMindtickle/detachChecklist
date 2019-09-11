@@ -1,0 +1,46 @@
+@import "~appStyles/commonStyle.scss";
+
+.todosWrapper {
+  float: left;
+  margin-top: 7px;
+  position: relative;
+}
+.todoContainer {
+  position: absolute;
+  :global {
+    .dropdown {
+      top: -10px;
+      right: 0px;
+    }
+
+    .dropdown-header {
+      padding: 10px 15px;
+    }
+    .dropdown-menu {
+      min-height: 50px;
+      width: 300px;
+      top: 15px;
+      padding: 5px 0px 15px 0px;
+
+      &:before {
+        margin-left: 111px;
+      }
+      &:after {
+        margin-left: 112px;
+      }
+
+      li a {
+        white-space: normal;
+        padding: 5px 15px 5px 16px;
+        &:hover {
+          background: transparent;
+        }
+      }
+    }
+  }
+}
+.todosHeading {
+  font-size: 15px;
+  font-weight: bold;
+  color: black;
+}

@@ -1,0 +1,20 @@
+@import "~appStyles/commonStyle.scss";
+
+:global {
+  .cwt-heading {
+    font-size: 16px;
+    color: #000;
+    float: left;
+    margin-right: 10px;
+  }
+  .cwt-wrapper-heading {
+    margin-bottom: 20px;
+  }
+  .cwt-infoIcon.infoIcon-wrapper {
+    float: left;
+
+    .infoIcon {
+      @include margin(4px, 0, 0, 10px);
+    }
+  }
+}

@@ -1,0 +1,29 @@
+@import "~appStyles/commonStyle.scss";
+:global {
+  .infoOverlay {
+    @include z-index(toast);
+
+    .ant-tooltip-inner {
+      background: white;
+      border: 1px solid #ddd;
+      color: black;
+      font-family: "Open Sans", Arial, sans-serif;
+      font-size: 12px;
+      max-height: 500px;
+      max-width: 500px;
+      overflow-y: auto;
+    }
+
+    .ant-tooltip-arrow {
+      border-bottom-color: #aaa;
+      border-top-color: #aaa;
+    }
+  }
+  .infoIcon {
+    cursor: pointer;
+    display: inline-block;
+    vertical-align: middle;
+    color: $icon-color;
+    font-size: 14px;
+  }
+}

@@ -1,0 +1,24 @@
+@import "~appStyles/commonStyle.scss";
+
+.buildNoLearner {
+  width: calc(100vw - 555px);
+  height: 100%;
+  text-align: center;
+  color: #000;
+  font-size: 24px;
+  line-height: 30px;
+  margin-left: 540px;
+  padding-top: 60px;
+
+  p {
+    font-size: 20px;
+    color: $color-black;
+  }
+  .icon {
+    font-size: 200px;
+    display: inline-block;
+    color: #bbb;
+    margin: auto;
+    width: 100%;
+  }
+}

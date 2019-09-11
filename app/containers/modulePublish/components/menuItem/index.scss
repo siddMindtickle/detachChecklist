@@ -1,0 +1,31 @@
+@import "~appStyles/commonStyle.scss";
+
+:global {
+  .inviteOption {
+    &--cont {
+      @include clearfix;
+    }
+
+    &--title {
+      float: left;
+      font-size: 13px;
+      width: 330px;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      line-height: 22px;
+    }
+
+    &--view {
+      float: right;
+      font-size: 13px;
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    &--subtitle {
+      font-size: 12px;
+      color: #999;
+      line-height: 18px;
+    }
+  }
+}

@@ -1,0 +1,191 @@
+@import "~appStyles/commonStyle.scss";
+.rt_reminderTable {
+  background: #fff;
+  border: 1px solid #ddd;
+  @include padding(17px, 20px, 5px, 20px);
+  margin-bottom: 50px;
+  .rt_dropdownHolder {
+    .view {
+      display: inline-block;
+      vertical-align: middle;
+      color: #878787;
+      margin-left: 10px;
+      cursor: pointer;
+    }
+
+    :global {
+      .titileDropdown {
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+        display: block;
+      }
+    }
+  }
+  .rt_allModuleNoteText {
+    padding: 4px 0px;
+    font-size: 13px;
+    color: #1a2532;
+    line-height: 20px;
+  }
+  .rt_heading {
+    font-size: 13px;
+    font-weight: bold;
+    @include padding(0px, 0px, 10px, 0);
+    color: #1a2532;
+  }
+
+  .rt_calendarValue {
+    float: left;
+    @include margin(0px, 5px, 0px, 0px);
+    line-height: 30px;
+    position: relative;
+    @include padding(0px, 5px, 0px, 5px);
+    cursor: pointer;
+    max-width: 240px;
+    .rt_valueStyle {
+      color: #1a2532;
+      font-size: 13px;
+      line-height: 30px;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+    &:hover {
+      background-color: #fffbcf;
+    }
+    &:hover .rt_editicon {
+      display: block;
+    }
+    .rt_editicon {
+      float: right;
+      margin-left: 8px;
+      font-size: 14px;
+      display: none;
+    }
+  }
+
+  table {
+    border-spacing: 0px;
+
+    tr:hover {
+      background-color: #fff;
+    }
+    tr th,
+    tr td {
+      font-size: 13px;
+      text-align: left;
+      box-sizing: border-box;
+    }
+
+    tr th {
+      color: #878787;
+      @include padding(5px, 10px, 5px, 10px);
+      background: transparent;
+      border-top: none;
+      border-bottom: none;
+      font-weight: bold;
+      color: #999;
+
+      &:first-child {
+        padding-left: 0px;
+      }
+    }
+    tr td {
+      @include padding(18px, 10px, 15px, 10px);
+      border-top: 1px solid #eee;
+      border-bottom: none;
+      width: 505px;
+      &:first-child {
+        padding-left: 0;
+      }
+    }
+  }
+}
+
+.rt_deleteDateOption {
+  .viewText {
+    color: #878787;
+    font-size: 13px;
+    line-height: 30px;
+    cursor: pointer;
+    margin-left: 10px;
+  }
+
+  .rt_deleteIcon {
+    float: right;
+    margin-top: 6px;
+  }
+
+  .rt_addReminder {
+    color: #878787;
+    font-size: 13px;
+    cursor: pointer;
+    display: inline-block;
+    @include margin(5px, 0px, 0px, 0px);
+  }
+
+  .rt_icon {
+    cursor: pointer;
+    color: $icon-color;
+    font-size: 16px;
+  }
+}
+
+:global {
+  .rt_calenderIcon {
+    margin-left: 10px;
+    font-size: 16px;
+    margin-top: 5px;
+    @include displayIB;
+    color: $icon-color;
+  }
+  .rt_dropdownCustomClass {
+    width: 220px;
+    @include displayIB;
+    border: 1px solid $border-color-grey;
+    background: $color-white;
+    color: #1a2532;
+    margin-top: 0;
+    margin-right: 4px;
+
+    .disabled {
+      background: #bbb;
+      .caret {
+        display: none;
+      }
+    }
+
+    .dropdown {
+      button {
+        font-size: 13px;
+        padding-left: 0px;
+        color: #1a2532;
+        text-align: left;
+        width: 100%;
+        max-width: 200px;
+        padding: 0 5px;
+      }
+    }
+    :after {
+      display: none;
+    }
+    :before {
+      display: none;
+    }
+
+    .dropdown-menu {
+      top: 22px;
+      right: 8px;
+      width: 220px;
+      max-height: 180px;
+      overflow: auto;
+    }
+
+    .caret {
+      position: absolute;
+      top: 14px;
+      right: 5px;
+    }
+  }
+}

@@ -1,0 +1,1 @@
+export const ERROR_HIDE_DURATION = 10000;

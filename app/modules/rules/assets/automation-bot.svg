@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="23px" viewBox="0 0 24 23" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 49.3 (51167) - http://www.bohemiancoding.com/sketch -->
+    <title>icons/grey/robot</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round">
+        <g id="Heading" transform="translate(-32.000000, -1.000000)" stroke="#888888">
+            <g id="icons/grey/robot" transform="translate(32.000000, 1.000000)">
+                <g id="Group-24" transform="translate(1.000000, 1.000000)">
+                    <path d="M22,17 C21.3488648,17 21,16.7200204 21,16 L21,12 C21,11.2934203 21.3311898,11 22,11" id="Rectangle-20" stroke-width="2" transform="translate(21.500000, 14.000000) scale(-1, 1) translate(-21.500000, -14.000000) "></path>
+                    <path d="M1,17 C0.32279045,17 0,16.7270904 0,16 L0,12 C0,11.246771 0.307198585,11 1,11" id="Rectangle-20" stroke-width="2"></path>
+                    <rect id="Rectangle-20" stroke-width="2" x="3" y="6" width="16" height="15" rx="2"></rect>
+                    <circle id="Oval" stroke-width="2" cx="7.5" cy="13.5" r="1.5"></circle>
+                    <circle id="Oval" stroke-width="2" cx="14.5" cy="13.5" r="1.5"></circle>
+                    <path d="M11,3 L11,6" id="Path-34" stroke-width="2"></path>
+                    <circle id="Oval" stroke-width="2" cx="11" cy="1.5" r="1.5"></circle>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,64 @@
+@import "~appStyles/commonStyle.scss";
+
+.headerSection {
+  position: relative;
+  margin-bottom: 10px;
+  @include clearfix;
+  .heading {
+    float: left;
+    font-size: 13px;
+    font-weight: bold;
+    margin-right: 5px;
+  }
+  .editLink {
+    float: right;
+  }
+  :global {
+    .infoIcon {
+      vertical-align: top;
+      float: left;
+    }
+  }
+}
+
+.tagsSection {
+  position: relative;
+  font-size: 13px;
+  line-height: 20px;
+  color: #1a2532;
+  border: 1px solid #cccccc;
+  @include padding(5px, 5px, 0px, 5px);
+  @include clearfix;
+  max-height: 134px;
+  overflow-y: auto;
+  :global {
+    .tagItem-tag {
+      @include margin(0px, 5px, 5px, 0px);
+    }
+  }
+  .customLinkStyle {
+    display: inline-block;
+    font-size: 13px;
+    @include margin(0px, 5px, 5px, 5px);
+    .rightArrowIcon {
+      font-size: 10px;
+      margin-left: 4px;
+    }
+  }
+
+  .tagsSectionEdit {
+    margin-bottom: 5px;
+    .tagsAdded {
+      background: #999;
+      border-radius: 3px;
+      padding: 2px 10px;
+      font-size: 12px;
+      color: $color-white;
+      margin-right: 10px;
+      .icon {
+        padding-left: 10px;
+        font-size: 9px;
+      }
+    }
+  }
+}

@@ -1,0 +1,11 @@
+@import "~appStyles/commonStyle.scss";
+.copyRightSection {
+  color: $color-grey;
+  font-size: 12px;
+  line-height: 18px;
+  .privacyPolicyText {
+    text-decoration: none;
+    color: #0072bc;
+    margin-left: 20px;
+  }
+}

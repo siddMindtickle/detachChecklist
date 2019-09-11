@@ -1,0 +1,89 @@
+@import "~appStyles/commonStyle.scss";
+.getHelpStyle {
+  float: left;
+  position: relative;
+  span.icon {
+    font-size: 24px;
+    color: #999;
+    cursor: pointer;
+  }
+  h1 {
+    line-height: 25px;
+    color: #000;
+    font-size: 16px;
+    margin-bottom: 10px;
+    font-weight: bold;
+  }
+  .helpPopUpBox {
+    background: #f9f9f9;
+    border-radius: 3px;
+    border: 1px solid #eee;
+    padding: 15px 10px;
+    .subHeading {
+      font-weight: 300;
+      color: #000;
+      font-size: 14px;
+      line-height: 18px;
+      font-weight: 700;
+    }
+    .reportIssueLink {
+      text-decoration: none;
+      cursor: pointer;
+      margin-bottom: 3px;
+      font-weight: 700;
+    }
+    .paraText {
+      color: #000;
+      font-size: 13px;
+
+      .infoMessage {
+        width: 170px;
+        top: 20px;
+        left: -85px;
+      }
+    }
+  }
+
+  .copyRightlinks {
+    margin-right: 20px;
+    font-size: 13px;
+    color: #aaa;
+    cursor: pointer;
+
+    &:hover {
+      color: $link-color-cerulean;
+    }
+  }
+}
+
+:global {
+  .getHelp {
+    .popover-content {
+      padding: 10px 20px;
+    }
+    .popover.bottom > .arrow {
+      display: block;
+      left: 94%;
+      margin-left: 0;
+      border-top-width: 0;
+      border-bottom-color: rgba(0, 0, 0, 0.25);
+      top: -11px;
+    }
+    .gh-input {
+      width: 300px;
+      line-height: 18px;
+      padding: 5px 6px;
+      font-size: 13px;
+      border: 1px solid #eee;
+      box-sizing: content-box;
+    }
+    .customPosition {
+      @include z-index(popover);
+      left: -488px;
+      top: 3px;
+      border-radius: 0px;
+      width: 522px;
+      transition: 0.4s height;
+    }
+  }
+}

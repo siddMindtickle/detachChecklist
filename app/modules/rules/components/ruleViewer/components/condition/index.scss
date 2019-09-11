@@ -1,0 +1,20 @@
+@import "../../index";
+
+.baseCondition {
+  @extend .ruleBlock;
+}
+
+.triad {
+  display: flex;
+  padding: 0;
+
+  div {
+    padding: 2px 10px;
+  }
+}
+
+.triadOperator {
+  border-width: 0 1px;
+  border-style: dashed;
+  border-color: #d1d1d1;
+}

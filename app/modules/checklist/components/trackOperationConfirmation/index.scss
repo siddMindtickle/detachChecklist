@@ -1,0 +1,27 @@
+@import "~appStyles/commonStyle.scss";
+@import "~appStyles/variableColor.scss";
+
+.popHeading {
+  margin-top: 10px;
+  margin-left: 80px;
+  text-align: left;
+}
+
+.radioWrapper {
+  .radioGroupStyle {
+    padding: 5px;
+    margin-left: 75px;
+    margin-top: 25px;
+    display: block;
+    text-align: left;
+
+    .radioOptionStyle {
+      margin-bottom: 15px;
+      display: block;
+      float: none;
+    }
+  }
+  .clear {
+    clear: both;
+  }
+}

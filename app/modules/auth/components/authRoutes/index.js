@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { Switch } from "react-router-dom";
 
-//import { asyncComponent as GetAsyncComponent } from "@core/helpers";
+import { asyncComponent as GetAsyncComponent } from "@core/helpers";
 
 import PrivateRoute from "@components/privateRoute";
 
@@ -12,10 +12,9 @@ import { hasModuleAccess } from "../../utils";
 
 import { withHeader } from "../../utils/hoc";
 
-const Checklist = withHeader();
-/*GetAsyncComponent(() =>
-    import(/!* webpackChunkName: "checklist" *!/ "../../../checklist")
-  )*/
+const Checklist = withHeader(
+  GetAsyncComponent(() => import(/* webpackChunkName: "checklist" */ "../../../checklist"))
+);
 
 const ILT = withHeader();
 //GetAsyncComponent(() => import(/* webpackChunkName: "ilt" */ "../../../ilt"))

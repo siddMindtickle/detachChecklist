@@ -6,11 +6,17 @@ const https = require("http"),
   HttpProxyRules = require("http-proxy-rules"),
   accesslog = require("access-log");
 
+const localUrl = `http://localhost:${process.env.SERVER_PORT}`;
+
 const proxyRules = new HttpProxyRules({
   rules: {
+    "/ui": localUrl,
+    "/assests-ui": `${localUrl}/assests-ui`,
+    "/favicon.ico": `${localUrl}/favicon.ico`,
+    "/([0-9a-z]+).hot-update": `${localUrl}/$1.hot-update.json`,
     "/zen": process.env.BASE_PATH,
   },
-  default: `http://localhost:${process.env.SERVER_PORT}`
+  default: process.env.BASE_PATH
 });
 
 const proxy = httpProxy.createProxy();

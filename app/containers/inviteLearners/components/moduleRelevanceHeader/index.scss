@@ -1,0 +1,39 @@
+@import "~appStyles/commonStyle.scss";
+
+.relevanceHeader {
+  float: left;
+
+  .relevanceIcon {
+    float: left;
+    margin-top: 4.5px;
+    margin-left: 5px;
+  }
+  .relevanceHeaderText {
+    float: left;
+    margin-top: 4.5px;
+    margin-left: 5px;
+    margin-right: 5px;
+  }
+
+  .relevanceHeaderDropdown {
+    position: relative;
+    margin-left: 150px;
+    .relevanceDropdown {
+      float: left;
+      :global {
+        .dropdown-menu {
+          &:after {
+            left: 144px !important;
+          }
+          &:before {
+            left: 144px !important;
+          }
+        }
+      }
+    }
+  }
+}
+
+.infoOverlay {
+  min-width: 500px;
+}

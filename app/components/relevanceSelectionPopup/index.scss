@@ -1,0 +1,110 @@
+@import "~appStyles/commonStyle.scss";
+@import "~appStyles/variableColor.scss";
+
+.modalWrapper {
+  width: 450px;
+  height: 400px;
+  border-radius: 5px;
+  font-size: 13px;
+  top: 24%;
+  bottom: 8%;
+}
+
+.popHeading {
+  margin-top: 30px;
+  margin-left: 30px;
+  margin-right: 30px;
+  text-align: left;
+}
+
+.actionButtonsPanel {
+  margin-left: 90px;
+  margin-right: 90px;
+  margin-bottom: 20px;
+}
+
+.popupTriggerText {
+  color: #0072bb;
+  font-weight: 600;
+}
+.popupTriggerIcon {
+  position: absolute;
+  left: 54px;
+  top: 3px;
+}
+
+.radioWrapper {
+  .radioGroupStyle {
+    padding: 5px;
+    margin-left: 30px;
+    margin-top: 25px;
+    margin-bottom: 30px;
+
+    display: block;
+    text-align: left;
+
+    .radioOptionStyle {
+      margin-bottom: 15px;
+      display: block;
+      float: none;
+    }
+  }
+  .clear {
+    clear: both;
+  }
+}
+
+.relevanceSelectionStyle {
+  float: left;
+  position: relative;
+  span.icon {
+    font-size: 24px;
+    color: #999;
+    cursor: pointer;
+  }
+  h1 {
+    line-height: 25px;
+    color: #000;
+    font-size: 16px;
+    margin-bottom: 10px;
+    font-weight: bold;
+  }
+  .helpPopUpBox {
+    background: #f9f9f9;
+    border-radius: 3px;
+    border: 1px solid #eee;
+    padding: 15px 10px;
+    .subHeading {
+      font-weight: 300;
+      color: #000;
+      font-size: 14px;
+      line-height: 18px;
+      font-weight: 700;
+    }
+    .paraText {
+      color: #000;
+      font-size: 13px;
+
+      .infoMessage {
+        width: 170px;
+        top: 20px;
+        left: -85px;
+      }
+    }
+  }
+}
+
+:global {
+  .relevanceSelection {
+    margin-top: 5px;
+
+    .popover-content {
+      padding: 10px 20px;
+      width: 420px;
+    }
+    .popover.bottom {
+      position: absolute;
+      left: -180px;
+    }
+  }
+}

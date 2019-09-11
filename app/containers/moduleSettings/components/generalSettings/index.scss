@@ -1,0 +1,42 @@
+@import "~appStyles/commonStyle.scss";
+@import "~appStyles/variableColor.scss";
+.description {
+  height: 190px;
+  width: 64%;
+
+  :global {
+    .desc_editor {
+      width: 90%;
+
+      .customLength {
+        position: absolute;
+        right: -40px;
+        top: 0px;
+        color: $color-mildgrey;
+        font-size: 12px;
+        height: 22px;
+        text-align: left;
+        min-width: 30px;
+      }
+    }
+  }
+}
+.tagBlock {
+  width: 64%;
+  float: left;
+  margin-top: 25px;
+  min-height: 190px;
+  height: auto;
+}
+
+.thumbnailBlock {
+  width: 28%;
+  float: left;
+  margin-right: 20px;
+}
+.customCard {
+  margin-left: auto !important;
+  height: auto !important;
+  width: 31%;
+  min-height: 190px;
+}

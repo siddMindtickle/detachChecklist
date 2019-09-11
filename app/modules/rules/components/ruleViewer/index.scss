@@ -1,0 +1,165 @@
+.ruleViewer {
+  ul li {
+    position: relative;
+  }
+
+  ul {
+    list-style: none;
+    padding-left: 20px;
+    position: relative;
+  }
+
+  :global {
+    .infoIcon {
+      font-size: 11px;
+    }
+
+    .ruleModuleIcon {
+      border-radius: 2px;
+      margin: 0 3px 0 0;
+    }
+  }
+}
+
+.ruleTabsHeader {
+}
+
+.ruleViewerTab {
+  border-top: 1px solid #e7e8ec;
+  color: #373d44;
+  font-size: 14px;
+  line-height: 19px;
+  padding: 24px 10px;
+}
+
+.tabTitleContainer {
+  display: flex;
+  align-items: baseline;
+  margin-bottom: 18px;
+}
+
+.tabTitle {
+  font-weight: 600;
+  margin-right: 5px;
+}
+
+.tabDescription {
+}
+
+.conditionGrouping {
+  position: absolute;
+  left: -40px;
+  top: 50%;
+}
+
+.conditionList {
+}
+
+.tree {
+}
+
+.ruleBlockContainer {
+  padding: 20px 10px 24px 10px;
+  overflow-x: auto;
+
+  > ul {
+    padding-left: 40px;
+  }
+}
+
+.block {
+  background-color: #f6f7f9;
+  border: 1px solid #eeeeee;
+  border-radius: 12px;
+  display: inline-flex;
+  align-items: center;
+  font-size: 12px;
+  height: 24px;
+  line-height: 17px;
+  margin-bottom: 4px;
+  padding: 0px 10px;
+}
+
+.tree > li::before {
+  top: 12px;
+  border-width: 1px 0 0 1px;
+  content: "";
+  position: absolute;
+  left: -20px;
+  bottom: -13px;
+  width: 20px;
+  border-color: #e9e9e9;
+  border-style: solid;
+}
+
+.tree li:last-child::before {
+  border-width: 1px 0 0 0;
+  left: -20px;
+}
+
+.conditionList > li:last-child > div:last-child {
+  display: none;
+}
+
+.tree > li:first-child > div:first-child::after {
+  top: -2em;
+  border-width: 0 0 0 1px;
+  content: "";
+  position: absolute;
+  left: -20px;
+  width: 20px;
+  height: 3em;
+  bottom: 30px;
+  border-color: #e9e9e9;
+  border-style: solid;
+}
+
+.group2 {
+  position: relative;
+}
+
+.barLeft::before {
+  top: -1em;
+  border-width: 0 0 1px 0;
+  content: "";
+  position: absolute;
+  left: 0px;
+  width: 20px;
+  height: 2em;
+  border-color: #e9e9e9;
+  border-style: solid;
+}
+
+.alignStart {
+  display: flex;
+  align-items: flex-start;
+  white-space: nowrap;
+}
+
+.alignCenter {
+  display: flex;
+  align-items: center;
+}
+
+.groupBlock {
+  @extend .alignStart;
+  padding-left: 20px;
+}
+
+.itemsBlock {
+  @extend .groupBlock;
+  @extend .barLeft;
+  flex-direction: column;
+}
+
+.group ul:first-child {
+  padding-left: 0;
+}
+
+.ruleBlock {
+  @extend .alignStart;
+
+  &:not(:last-child) {
+    padding-bottom: 48px;
+  }
+}

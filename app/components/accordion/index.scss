@@ -1,0 +1,94 @@
+@import "~appStyles/commonStyle.scss";
+:global {
+  .ac_wrapper {
+    position: relative;
+
+    .ac_buttonDownArrow {
+      margin-left: 10px;
+      font-size: 10px;
+      margin-top: 9px;
+      color: white;
+      display: inline-block;
+      position: absolute;
+      top: 3px;
+      right: 13px;
+    }
+
+    .ac_panelHeading {
+      padding: 10px 15px;
+      border-top-right-radius: 3px;
+      border-top-left-radius: 3px;
+      background: #0099e0;
+      @include clearfix;
+      .ac_panelListdropdown {
+        float: left;
+        width: 110px;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        margin-right: 5px;
+        font-size: 13px;
+      }
+      .collapsed {
+        .ac_panelDownArrow {
+          display: block;
+        }
+        .ac_panelUpArrow {
+          display: none;
+        }
+      }
+      .ac_panelDownArrow {
+        display: none;
+      }
+      .ac_panelUpArrow {
+        display: block;
+      }
+
+      .ac_panelDownArrow,
+      .ac_panelUpArrow {
+        float: left;
+        font-size: 10px;
+        margin-top: 5px;
+        color: #535353;
+      }
+    }
+    .panel-group {
+      position: absolute;
+      right: 1px;
+    }
+    .panel {
+      background-color: #fff;
+    }
+    .panel-title {
+      margin-top: 0;
+      margin-bottom: 0;
+      font-size: 16px;
+      a {
+        display: flex;
+      }
+    }
+    .collapse.in {
+      display: block;
+    }
+    .collapse {
+      display: none;
+    }
+    .panel-heading {
+      padding: 10px 15px;
+      border-bottom: 1px solid transparent;
+      border-top-right-radius: 3px;
+      border-top-left-radius: 3px;
+    }
+    .collapsing {
+      position: relative;
+      height: 0px;
+      overflow: hidden;
+      -webkit-transition-property: height, visibility;
+      transition-property: height, visibility;
+      -webkit-transition-duration: 0.35s;
+      transition-duration: 0.35s;
+      -webkit-transition-timing-function: ease;
+      transition-timing-function: ease;
+    }
+  }
+}

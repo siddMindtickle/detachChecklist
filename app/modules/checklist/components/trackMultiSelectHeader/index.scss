@@ -1,0 +1,54 @@
+@import "~appStyles/commonStyle.scss";
+
+.filterOptionsPanel {
+  display: inline-block;
+  padding: 20px 0px;
+  height: 65px;
+
+  .deleteIcon {
+    margin-right: 5px;
+    font-size: 14px;
+  }
+  .learnerSelect,
+  .deselect {
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 20px;
+  }
+  .totalLearnerSelected {
+    color: #888;
+    margin-right: 0px;
+    @include displayIB;
+    font-size: 13px;
+  }
+  .deselectAll {
+    margin-right: 20px;
+    @include displayIB;
+    font-size: 13px;
+  }
+  .divider {
+    height: 28px;
+    width: 1px;
+    background: #ddd;
+    display: inline-block;
+    vertical-align: middle;
+  }
+  .removeLearner {
+    margin-right: 20px;
+    margin-left: 20px;
+    @include displayIB;
+    font-size: 13px;
+  }
+  .resetAll {
+    @include displayIB;
+    font-size: 13px;
+    margin-right: 20px;
+    margin-left: 20px;
+  }
+  .changeRelevanceAll {
+    @include displayIB;
+    font-size: 13px;
+    margin-right: 40px;
+    margin-left: 20px;
+  }
+}

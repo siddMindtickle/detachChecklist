@@ -1,0 +1,66 @@
+@import "~appStyles/commonStyle.scss";
+
+:global {
+  .openSearch {
+    display: block;
+    vertical-align: top;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #ddd;
+
+    label {
+      display: block;
+
+      input {
+        width: calc(100% - 75px);
+      }
+    }
+    .close-icon {
+      right: 5px;
+    }
+  }
+
+  .tags-modalbody {
+    width: 600px;
+    position: relative;
+    @include margin(50px, auto, 20px, auto);
+
+    .tagsScroll {
+      overflow-y: auto;
+      height: calc(100vh - 240px);
+      padding-bottom: 40px;
+    }
+
+    .tags-modalFooter {
+      padding-top: 20px;
+      padding-right: 0px;
+      padding-bottom: 20px;
+      padding-left: 0px;
+      border-top: 1px solid #ddd;
+      position: fixed;
+      left: 0px;
+      bottom: 0;
+      width: 100%;
+      background: $bg-color-white;
+      text-align: center;
+
+      .tagsTobeApplied {
+        width: 600px;
+        margin: auto;
+        position: relative;
+        min-height: 32px;
+        @include clearfix();
+        .tagsSelected {
+          margin-left: 140px;
+          @include clearfix();
+          max-height: 100px;
+          overflow-y: auto;
+        }
+      }
+      .tagsApplyBtns {
+        position: absolute;
+        top: 0;
+        right: -282px;
+      }
+    }
+  }
+}

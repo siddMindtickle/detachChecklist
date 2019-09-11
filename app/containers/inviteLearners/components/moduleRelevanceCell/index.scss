@@ -1,0 +1,21 @@
+@import "~appStyles/commonStyle.scss";
+
+.relevance {
+  width: 350px;
+  z-index: 100;
+  margin-right: 100px;
+
+  .radioWrapper {
+    .radioGroupStyle {
+      color: black;
+
+      .radioOptionStyle {
+        color: black;
+      }
+    }
+  }
+}
+
+.disabledRelevanceValue {
+  margin-left: 25px;
+}

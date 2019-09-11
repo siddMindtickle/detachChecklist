@@ -1,0 +1,23 @@
+@import "~appStyles/commonStyle.scss";
+
+.learnersSelectionTableCustom {
+  margin: 0;
+
+  td {
+    margin: 10px 0px 10px 20px;
+    :global {
+      .checkbox {
+        margin-right: 0px;
+        margin-top: 3px;
+      }
+    }
+
+    .filterOptionsPanelALT {
+      @include margin(0, 0, 20px, 0);
+    }
+  }
+
+  .header {
+    width: 400px;
+  }
+}

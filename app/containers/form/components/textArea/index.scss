@@ -1,0 +1,23 @@
+@import "~appStyles/commonStyle.scss";
+.textArea {
+  position: relative;
+  margin-bottom: 36px;
+  display: inline-flex;
+  width: 534px;
+  height: 70px;
+  line-height: 18px;
+  background: $bg-color-white;
+  border: 1px solid $border-color-cloud;
+  @include fontStack_13;
+  border-radius: 2px;
+  resize: none;
+  padding: 4px 8px;
+}
+
+.counterStyle {
+  color: #696969;
+  font-size: 12px;
+  margin-left: 10px;
+  height: 30px;
+  line-height: 30px;
+}

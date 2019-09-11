@@ -1,0 +1,20 @@
+@import "~appStyles/commonStyle.scss";
+
+.attachmentNoteIcon {
+  @include margin(10px, 0px, 36px, 0);
+  @include clearfix;
+  .snapsotNoteIcon {
+    margin-right: 5px;
+    width: 15px;
+    float: left;
+    color: $color-grey;
+    @include lineHeight(24px);
+  }
+  .snapsotNote {
+    color: #666;
+    width: 530px;
+    @include fontStack_13;
+    float: left;
+    @include lineHeight(22px);
+  }
+}

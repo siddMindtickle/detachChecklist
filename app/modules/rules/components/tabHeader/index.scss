@@ -1,0 +1,108 @@
+@import "~appStyles/commonStyle.scss";
+
+$tabHeaderNameFont: 20px;
+$tabHeaderDescFont: 14px;
+$tabHeaderNameWidth: 320px;
+
+.tabContentHeader {
+  margin-bottom: 24px;
+
+  .tabContentState {
+    background-color: #4a90e2;
+    border: none;
+    border-radius: 4px;
+    color: #fff;
+    padding: 0 24px;
+
+    &:hover {
+      background-color: #53a2fc;
+      border: none;
+      border-radius: 4px;
+      color: #fff;
+    }
+
+    &:active {
+      background-color: #4281c9;
+      border: none;
+      border-radius: 4px;
+      color: #fff;
+    }
+  }
+}
+
+.tchFirstSection {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+
+.tchSecondSection {
+  display: flex;
+  align-items: center;
+  margin: 4px 0 0;
+}
+
+.tchThirdSection {
+  height: 56px;
+  margin-top: 16px;
+  position: relative;
+}
+
+.tabContentDescription {
+}
+
+.tcdInput {
+  width: 100%;
+}
+
+.tcStatic {
+  padding: 0 10px;
+}
+
+.tcdStatic {
+  color: #737d8a;
+  font-size: $tabHeaderDescFont;
+  line-height: 17px;
+  padding: 1px 12px;
+
+  @include multiLineEllipsis(1.2em, 3);
+}
+
+.contentDescription {
+}
+
+.tabContentInfo {
+  display: flex;
+}
+
+.tabContentName {
+}
+
+.tcnInput {
+  border-radius: 4px 0 0 4px;
+  float: left;
+  margin-right: 0;
+  width: $tabHeaderNameWidth;
+}
+
+.tcnInputMaxLength {
+  border-color: #bbbbbb;
+  border-radius: 0 4px 4px 0;
+  border-width: 1px 1px 1px 0;
+  height: 100%;
+  line-height: 2em;
+  margin-right: 15px;
+  padding: 4px 8px;
+}
+
+.tcnStatic {
+  color: #2a2e36;
+  font-size: $tabHeaderNameFont;
+
+  @include truncate($tabHeaderNameWidth);
+}
+
+.tabContentStatus {
+  margin-left: 10px;
+}

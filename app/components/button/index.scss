@@ -1,0 +1,150 @@
+@import "~appStyles/commonStyle.scss";
+// buttons
+.commonButtonStyle {
+  @include fontStack_13;
+  cursor: pointer;
+  &.roundBtn {
+    @include borderRadius(24px);
+    @include lineHeight(24px);
+    height: 24px;
+    width: 24px;
+    font-size: 10px;
+    &.defaultBtn {
+      background: $btn-bgcolor-white;
+      color: #999999;
+      border: 1px solid #ccc;
+      padding: 0px 5px;
+    }
+    &.primaryBtn {
+      background: $btn-bgcolor-cerulean;
+      padding: 0px 5px;
+      border: 1px solid $btn-bgcolor-cerulean;
+      color: $color-white;
+      &:disabled {
+        cursor: default;
+        background: $btn-bgcolor-cerulean-disabled;
+        border: none;
+      }
+    }
+  }
+
+  &.okBtnSm {
+    @include borderRadius(15px);
+    @include lineHeight(29px);
+    padding: 0px 30px;
+    background: $btn-bgcolor-cerulean;
+    border: 1px solid $btn-bgcolor-cerulean;
+    color: $color-white;
+    &:disabled {
+      cursor: default;
+      background: $btn-bgcolor-cerulean-disabled;
+      border-color: $btn-bgcolor-cerulean-disabled;
+    }
+  }
+
+  &.smbtn {
+    @include borderRadius(15px);
+    @include lineHeight(29px);
+    padding: 0px 20px;
+
+    &.defaultBtnSm {
+      background: $btn-bgcolor-white;
+      color: #999999;
+      border: 1px solid #ccc;
+    }
+    &.primaryBtnSm {
+      background: $btn-bgcolor-cerulean;
+      border: 1px solid $btn-bgcolor-cerulean;
+      color: $color-white;
+      &:disabled {
+        cursor: default;
+        background: $btn-bgcolor-cerulean-disabled;
+        border-color: $btn-bgcolor-cerulean-disabled;
+      }
+    }
+    &.primaryBtnSmBorder {
+      background: $btn-bgcolor-transparent;
+      border: 1px solid $btn-bgcolor-cerulean;
+      color: $btn-bgcolor-cerulean;
+      &:disabled {
+        cursor: default;
+        background: $btn-bgcolor-transparent;
+        border-color: $button-color-disabled;
+        color: $button-color-disabled;
+      }
+    }
+    &.yellowBtnSm {
+      background: #f39c12;
+      color: $color-white;
+      border: 1px solid #e67e22;
+      &:disabled {
+        cursor: default;
+        background: hsla(36, 92%, 50%, 0.5);
+        border-color: hsla(28, 85%, 50%, 0.5);
+      }
+    }
+  }
+
+  &.lgbtn {
+    @include borderRadius(2px);
+    @include lineHeight(34px);
+    padding: 0px 20px;
+    width: 100%;
+
+    &.defaultBtnLg {
+      background: $btn-bgcolor-white;
+      color: #7c7c7c;
+      border: 1px solid #ccc;
+    }
+    &.primaryBtnLg {
+      background: $btn-bgcolor-cerulean;
+      border: 1px solid $btn-bgcolor-cerulean;
+      color: $color-white;
+      &:disabled {
+        cursor: default;
+        background: $btn-bgcolor-cerulean-disabled;
+        border-color: $btn-bgcolor-cerulean-disabled;
+      }
+    }
+    &.yellowBtnLg {
+      background: #f39c12;
+      color: $color-white;
+      border: 1px solid #e67e22;
+      &:disabled {
+        cursor: default;
+        background: hsla(36, 92%, 50%, 0.5);
+        border-color: hsla(28, 85%, 50%, 0.5);
+      }
+    }
+  }
+
+  &.smNewBtn {
+    background-color: #ffffff;
+    border-radius: 16px;
+    font-size: 12px;
+    height: 24px;
+    padding: 0 12px;
+
+    &.primaryNewSm {
+      border: 1px solid #4a90e2;
+      color: #4a90e2;
+      &:hover {
+        background-color: #e4effb;
+      }
+    }
+
+    &.defaultNewSm {
+      border: 1px solid #989ca6;
+      color: #989ca6;
+      &:hover {
+        background-color: #f6f7f9;
+      }
+    }
+
+    &:disabled {
+      border: 1px solid #dddddd;
+      color: #bbbbbb;
+    }
+  }
+}
+// buttons

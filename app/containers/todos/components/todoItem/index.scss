@@ -1,0 +1,24 @@
+.todos-wrapper {
+  .todo-errors-container {
+    li {
+      list-style: none;
+      margin-bottom: 8px;
+    }
+    .todos-listItem {
+      font-size: 13px;
+      line-height: 18px;
+    }
+  }
+}
+.todosRightArrow {
+  font-size: 7px;
+  color: #0072bc;
+  margin-right: 5px;
+  width: 13px;
+  float: left;
+  margin-top: 5px;
+}
+.todoText {
+  width: 228px;
+  float: left;
+}

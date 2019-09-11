@@ -1,0 +1,10 @@
+@import "~appStyles/commonStyle.scss";
+.box_headingSection {
+  position: relative;
+  margin-bottom: 10px;
+  @include clearfix;
+  .box_heading {
+    font-size: 13px;
+    font-weight: bold;
+  }
+}

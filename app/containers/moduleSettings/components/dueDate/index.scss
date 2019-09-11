@@ -1,0 +1,166 @@
+@import "~appStyles/commonStyle.scss";
+.scoreWrapper {
+  @include clearfix;
+
+  .customDropdown {
+    display: inline-block;
+    position: relative;
+    border: 1px solid #ddd;
+    padding: 3px 5px;
+    margin-top: 10px;
+    min-width: 245px;
+    button {
+      font-size: 13px;
+      width: 100%;
+      text-align: left;
+    }
+  }
+
+  .leftSection {
+    float: left;
+    border-right: 1px solid #ddd;
+    width: 260px;
+    padding-right: 20px;
+    @include clearfix;
+
+    .heading {
+      font-size: 13px;
+      font-weight: bold;
+      color: #1a2532;
+    }
+    .noteAlert {
+      height: 32px;
+      line-height: 32px;
+      @include padding(0, 5px, 0px, 5px);
+      font-size: 12px;
+      position: relative;
+      .dd-dateText {
+        font-size: 13px;
+      }
+
+      .inputCustomClass {
+        width: 30px;
+        float: left;
+        font-size: 13px;
+        border: 1px solid $border-color-grey;
+        @include padding(0px, 0px, 0px, 5px);
+        line-height: 20px;
+        background: $color-white;
+        color: #1a2532;
+        margin-top: 6px;
+      }
+      &.colorYellow {
+        background-color: #ffffff;
+      }
+      &:hover {
+        background-color: #fffbcf;
+      }
+      b {
+        font-weight: 400;
+      }
+
+      .dd-editIcon {
+        position: absolute;
+        top: 0px;
+        right: 11px;
+        font-size: 13px;
+      }
+    }
+  }
+  .rightSection {
+    float: left;
+    padding: 0px 0px 0px 20px;
+
+    .radiobtnSection {
+      margin-top: 15px;
+      font-size: 13px;
+
+      input {
+        margin: 0px 5px 0 0;
+        cursor: pointer;
+      }
+
+      .radioBtnstyle {
+        margin-right: 10px;
+      }
+      .radioBtnText {
+        font-size: 13px;
+        color: #1a2532;
+      }
+    }
+    .heading {
+      font-size: 13px;
+      font-weight: bold;
+    }
+    .divider {
+      border-left: 1px solid #e6e6e6;
+      @include margin(0px, 20px, 0px, 20px);
+    }
+  }
+}
+
+.calendarValue {
+  float: left;
+  @include margin(0px, 10px, 0px, 0px);
+  line-height: 30px;
+  position: relative;
+  @include padding(0px, 5px, 0px, 5px);
+  cursor: pointer;
+  width: 232px;
+  .valueStyle {
+    color: #1a2532;
+    font-size: 13px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+  &:hover {
+    background-color: #fffbcf;
+  }
+  &:hover .editicon {
+    display: block;
+  }
+  .editicon {
+    float: right;
+    margin-left: 8px;
+    font-size: 14px;
+    display: none;
+  }
+}
+
+:global {
+  .duedate-dd {
+    @include margin(15px, 0, 10px, 0);
+    border: 1px solid #ccc;
+    background: #fff;
+    line-height: 27px;
+    padding: 0px 5px;
+    width: 232px;
+    .titileDropdown {
+      color: black;
+    }
+
+    .caretStyle {
+      width: 100%;
+      text-align: left;
+      padding-left: 0;
+      text-overflow: ellipsis;
+      overflow-x: hidden;
+      white-space: nowrap;
+    }
+    .caret {
+      position: absolute;
+      right: 0;
+      top: 14px;
+    }
+    .dropdown-menu {
+      width: 232px;
+      right: 4px;
+      top: 22px;
+    }
+    .dropdown-menu:after,
+    .dropdown-menu:before {
+      display: none;
+    }
+  }
+}

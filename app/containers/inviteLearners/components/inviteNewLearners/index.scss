@@ -1,0 +1,69 @@
+@import "~appStyles/commonStyle.scss";
+.addInviteNewLearnersWrapper {
+  @include clearfix;
+  position: relative;
+
+  .topIcons {
+    display: inline-block;
+    width: 100px;
+    float: right;
+
+    .icon {
+      color: #888;
+      font-size: 20px;
+    }
+  }
+  .addInviteNewLearners {
+    .addInviteLearner {
+      width: 640px;
+      margin: 20px auto 0 auto;
+    }
+    .inviteLearnerList {
+      height: 500px;
+      overflow-y: auto;
+      ul {
+        width: 640px;
+        margin: 20px auto 0 auto;
+      }
+    }
+
+    .addInviteNewLearnersHeading {
+      text-align: center;
+      font-size: 16px;
+      @include margin(0, 0, 20px, 0);
+    }
+
+    .btnAddToList {
+      display: block;
+    }
+  }
+}
+
+:global {
+  .ainl_Suggestions_DD {
+    width: 300px;
+    @include displayIB;
+    width: 300px;
+
+    .dropdown-menu:after,
+    .dropdown-menu:before {
+      display: none;
+    }
+    .dropdown-menu {
+      max-height: 200px;
+      width: 312px;
+      top: 19px;
+      left: 16px;
+      overflow-y: auto;
+    }
+    .caretStyle {
+      width: 100%;
+      label {
+        width: 100%;
+        input {
+          width: 100%;
+        }
+      }
+    }
+  }
+}

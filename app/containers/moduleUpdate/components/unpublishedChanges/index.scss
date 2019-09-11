@@ -1,0 +1,119 @@
+@import "~appStyles/commonStyle.scss";
+
+.ph_unpublished {
+  @include margin(0px, auto, 15px, auto);
+  width: 680px;
+
+  .publishPushChanges {
+    background-color: #fff7cc;
+    padding: 15px 0px;
+    margin: auto auto 0px auto;
+    text-align: center;
+
+    .publishPushChangesText {
+      display: inline-block;
+      color: #000;
+      font-size: 13px;
+      line-height: 18px;
+      position: relative;
+      top: 2px;
+    }
+  }
+  .withTodos {
+    background: transparent;
+    padding: 0px 0px 15px 0px;
+  }
+  .ph_footer {
+    text-align: center;
+
+    button:first-child {
+      margin-right: 10px;
+    }
+  }
+
+  .ph_notifyEmail {
+    .ph_notifyText {
+      font-size: 13px;
+      @include margin(-5px, 20px, 0, 10px);
+      @include displayIB;
+    }
+  }
+  .radio_notifyEmail > div {
+    display: inline-block;
+    font-size: 13px;
+
+    label {
+      @include padding(0, 10px, 0, 5px);
+    }
+  }
+}
+
+.publishChangesNote {
+  color: #999;
+  font-size: 13px;
+  font-style: italic;
+  line-height: 18px;
+  @include margin(5px, 0, 30px, 0);
+}
+.ph_notifyEmail {
+  margin-bottom: 20px;
+}
+
+.btns {
+  @include margin(80px, 0, 0, 0);
+  text-align: center;
+
+  .btn1 {
+    @include margin(0, 20px, 0, 0);
+  }
+}
+.invitemsg {
+  text-align: center;
+  margin: 0px 0px 15px 0px;
+}
+.invitemsgDefaultstyle {
+  background: #fff7cc;
+  padding: 15px 0px;
+  margin: 0px 0px 15px 0px;
+  text-align: center;
+}
+
+:global {
+  .ph-moduleUnpublishedDrpdown {
+    float: none;
+    display: inline-block;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    @include margin(0, 0, 0, 10px);
+    position: relative;
+
+    .caretStyle {
+      width: 348px;
+      text-align: left;
+      text-overflow: ellipsis;
+      overflow-x: hidden;
+      white-space: nowrap;
+      padding: 0 5px;
+      line-height: 30px;
+    }
+    .caret {
+      position: absolute;
+      right: 5px;
+      top: 14px;
+    }
+    .dropdown-menu {
+      margin: 0;
+      left: -1px;
+      top: 32px;
+      width: 350px;
+      max-height: 140px;
+      overflow-y: auto;
+
+      li a {
+        text-overflow: ellipsis;
+        overflow-x: hidden;
+        cursor: pointer;
+      }
+    }
+  }
+}

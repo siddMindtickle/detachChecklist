@@ -1,0 +1,26 @@
+@import "~appStyles/commonStyle.scss";
+
+.suggestedTagsSection {
+  position: absolute;
+  width: 224px;
+  top: 41px;
+  right: -282px;
+  background-color: #f7f7f7;
+  @include padding(15px, 0px, 5px, 0px);
+
+  .heading {
+    color: #000000;
+    font-size: 13px;
+    line-height: 14px;
+    margin-bottom: 10px;
+    margin-right: 6px;
+    display: inline-block;
+    @include padding(0px, 10px, 0px, 10px);
+  }
+
+  .suggestedTagsBlock {
+    overflow-y: auto;
+    max-height: calc(100vh - 285px);
+    @include padding(0px, 10px, 0px, 10px);
+  }
+}

@@ -275,7 +275,7 @@ class Header extends Component {
 
   render() {
     //const burgerMenuOptions = this.getBurgerMenuOptions();
-    const helpMenuOptions = this.getHelpDropdownOptions();
+    // const helpMenuOptions = this.getHelpDropdownOptions();
 
     //const userTitle = this.getUserAcronym();
     const {
@@ -297,15 +297,15 @@ class Header extends Component {
               seriesId={seriesId}
             />
           )}
-          {/*<GetHelp
+          {/* <GetHelp
             className={classnames("marginR20", "marginT15")}
             email={email}
-          /> */}
-          <BurgerMenu
+          />*/}
+          {/*<BurgerMenu
             options={helpMenuOptions}
             onSelect={this.handleDropdownSelect}
             type={DROPDOWN_TYPES.HELP}
-          />
+          />*/}
           {/*<BurgerMenu
             options={burgerMenuOptions}
             onSelect={this.handleDropdownSelect}

@@ -1,0 +1,19 @@
+@import "~appStyles/commonStyle.scss";
+:global {
+  .gotoInviteTrack {
+    a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 13px;
+      padding: 0px 4px;
+    }
+  }
+  .customMessageStyle {
+    font-size: 14px;
+    line-height: 24px;
+  }
+  .icon-close {
+    font-size: 12px;
+    color: #000;
+  }
+}

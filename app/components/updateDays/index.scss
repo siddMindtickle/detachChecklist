@@ -1,0 +1,21 @@
+@import "~appStyles/commonStyle.scss";
+@import "~appStyles/variableColor.scss";
+.ud_updateDays {
+  float: left;
+  @include clearfix;
+
+  .ud_top {
+    @include clearfix;
+    .ud_daysText {
+      float: left;
+      color: $color-black;
+      font-size: 13px;
+      margin: 6px 0px 0px 5px;
+    }
+  }
+  .ud_daysTextDesc {
+    font-size: 12px;
+    color: #999;
+    font-style: italic;
+  }
+}

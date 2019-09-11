@@ -1,0 +1,97 @@
+@import "~appStyles/variableColor.scss";
+
+.paginationContainer {
+  margin: 10px 0 20px 0;
+  float: right;
+  padding: 0 20px;
+
+  .pagination {
+    float: left;
+    input {
+      color: #000;
+      font-size: 13px;
+      line-height: 30px;
+      border: 1px solid #ddd;
+      margin-left: 5px;
+      margin-right: 5px;
+      position: relative;
+      width: 50px;
+      float: left;
+      padding: 0px 5px;
+      text-align: center;
+    }
+    .paginationCount {
+      float: left;
+    }
+  }
+
+  .prevNextButtons {
+    float: left;
+    line-height: 30px;
+
+    .prevButton,
+    .nextButton {
+      float: left;
+      border: 1px solid #ddd;
+      font-size: 11px;
+      cursor: pointer;
+      background-color: #fff;
+      padding: 0 10px;
+    }
+
+    .prevButton:hover,
+    .prevButton.active,
+    .nextButton:hover,
+    .nextButton.active {
+      color: #888;
+    }
+    .prevButton.dissable,
+    .nextButton.dissable {
+      border: 1px solid #f5f5f5;
+      color: #f5f5f5;
+    }
+  }
+
+  .paginationTextStyling {
+    font-size: 12px;
+    color: $color-mildgrey;
+    float: left;
+    line-height: 30px;
+    margin-right: 5px;
+  }
+
+  :global {
+    .paginationDropdown {
+      float: left;
+      line-height: 30px;
+      margin-right: 5px;
+      width: 50px;
+      background: #fff;
+      border: 1px solid #ddd;
+      position: relative;
+      .caret {
+        position: absolute;
+        top: 13px;
+        right: 5px;
+      }
+      .btn {
+        font-size: 13px;
+        margin-top: -5px;
+        padding-left: 5px;
+      }
+      .dropdown {
+        margin-right: 0px;
+      }
+
+      .dropdown-menu {
+        top: 18px;
+        right: 9px;
+        min-width: 52px;
+        &:after,
+        &:before {
+          display: none;
+        }
+      }
+    }
+  }
+}
