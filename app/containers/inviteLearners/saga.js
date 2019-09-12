@@ -1,5 +1,4 @@
-import { put, takeEvery, call, all, select, take, race } from "redux-saga/effects";
-import { delay } from "redux-saga";
+import { put, takeEvery, call, all, select, take, race, delay } from "redux-saga/effects";
 import { resetPagePerformanceData } from "@utils";
 import getActions, { getLoadingActions } from "@core/helpers/createActions";
 

@@ -1,5 +1,4 @@
-import { takeEvery, call, take, race } from "redux-saga/effects";
-import { delay } from "redux-saga";
+import { takeEvery, call, take, race, delay } from "redux-saga/effects";
 
 import { getLoadingActions } from "@core/helpers/createActions";
 import { POLLING_DELAY } from "@config/global.config";

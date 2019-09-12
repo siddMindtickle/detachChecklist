@@ -55,12 +55,12 @@ class AllInvitedModal extends Component {
     selectionData: []
   };
 
-  componentWillMount() {
+  UNSAFE_componentWillMount() {
     this.debouncedSearch = debounce(this.handleSearch, INPUT_WAIT);
     this.setFilters(this.props);
   }
 
-  componentWillReceiveProps(nextProps) {
+  UNSAFE_componentWillReceiveProps(nextProps) {
     if (nextProps.profileKeyData !== this.props.profileKeyData) {
       this.setFilters(nextProps);
     }

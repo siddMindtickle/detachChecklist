@@ -52,7 +52,7 @@ class DataTableWithSelection extends Component {
     isAllSelected: this.props.isAllSelected
   };
 
-  componentWillReceiveProps(nextProps) {
+  UNSAFE_componentWillReceiveProps(nextProps) {
     if (
       !deepEqual(this.props.data, nextProps.data) ||
       this.props.isAllSelected !== nextProps.isAllSelected

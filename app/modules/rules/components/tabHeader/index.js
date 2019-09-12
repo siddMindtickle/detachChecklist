@@ -39,7 +39,7 @@ class TabHeader extends Component {
     operationStatus: {}
   };
 
-  componentWillReceiveProps(nextProps) {
+  UNSAFE_componentWillReceiveProps(nextProps) {
     const oldOperationStatus = this.props.operationStatus;
     const newOperationStatus = nextProps.operationStatus;
     const { data: { operation } = {} } = newOperationStatus;

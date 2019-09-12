@@ -84,7 +84,7 @@ class ChooseTagsBody extends Component {
     this.setState({ showCreateScreen: !!value });
   };
 
-  componentWillReceiveProps(newProps) {
+  UNSAFE_componentWillReceiveProps(newProps) {
     if (!deepEqual(newProps, this.props)) {
       this.setState({ showCreateScreen: false });
     }
@@ -218,7 +218,7 @@ export default class ChooseTags extends Component {
     apply(selectedTagIds);
   };
 
-  componentWillReceiveProps(newProps) {
+  UNSAFE_componentWillReceiveProps(newProps) {
     if (!deepEqual(newProps.tagsMap, this.props.tagsMap)) {
       let newTags = Object.keys(newProps.tagsMap).subtract(Object.keys(this.props.tagsMap));
       newTags = convertArrayToObject(newTags);

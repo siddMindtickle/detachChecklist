@@ -33,7 +33,7 @@ export default class Insights extends Component {
     this.setState({ animating });
   };
 
-  componentWillReceiveProps(nextProps) {
+  UNSAFE_componentWillReceiveProps(nextProps) {
     if (nextProps.show && !this.props.show) {
       clearTimeout(this.timer);
       this.setState({

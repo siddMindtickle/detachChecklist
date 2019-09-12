@@ -26,7 +26,7 @@ class Pagination extends React.Component {
     onRowSizeChange: PropTypes.func.isRequired
   };
 
-  componentWillReceiveProps(nextProps) {
+  UNSAFE_componentWillReceiveProps(nextProps) {
     if (nextProps.current !== this.props.current) {
       this.setState({
         inputValue: nextProps.current

@@ -25,7 +25,7 @@ export default class Learner extends Component {
     </div>
   );
 
-  componentWillMount() {
+  UNSAFE_componentWillMount() {
     this.removeLearner = () => this.props.remove(this.props.id);
     if (this.props.errors.length) {
       this.errors = this.props.errors.map(this.renderError);

@@ -35,7 +35,7 @@ export default class AddInviteNewLearners extends Component {
     defaultModuleRelevanceSelection: this.props.defaultModuleRelevance || "NONE"
   };
 
-  componentWillReceiveProps(nextProps) {
+  UNSAFE_componentWillReceiveProps(nextProps) {
     const { learners, searchedLearners, userToAdd } = nextProps;
 
     if (!deepEqual(userToAdd, this.props.userToAdd)) {

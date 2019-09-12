@@ -84,7 +84,7 @@ class Todos extends Component {
     });
     return options;
   };
-  componentWillReceiveProps(newProps) {
+  UNSAFE_componentWillReceiveProps(newProps) {
     const { show: newShowState, moduleId, seriesId, getTodos, toggleShow } = newProps;
     const { show: oldShowState } = this.props;
     if (oldShowState !== newShowState) {

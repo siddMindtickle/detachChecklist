@@ -53,7 +53,7 @@ class GeneralSetting extends Component {
     update(newStateObject);
   };
 
-  componentWillReceiveProps(nextProps) {
+  UNSAFE_componentWillReceiveProps(nextProps) {
     if (!deepEqual(nextProps.details, this.state.details)) {
       this.setState({
         details: nextProps.details

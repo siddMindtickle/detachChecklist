@@ -42,7 +42,7 @@ export default function withValidation(WrappedComponent) {
       }
       return !errors.length;
     };
-    componentWillMount() {
+    UNSAFE_componentWillMount() {
       this.removeValidation = this.props.form.registerValidation(showError =>
         this.isValid(showError)
       );

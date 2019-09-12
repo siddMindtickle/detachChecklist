@@ -137,7 +137,7 @@ class LeftSection extends Component {
       </div>
     );
   };
-  componentWillReceiveProps(newProps) {
+  UNSAFE_componentWillReceiveProps(newProps) {
     if (!deepEqual(newProps.dueDate, this.props.dueDate)) {
       this.setState({
         dueDateType: newProps.dueDate.dueDateType,

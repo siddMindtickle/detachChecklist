@@ -100,7 +100,7 @@ class Thumbnail extends Component {
       />
     );
   };
-  componentWillReceiveProps(newProps) {
+  UNSAFE_componentWillReceiveProps(newProps) {
     const { loaded } = newProps;
 
     if (loaded && this.props.loaded !== loaded && !this.state.showModal) {

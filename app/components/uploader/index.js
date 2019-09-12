@@ -95,7 +95,7 @@ class Uploader extends Component {
     );
   };
 
-  componentWillMount() {
+  UNSAFE_componentWillMount() {
     this._mounted = true;
   }
   componentWillUnmount() {

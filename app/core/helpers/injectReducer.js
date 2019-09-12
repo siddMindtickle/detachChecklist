@@ -9,7 +9,7 @@ export default reducers => WrappedComponent => {
       store: PropTypes.object.isRequired
     };
 
-    componentWillMount() {
+    UNSAFE_componentWillMount() {
       let injector;
       if (Array.isArray(reducers)) {
         injector = injectMultipleReducer;
@@ -34,7 +34,7 @@ export const ejector = reducers => WrappedComponent => {
       store: PropTypes.object.isRequired
     };
 
-    componentWillMount() {
+    UNSAFE_componentWillMount() {
       ejectReducer(this.context.store, reducers);
     }
 

@@ -101,7 +101,7 @@ class Content extends Component {
       </div>
     );
   };
-  componentWillReceiveProps(newProps) {
+  UNSAFE_componentWillReceiveProps(newProps) {
     const {
       match: {
         params: { version: newVersion }

@@ -152,7 +152,7 @@ class Dropdown extends Component {
     }
   };
 
-  componentWillReceiveProps(nextProps) {
+  UNSAFE_componentWillReceiveProps(nextProps) {
     if (nextProps.title !== this.props.title) {
       this.setState({ title: nextProps.title });
     }

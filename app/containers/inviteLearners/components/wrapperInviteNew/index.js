@@ -42,7 +42,7 @@ export default class WrapperInviteNewLearners extends Component {
     });
   };
 
-  componentWillReceiveProps(nextProps) {
+  UNSAFE_componentWillReceiveProps(nextProps) {
     const { status } = nextProps;
     const { status: oldStatus } = this.props;
     if (!deepEqual(status, oldStatus)) {

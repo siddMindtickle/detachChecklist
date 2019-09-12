@@ -44,7 +44,7 @@ class EditableContent extends Component {
     secondaryChild: "Cancel"
   });
 
-  componentWillReceiveProps(nextProps) {
+  UNSAFE_componentWillReceiveProps(nextProps) {
     const oldOperationStatus = this.props.operationStatus;
     const newOperationStatus = nextProps.operationStatus;
     if (!deepEqual(oldOperationStatus, newOperationStatus)) {

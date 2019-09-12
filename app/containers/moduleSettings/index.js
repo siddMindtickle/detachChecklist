@@ -113,7 +113,7 @@ class ModuleSettings extends Component {
     !loaded && getSettings({ moduleId: moduleData.id, seriesId, moduleType });
   }
 
-  componentWillReceiveProps(nextProps) {
+  UNSAFE_componentWillReceiveProps(nextProps) {
     const {
       operationStatus: { loaded: newLoaded, data: { operation } = {} },
       onSettingUpdate

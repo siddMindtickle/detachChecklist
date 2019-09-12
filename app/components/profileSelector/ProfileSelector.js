@@ -17,7 +17,7 @@ class ProfileSelector extends Component {
   };
 
   // binding all the functions on the instance with the index
-  componentWillMount() {
+  UNSAFE_componentWillMount() {
     const index = this.props.index;
 
     this.onProfileFieldSelect = (value, event, { title }) => {

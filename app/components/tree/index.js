@@ -216,7 +216,7 @@ export default class Tree extends Component {
     }
   };
 
-  componentWillReceiveProps(nextProps) {
+  UNSAFE_componentWillReceiveProps(nextProps) {
     const { treeData } = this.state;
     if (!deepEqual(treeData, nextProps.treeData)) {
       this.setState({

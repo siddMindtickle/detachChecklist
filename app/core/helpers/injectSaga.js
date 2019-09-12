@@ -10,7 +10,7 @@ export default ({ name, saga, mode }) => WrappedComponent => {
       store: PropTypes.object.isRequired
     };
 
-    componentWillMount() {
+    UNSAFE_componentWillMount() {
       const { injectSaga } = this.injectors;
 
       injectSaga(name, { saga, mode }, this.props);

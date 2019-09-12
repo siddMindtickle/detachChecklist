@@ -64,7 +64,7 @@ class PublishDraft extends Component {
     this.props.loadData(params);
   }
 
-  componentWillReceiveProps(nextProps) {
+  UNSAFE_componentWillReceiveProps(nextProps) {
     const oldPublishData = this.props.publish.publish || {};
     const newPublishData = nextProps.publish.publish || {};
     if (!deepEqual(newPublishData, oldPublishData) && newPublishData.loaded) {

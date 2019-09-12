@@ -35,7 +35,7 @@ export default class NewLearnerForm extends Component {
     document.removeEventListener("mousedown", this.handleClickOutside);
   }
 
-  componentWillReceiveProps(nextProps) {
+  UNSAFE_componentWillReceiveProps(nextProps) {
     if (this.props.searchedLearners !== nextProps.searchedLearners) {
       const dropDownOptions = nextProps.searchedLearners.map(({ email }) => {
         return (

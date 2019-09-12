@@ -163,7 +163,7 @@ class TaskDetails extends Component {
     });
   };
 
-  componentWillReceiveProps(nextProps) {
+  UNSAFE_componentWillReceiveProps(nextProps) {
     const { description, id } = nextProps.node.data;
     const { id: oldId } = this.props.node.data;
 

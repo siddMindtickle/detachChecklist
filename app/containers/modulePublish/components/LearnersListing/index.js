@@ -24,7 +24,7 @@ class LearnersListingContainer extends Component {
     entityType: OPERATIONS.UPDATE
   };
 
-  componentWillMount() {
+  UNSAFE_componentWillMount() {
     // Defining on the instance so that a new object of actions is not created on every render
     this.actions = {
       ...this.props.actions,
@@ -32,7 +32,7 @@ class LearnersListingContainer extends Component {
     };
   }
 
-  componentWillReceiveProps(nextProps) {
+  UNSAFE_componentWillReceiveProps(nextProps) {
     const { operationStatus: { loaded } = {} } = this.props.data;
     const {
       operationStatus: { loaded: newLoadedState, data: { operation } = {} } = {}

@@ -38,7 +38,7 @@ class TextField extends Component {
     this.updateValueInStore(event.target.value);
   };
 
-  componentWillReceiveProps(nextProps) {
+  UNSAFE_componentWillReceiveProps(nextProps) {
     if (this.props.value !== nextProps.value) {
       this.updateValueInStore(nextProps.value);
     }

@@ -36,7 +36,7 @@ export default class WrapperInviteGroups extends Component {
     }
   };
 
-  componentWillReceiveProps(nextProps) {
+  UNSAFE_componentWillReceiveProps(nextProps) {
     const { loaded, hasError, groups } = nextProps;
     const { loaded: oldLoaded } = this.props;
     if (loaded && !hasError && loaded !== oldLoaded) {

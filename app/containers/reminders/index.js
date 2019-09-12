@@ -101,7 +101,7 @@ class Reminders extends Component {
     return Object.values(response).sort((a, b) => a.displayIndex - b.displayIndex);
   };
 
-  componentWillReceiveProps() {}
+  UNSAFE_componentWillReceiveProps() {}
   componentDidMount() {
     const { loaded, getData, moduleId, seriesId, companyId } = this.props;
     !loaded && getData({ moduleId, seriesId, companyId });

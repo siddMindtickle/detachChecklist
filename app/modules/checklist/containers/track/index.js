@@ -486,7 +486,7 @@ class ChecklistTrack extends Component {
     );
   };
 
-  componentWillReceiveProps(nextProps) {
+  UNSAFE_componentWillReceiveProps(nextProps) {
     const {
       poll,
       operationStatus: { loadingData: { operation: operationType } = {} },

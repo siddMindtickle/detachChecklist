@@ -32,7 +32,7 @@ class TabContent extends Component {
     this.handleRuleFetch();
   }
 
-  componentWillReceiveProps(nextProps) {
+  UNSAFE_componentWillReceiveProps(nextProps) {
     if (this.props.isLoading !== nextProps.isLoading) {
       this.setState({ isLoading: nextProps.isLoading });
     }

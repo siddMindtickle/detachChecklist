@@ -55,7 +55,7 @@ class Auth extends Component {
     );
   };
 
-  componentWillReceiveProps(nextProps) {
+  UNSAFE_componentWillReceiveProps(nextProps) {
     const {
       logoutStatus: { loaded, hasError, error = {} }
     } = nextProps;

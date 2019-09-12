@@ -43,7 +43,7 @@ export default class InviteGroups extends Component {
     defaultModuleRelevanceSelection: this.props.defaultModuleRelevance || "NONE"
   };
 
-  componentWillMount() {
+  UNSAFE_componentWillMount() {
     this.filters = [
       {
         type: COMPONENT_TYPES.SEARCH,

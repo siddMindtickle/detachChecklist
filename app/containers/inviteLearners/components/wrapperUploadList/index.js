@@ -44,7 +44,7 @@ export default class WrapperUploadList extends Component {
     this.setState({ csvData });
   };
 
-  componentWillReceiveProps(nextProps) {
+  UNSAFE_componentWillReceiveProps(nextProps) {
     const { profileFields, managerFields } = nextProps;
     if (
       !deepEqual(profileFields, this.props.profileFields) ||

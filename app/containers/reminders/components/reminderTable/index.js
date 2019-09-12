@@ -358,7 +358,7 @@ class ReminderTable extends Component {
     });
   }
 
-  componentWillReceiveProps(newProps) {
+  UNSAFE_componentWillReceiveProps(newProps) {
     if (!deepEqual(newProps.data, this.props.data)) {
       this.setState({ data: newProps.data });
     }

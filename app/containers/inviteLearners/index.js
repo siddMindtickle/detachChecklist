@@ -202,7 +202,7 @@ class InviteLearners extends Component {
     }
   };
 
-  componentWillMount() {
+  UNSAFE_componentWillMount() {
     const { moduleType, globalPermissions, seriesPermissions, isSiteOwner } = this.props;
     this.inviteOptions = getInviteOptions({
       moduleType,
@@ -218,7 +218,7 @@ class InviteLearners extends Component {
     setContext(params);
   }
 
-  componentWillReceiveProps(nextProps) {
+  UNSAFE_componentWillReceiveProps(nextProps) {
     const { invitePolling, onInvite } = this.props;
     const oldPollState = {
       isLoading: invitePolling.isLoading,

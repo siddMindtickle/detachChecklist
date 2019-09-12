@@ -94,7 +94,7 @@ export default class UpdateDateTime extends Component {
     this.props.ok(timestamp);
   };
 
-  componentWillReceiveProps(nextProps) {
+  UNSAFE_componentWillReceiveProps(nextProps) {
     if (nextProps.value !== this.props.value) {
       const initialState = getInitialState(nextProps.value);
       this.setState(prevState => deepmerge(prevState, initialState));

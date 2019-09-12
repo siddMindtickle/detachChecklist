@@ -66,12 +66,12 @@ class Input extends Component {
     this.props.onFocus(e);
   };
 
-  componentWillMount() {
+  UNSAFE_componentWillMount() {
     const { value = "" } = this.props;
     this.setState({ value: this.handleValue(value) });
   }
 
-  componentWillReceiveProps(newProps) {
+  UNSAFE_componentWillReceiveProps(newProps) {
     const { value } = this.props;
     let { value: newValue } = newProps;
     if (newValue !== value) {

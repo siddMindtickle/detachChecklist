@@ -33,7 +33,7 @@ class PublishWithSelection extends Component {
     modalType: LEARNER_TYPES.FULL
   };
 
-  componentWillMount() {
+  UNSAFE_componentWillMount() {
     this.options = this.getOptions(this.props.count);
   }
 

@@ -39,7 +39,7 @@ class HandlePreSelection extends Component {
   componentDidMount() {
     this.props.update(this.props.match.params.entityId);
   }
-  componentWillReceiveProps(newProps) {
+  UNSAFE_componentWillReceiveProps(newProps) {
     const newEntityId = newProps.match.params.entityId;
     const oldEntityId = this.props.match.params.entityId;
     if (newEntityId !== oldEntityId) {
@@ -334,7 +334,7 @@ class ChecklistBuild extends Component {
     !loaded && getData();
   }
 
-  componentWillReceiveProps(nextprops) {
+  UNSAFE_componentWillReceiveProps(nextprops) {
     const {
       operationStatus: { loaded: oldLoaded, isLoading: oldIsLoading, hasError: oldHasError } = {}
     } = this.props;

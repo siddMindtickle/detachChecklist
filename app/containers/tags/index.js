@@ -132,7 +132,7 @@ class Tags extends Component {
     ];
   };
 
-  componentWillReceiveProps(newProps) {
+  UNSAFE_componentWillReceiveProps(newProps) {
     const {
       operationStatus: { loaded }
     } = this.props;

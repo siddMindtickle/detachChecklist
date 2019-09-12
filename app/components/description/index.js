@@ -103,7 +103,7 @@ export default class Description extends Component {
     );
   };
 
-  componentWillReceiveProps(nextProps) {
+  UNSAFE_componentWillReceiveProps(nextProps) {
     if (nextProps.content != this.props.content) {
       this.setState({
         content: nextProps.content

@@ -46,7 +46,7 @@ class Accordion extends Component {
     this.setState({ open: !this.state.open });
   };
 
-  componentWillMount() {
+  UNSAFE_componentWillMount() {
     const { options } = this.props;
     this.options = options.map(({ value, title, children }) => {
       return (

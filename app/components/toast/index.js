@@ -105,7 +105,7 @@ export default class Toast extends Component {
     });
   };
 
-  componentWillReceiveProps(newProps) {
+  UNSAFE_componentWillReceiveProps(newProps) {
     this.handleTimer(newProps);
   }
 
