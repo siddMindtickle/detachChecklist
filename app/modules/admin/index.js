@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { compose } from "redux";
 import { connect } from "react-redux";
+import { withRouter } from "react-router-dom";
 import PropTypes from "prop-types";
 
 import { MT_MODULES } from "@config/global.config";
@@ -308,6 +309,7 @@ const withConnect = connect(
 const withSaga = injectSaga({ name: "checklist", saga: saga });
 
 export default compose(
+  withRouter,
   withReducer,
   withSaga,
   withConnect

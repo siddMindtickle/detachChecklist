@@ -41,6 +41,7 @@ config.resolve = {
   alias: {
     "~": resolve(__dirname, "../","app"),
     commonStyles: resolve(__dirname, Dir.MINDTICKLE_COMMON + "/styles"),
+    styles: resolve(__dirname, Dir.MINDTICKLE_COMMON + "/styles"),
     images: resolve(__dirname, Dir.MT_CORE + "/images"),
     fonts: resolve(__dirname, Dir.MINDTICKLE_COMMON + "/styles/fonts"),
     react: resolve(__dirname, "../node_modules", "react"),

@@ -1,6 +1,11 @@
-const BaseRoutes = {
-  test: "/ui",
-  notFound: "/404"
+const Routes = {};
+
+export const ROUTES = {
+  CHECKLIST: "checklist",
+  ILT: "ilt",
+  RULES: "rules"
 };
 
-export default BaseRoutes;
+Routes[ROUTES.CHECKLIST] = "/ui/checklist/:seriesId/:moduleId";
+
+export default Routes;
