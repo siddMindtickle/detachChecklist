@@ -1,0 +1,25 @@
+.taskIcon {
+  color: #999;
+  &.success:before {
+    background-color: #6bcb65;
+    color: #fff;
+    border-radius: 10px;
+  }
+}
+
+.taskCompltedIcon {
+  color: #77bf86;
+}
+.taskLocked {
+  color: #999;
+}
+.taskSendForApproval {
+  color: #999;
+}
+.sidebarMenu{
+  p, li {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+}

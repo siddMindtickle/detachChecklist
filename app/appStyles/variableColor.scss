@@ -2,12 +2,18 @@
 $color-brand: #f58f5e;
 $color-white: #fff;
 $color-black: #000;
+$color-blue: #0072bc;
 $color-grey: #666666;
 $color-charcoal: #333333;
+$color-red: #d63045;
+$color-green: #6bcb65;
+$color-MT: #f48414;
+$color-checklist: #8e8cc2;
 $color-fossil: #888;
 $color-lightgrey: #eeeeee;
 $color-mildgrey: #999999;
 $color-red-error: #b30707;
+$color-error: #d63045;
 // background color variables
 $bg-color-white: #ffffff;
 $bg-color-cerulean: #0072bc;
@@ -21,6 +27,7 @@ $border-color-cloud: #cdcdcd;
 $border-color-grey: #cccccc;
 $border-color-lightgrey: #eeeeee;
 // links color-variables
+$link-color: #0072bc;
 $link-color-cerulean: #0072bc;
 $link-color-hover: #2a6496;
 // checkbox color-variables
@@ -40,10 +47,11 @@ $icon-color: #878787;
 // table colors
 $table-row-select-color: #fffbcf;
 $table-session-over-color: #fcfcfc;
-//ILT Status colors
-$bg-color-enrolled: #dbf4df;
-$color-enroll: #16b22c;
-$bg-color-didNotenroll: #e6e6e6;
-$bg-color-waiting: #fbe8bf;
-$bg-color-didNotAttend: #fae8e8;
-$color-didNotAttend: #b30707;
+// border colors variables
+$border-color-gold: #e67e22;
+$border-color-cloud: #cdcdcd;
+$border-color-grey: #cccccc;
+$progress-bg: #67cc5f;
+$border-color-lightGrey: #aaa;
+$border-color-green: #6bcb65;
+$border-color-blue: #0072bc;

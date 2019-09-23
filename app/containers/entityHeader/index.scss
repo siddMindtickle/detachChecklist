@@ -1,0 +1,48 @@
+@import '~appStyles/commonStyle.scss';
+@import '~appStyles/globalStyle.scss';
+.tBG_24{
+  background: #8e8cc2;
+  width: 24px;
+  height: 24px;
+  line-height: 24px;
+  text-align: center;
+  font-size: 14px;
+  color: #fff;
+}
+.tTag {
+  background: #8e8cc2;
+  color: #fff;
+  font-size: 12px;
+  line-height: 16px;
+  padding: 3px 5px;
+  border: 1px solid #71709B;
+  bottom: 0;
+  left: 0;
+  position: absolute;
+}
+.tBg{
+  color:#8e8cc2;
+}
+.iltBG_24{
+  background: #76ADEC;
+  width: 24px;
+  height: 24px;
+  line-height: 24px;
+  text-align: center;
+  font-size: 14px;
+  color: #fff;
+}
+.iltTag {
+  background: #76ADEC;
+  color: #fff;
+  font-size: 12px;
+  line-height: 16px;
+  padding: 3px 5px;
+  border: 1px solid #71709B;
+  bottom: 0;
+  left: 0;
+  position: absolute;
+}
+.iltBg{
+  color:#76ADEC;
+}

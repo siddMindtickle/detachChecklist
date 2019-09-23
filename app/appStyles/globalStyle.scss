@@ -1,0 +1,304 @@
+@import '~appStyles/variableColor.scss';
+@import '~appStyles/mixin.scss';
+@import '~appStyles/z_index_partial.scss';
+
+:global{
+  body{
+      background: #222;
+      font-family: 'Open Sans', Arial, sans-serif;
+      /* Set "my-sec-counter" to 0 */
+      counter-reset: my-sec-counter;
+  }
+  .ant-layout{
+    background: none;
+}
+  #root{
+    height: 100%;
+  }
+
+  a{color:$link-color}
+  a:hover{color:$link-color-hover}
+
+  .ant-layout{
+    height: 100%;
+  }
+  /* Increment "my-sec-counter" by 1 */
+  .sidebarListItem:before{
+    // counter-increment: my-sec-counter;
+    // content: counter(my-sec-counter) ".";
+    float: left;
+    width:20px;
+  }
+  // social links
+  .redColorbg{
+      @include socialButton;
+      background:$bg-color-red;
+  }
+  .blueColorbg{
+      @include socialButton;
+  		background:$bg-color-cerulean;
+  }
+  .yellowColorbg{
+  		@include socialButton;
+  		background:$bg-color-gold;
+      border:1px solid $border-color-gold;
+  }
+  .greyColor{
+    color:$color-grey;
+  }
+  .blackColor{
+    color:$color-black;
+  }
+  .blueColor{
+    color:$color-blue;
+  }
+  .redColor{
+    color:$color-red;
+  }
+  .greenColor{
+    color:$color-green;
+  }
+  .errorColor{
+    color:$color-error;
+  }
+  .progressBarBorder{
+    border: 1px solid $progress-bg;
+    border-radius:2px;
+  }
+  .borderT_dd{
+    border-top:1px solid #ddd;
+  }
+  .borderB_ee{
+    border-bottom:1px solid #eee;
+  }
+  .borderDD{
+    border:1px solid #ddd;
+  }
+  .border66{
+    border:1px solid #666;
+  }
+  .progressBg{
+    background: $progress-bg;
+    border-radius:2px;
+  }
+  .bg_e6ebed{
+    background: #e6ebed;
+  }
+  .i{
+    font-style: italic;
+  }
+  .hoverLightBg:hover{
+    background: #f5f5f5;
+  }
+  textarea {
+    resize: none;
+    font-family: "Open Sans", Arial, sans-serif;
+  }
+  input {
+    font-family: "Open Sans", Arial, sans-serif;
+  }
+
+
+  // social links
+  h1{
+    color: $color-black;
+    font-size: 20px;
+    line-height: 30px;
+    font-weight: normal;
+  }
+  h2 {
+    color: $color-black;
+    font-size: 20px;
+    font-weight: bold;
+  }
+  .button.info{
+    background: $bg-color-white;
+    color: #7c7c7c;}
+  button{
+    @include fontStack_13;
+  }
+  .centerDiv{
+      @include centerDiv;
+      position: absolute;
+  }
+
+  .link{
+    color: $link-color-cerulean;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 13px;
+    margin: 0px 2px;
+    &:hover{
+      color: $link-color-hover;
+      text-decoration: underline;
+    }
+  }
+  /* custome ant-design css starts */
+  .ant-menu,
+  .ant-card,
+  .ant-input,
+  .ant-dropdown,
+  .ant-modal-content{
+    font-family: "Open Sans", Arial, sans-serif;
+  }
+  .ant-dropdown-menu-item > a, .ant-dropdown-menu-submenu-title > a{
+    display: inline-block;
+    padding: 0;
+    margin: 0;
+  }
+  .ant-dropdown-menu-item, .ant-dropdown-menu-submenu-title{
+    padding:10px 15px;
+    line-height: 24px;
+  }
+
+  .ant-dropdown-menu-item:hover,
+  .ant-dropdown-menu-submenu-title:hover{
+    background: #f9f9f9
+  }
+        //input area
+  .ant-input-affix-wrapper .ant-input{
+    height: 32px;
+    font-size: 13px;
+  }
+  .ant-input-affix-wrapper .ant-input:not(:last-child){
+    padding-left:30px;
+    padding-right: 11px;
+  }
+  .ant-input-search:not(.ant-input-search-small) > .ant-input-suffix,
+  .ant-input-affix-wrapper .ant-input-suffix{
+    left:9px;
+    right: auto;
+  }
+  .ant-input:focus,
+  .ant-input:hover,
+  .ant-input-search:focus,
+  .ant-input-search:hover,
+  .ant-input-affix-wrapper:hover .ant-input:not(.ant-input-disabled){
+    border-color: $border-color-lightGrey;
+    box-shadow: 0 0 0 0px rgba(0,0,0,.54);
+  }
+
+  .ant-menu-vertical .ant-menu-submenu-title,
+  .ant-menu-vertical-left .ant-menu-submenu-title,
+  .ant-menu-vertical-right .ant-menu-submenu-title,
+  .ant-menu-inline .ant-menu-submenu-title,
+  .ant-menu-vertical .ant-menu-item:not(:last-child),
+  .ant-menu-vertical-left .ant-menu-item:not(:last-child),
+  .ant-menu-vertical-right .ant-menu-item:not(:last-child),
+  .ant-menu-inline .ant-menu-item:not(:last-child),
+  .ant-menu-vertical .ant-menu-item ,
+  .ant-menu-vertical-left .ant-menu-item,
+  .ant-menu-vertical-right .ant-menu-item,
+  .ant-menu-inline .ant-menu-item{
+    margin: 0;
+    padding-left: 15px !important;
+    padding-right: 20px;
+    cursor: pointer;
+    font-size: 13px;
+    border-bottom: 1px solid #eee;
+  }
+
+  .ant-menu-submenu.ant-menu-submenu-inline .ant-menu-submenu-title{
+    padding-right: 30px !important;
+  }
+
+  .ant-card-meta-description{
+    list-style-position: inside;
+    color:#000;
+  }
+
+  .ant-menu-submenu-inline > .ant-menu-submenu-title .ant-menu-submenu-arrow:before,
+  .ant-menu-submenu-open.ant-menu-submenu-inline.ant-menu-submenu-active > .ant-menu-submenu-title .ant-menu-submenu-arrow:before,
+  .ant-menu-submenu-inline > .ant-menu-submenu-title .ant-menu-submenu-arrow:after,
+  .ant-menu-submenu-open.ant-menu-submenu-inline.ant-menu-submenu-active > .ant-menu-submenu-title .ant-menu-submenu-arrow:after,
+  .ant-menu-submenu.ant-menu-submenu-inline:hover > .ant-menu-submenu-title .ant-menu-submenu-arrow:before,
+  .ant-menu-submenu.ant-menu-submenu-inline:hover > .ant-menu-submenu-title .ant-menu-submenu-arrow:after{
+    background: #000;
+  }
+  .ant-menu-submenu-vertical > .ant-menu-submenu-title .ant-menu-submenu-arrow,
+  .ant-menu-submenu-vertical-left > .ant-menu-submenu-title .ant-menu-submenu-arrow,
+  .ant-menu-submenu-vertical-right > .ant-menu-submenu-title .ant-menu-submenu-arrow,
+  .ant-menu-submenu-inline > .ant-menu-submenu-title .ant-menu-submenu-arrow{
+    right:22px;
+  }
+
+  .ant-menu-submenu .ant-menu-submenu-title{
+    font-weight: bold;
+    color: #000;
+    background: transparent;
+  }
+
+  .ant-menu-submenu .ant-menu .ant-menu-item:hover{
+    background: #f9f9f9;
+  }
+
+  .ant-menu:not(.ant-menu-horizontal) .ant-menu-item-selected{
+    background: #f5f5f5;
+    color: #000;
+  }
+
+  .ant-menu-item:hover,
+  .ant-menu-item-active,
+  .ant-menu:not(.ant-menu-inline) .ant-menu-submenu-open,
+  .ant-menu-submenu-active, .ant-menu-submenu-title:hover{
+    color: #000;
+  }
+  .ant-menu-item{
+    color: rgba(0, 0, 0, 1);
+  }
+  .ant-menu-item.ant-menu-item-disabled{
+    color: rgba(0, 0, 0, 0.25) !important;
+  }
+  .ant-menu-inline .ant-menu-item,
+  .ant-menu-inline .ant-menu-submenu-title{
+    width: auto;
+  }
+
+  .ant-menu-item-selected{
+    color:#000;
+  }
+  .ant-menu-inline,
+  .ant-menu-vertical,
+  .ant-menu-vertical-left{
+    border-right: none;
+  }
+
+  .ant-modal-header{
+    padding: 20px 0 0;
+    text-align: center;
+    border-bottom: 1px solid transparent;
+  }
+  .ant-modal-title{
+    font-size: 18px;
+  }
+  .ant-modal-footer{
+    padding: 0 0 20px;
+    border-top: 1px solid transparent;
+  }
+  
+  /* custome ant-design css ends */
+
+  .profilePicArea{
+    .ant-avatar{
+      display: block;
+    }
+  }
+  .MT_Orange{
+    color:$color-MT;
+  }
+  .tBg{
+    color:$color-checklist;
+  }
+  .borderR_dd{
+    border-right: 1px solid #ddd;
+  }
+  .completedColor::before{
+    color:#6bcb65 !important;
+    background: #fff !important;
+  }
+
+  .width500{
+    width:500px
+  }
+
+}

@@ -1,0 +1,13 @@
+@media (max-width: 768px) {
+    .mobileStyle{
+    :global{
+        .ant-card-meta-title{
+            text-overflow: inherit;
+            overflow: auto;
+            white-space: inherit;
+        }
+        }  
+    }     
+}
+
+  

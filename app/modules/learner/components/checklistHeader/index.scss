@@ -1,0 +1,34 @@
+@import "~appStyles/globalStyle.scss";
+@import "~appStyles/variableColor.scss";
+.leaderBoardBtn {
+  font-size: 15px;
+  color: $color-grey;
+  cursor: pointer;
+  &:hover {
+    color: $color-black;
+  }
+}
+.open_toward_right {
+  transition: width 0.5s;
+  transition-timing-function: ease;
+  overflow: hidden;
+}
+.mtBack {
+  display: none;
+}
+.mtSearch {
+  display: block;
+  width:200px;
+}
+
+@media (max-width: 576px) {
+  .mobile_show_right .mtBack {
+    display: block;
+  }
+  .mobile_show_right .mtSearch {
+    display: none;
+  }
+  .mtSearch {
+    width: 160px;
+  }
+}

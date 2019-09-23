@@ -12,8 +12,10 @@ import { asyncComponent as GetAsyncComponent } from "mt-ui-core/core/helpers";
 import PrivateRoute from "@components/privateRoute";
 import Routes, { ROUTES } from "@config/routes";
 
-const Checklist = GetAsyncComponent(() =>
-  import(/* webpackChunkName: "checklist" */ "@modules/admin")
+const Admin = GetAsyncComponent(() => import(/* webpackChunkName: "checklist" */ "@modules/admin"));
+
+const Learner = GetAsyncComponent(() =>
+  import(/* webpackChunkName: "checklist" */ "@modules/learner")
 );
 
 const AdminHeader = GetAsyncComponent(() =>
@@ -39,17 +41,26 @@ class App extends Component {
     const { isLoggedIn } = userAuth;
     return (
       <React.Fragment>
-        {isAdminSite() && (
+        {isAdminSite() ? (
           <div>
             <AdminHeader userAuth={userAuth} logout={logout} />
             <Switch>
               <PrivateRoute
                 path={Routes[ROUTES.CHECKLIST]}
-                render={props => <Checklist props={props} pageType="" />}
+                render={props => <Admin props={props} pageType="" />}
                 authenticated={isLoggedIn}
               />
             </Switch>
           </div>
+        ) : (
+          <Switch>
+            <PrivateRoute
+              path={Routes[ROUTES.CHECKLIST]}
+              component={Learner}
+              style={{ height: "100%" }}
+              authenticated={isLoggedIn}
+            />
+          </Switch>
         )}
       </React.Fragment>
     );

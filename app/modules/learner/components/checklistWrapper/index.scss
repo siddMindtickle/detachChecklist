@@ -1,0 +1,65 @@
+@import "~appStyles/globalStyle.scss";
+@import "~appStyles/variableColor.scss";
+.checkList {
+  position: fixed;
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+}
+
+.sidebarMenu > p {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  margin-bottom: 0;
+  font-weight: normal;
+}
+.checkListContainerHeight {
+  height: calc(100vh - 114px);
+  height: -moz-calc(100vh - 114px);
+  height: -webkit-calc(100vh - 114px);
+  overflow-y: auto;
+}
+.bg_ff {
+  background: #fff;
+}
+.overviewItem {
+  width: 100%;
+}
+.color66 {
+  color: #666;
+}
+.taskIcon {
+  color: #999;
+  &.success:before {
+    background-color: #6bcb65;
+    color: #fff;
+    border-radius: 10px;
+  }
+}
+.taskCompltedIcon {
+  color: #77bf86;
+}
+.taskLocked {
+  color: #999;
+}
+.taskSendForApproval {
+  color: #999;
+}
+.extraMarginBottom {
+  margin-bottom: 50px;
+}
+@media (max-width: 576px) {
+  .mobileChecklistDetail {
+    position: absolute;
+    top: 0;
+    right: -100%;
+    transition: right 0.5s;
+    transition-timing-function: ease;
+    background: #fff;
+  }
+  .mobile_show_right .mobileChecklistDetail {
+    right: 0;
+  }
+
+}

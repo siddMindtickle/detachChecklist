@@ -51,7 +51,8 @@ config.resolve = {
     "@mindtickle/mt-ui-components": Dir.MINDTICKLE_COMMON,
     "mt-ui-core": Dir.MT_CORE,
 		"@mt-ui-core":Dir.MT_CORE,
-    "@locales": resolve(__dirname, "../app/locales"),
+    "@locales": resolve(__dirname, "../app/locales_learner"),
+    "@locale_learner":resolve(__dirname, "../app/locales_learner"),
     "@core": resolve(__dirname, "../app/core"),
     "@config": resolve(__dirname, "../app/config"),
     "@components": resolve(__dirname, "../app/components"),
@@ -63,6 +64,7 @@ config.resolve = {
     "@api": resolve(__dirname, "../app/api"),
     "@mixpanel": resolve(__dirname, "../app/mixpanel"),
     "@containers": resolve(__dirname, "../app/containers"),
+    "@uielements": resolve(__dirname, "../app/components/uielements")
   }
 };
 

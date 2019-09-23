@@ -3,7 +3,7 @@ import { RECORDER_TYPES, OBJECT_TYPES } from "@config/constants";
 import ErrorCodes from "@config/error.codes";
 import isPlainObject from "is-plain-object";
 import QueryString from "query-string";
-
+import { Defaults_learner as Defaults } from "@config/env.config";
 import emailValidator from "email-validator";
 import moment from "moment";
 import Routes from "@config/base.routes";
@@ -37,6 +37,10 @@ export const isString = value => {
 export function isObject(x) {
   return isPlainObject(x);
 }
+
+export const isWebView = () => {
+  return window.navigator.userAgent.indexOf(Defaults.mtWebview) > -1;
+};
 
 export function isBoolean(value) {
   return typeof value == typeof true;
@@ -539,4 +543,19 @@ export const resetPagePerformanceData = () => {
     from: window.location.pathname,
     startTime: Date.now()
   };
+};
+
+export const setCookie = (cname, cvalue, exdays = 10000) => {
+  var d = new Date();
+  d.setTime(d.getTime() + exdays * 24 * 60 * 60 * 1000);
+  var expires = "expires=" + d.toUTCString();
+  document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+};
+
+export const loadLocaleData = (locale = "") => {
+  locale = locale.split("-")[0];
+  return import(/* webpackChunkName: "locale-data/[request]" */ `react-intl/locale-data/${locale}`);
+};
+export const loadTranslations = locale => {
+  return import(/* webpackChunkName: "translation/[request]" */ `../locales_learner/${locale}.json`);
 };

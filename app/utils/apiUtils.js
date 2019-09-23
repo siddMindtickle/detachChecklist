@@ -1,4 +1,5 @@
 import { resolve } from "path";
+const urlAssembler = require("url-assembler");
 
 const getHeaders = (headers = {}) => {
   const additionalHeaders = {
@@ -87,6 +88,33 @@ const del = (urlObj, reqObj = {}) => {
     reqObj.body = JSON.stringify(reqObj.body);
   }
   return makeCall(urlObj, { ...reqObj });
+};
+
+const getUrl = (url, params) => {
+  let query = params.query || {};
+  delete params.query;
+  return urlAssembler()
+    .template(url)
+    .param(params)
+    .query(query)
+    .toString();
+};
+
+export const processQueryString = apiUrls => {
+  for (const [key, func] of Object.entries(apiUrls)) {
+    apiUrls[key] = (() => {
+      return options => {
+        if (options) {
+          let urlObj = func(options);
+          urlObj.url = getUrl(urlObj.url, options);
+          return urlObj;
+        }
+        return func(options);
+      };
+    })();
+  }
+
+  return apiUrls;
 };
 
 export { get, post, put, del };
