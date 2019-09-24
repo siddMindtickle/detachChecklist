@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import classnames from "classnames";
+import Icon from "@mindtickle/mt-ui-components/Icon";
 import "./index.scss";
 export default class checkbox extends Component {
   static propTypes = {
@@ -29,10 +30,10 @@ export default class checkbox extends Component {
         <div className={classnames("checkbox", { checked })}>
           {/* <div className={classnames({checked})}> */}
           <div className={classnames("checkboxOff")}>
-            <span className="icon-checkboxOff" />
+            <Icon type="checkboxOff" />
           </div>
           <div className={classnames("checkboxOn")}>
-            <span className="icon-checkboxOn" />
+            <Icon type="checkboxOn" />
           </div>
         </div>
         <div className="labelText">{label}</div>

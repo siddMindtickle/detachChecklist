@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Layout, Row, Col } from "antd";
 import PropTypes from "prop-types";
+import Icon from "@mindtickle/mt-ui-components/Icon";
 //import classNames from "classnames";
 
 //import { getActions } from "@core/helpers";
@@ -51,10 +52,10 @@ class EntityHeader extends Component {
         <Row>
           <Col xs={1} sm={10} md={8} lg={10} xl={8} xxl={8}>
             <div className="lineHeight36" style={{ padding: "10px 12px" }}>
-              <div
-                className="floatL F12 icon-ddArrowLeft paddingT12 paddingR8 cursor"
-                onClick={gotoSeries}
-              />
+              <div className="floatL F12 paddingT2 paddingR8 cursor" onClick={gotoSeries}>
+                <Icon type="left_caret" />
+              </div>
+
               <Row>
                 <Col xs={0} sm={20} md={20} lg={22} xl={22} xxl={22}>
                   <div className="floatL cursor paddingR7" onClick={gotoDashboard}>
@@ -62,9 +63,11 @@ class EntityHeader extends Component {
                   </div>
                   <div className="floatL">|</div>
                   <div
-                    className="floatL F14 icon-seriesOutline marginT12 paddingR7 paddingL7 cursor"
+                    className="floatL F14 marginT2 paddingR7 paddingL7 cursor"
                     onClick={gotoSeries}
-                  />
+                  >
+                    <Icon type={"series_outline"} />
+                  </div>
                   <div className="ellipsis">
                     <span className="cursor" onClick={gotoSeries}>
                       {this.props.series.name}

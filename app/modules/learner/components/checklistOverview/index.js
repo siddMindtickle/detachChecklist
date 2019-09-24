@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Row, Col, Divider } from "antd";
 import { FormattedMessage } from "react-intl";
-
+import Icon from "@mindtickle/mt-ui-components/Icon";
 import MtButton from "@uielements/button";
 
 // import DownloadCertificate from "@components/downloadCertificate";
@@ -20,7 +20,8 @@ const StartBtn = ({ frozen, onClick }) => {
       <div className="floatL lineHeight20">
         <FormattedMessage id="RM_CHECKLIST_START" />
       </div>
-      <div className="icon-ddArrowRight marginL7 floatL F10 marginT6" />
+      <div className=" marginL7 floatL F10 marginT6" />
+      <Icon type="ddArrowRight" />
       <div className="clear" />
     </MtButton>
   );

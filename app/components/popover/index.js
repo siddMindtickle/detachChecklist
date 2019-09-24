@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import Popover from "react-bootstrap/lib/Popover";
-
+import Icon from "@mindtickle/mt-ui-components/Icon";
 import { isFunction } from "@utils";
 
 import style from "./index.scss";
@@ -25,7 +25,7 @@ class CustomPopover extends Component {
         <Popover {...rest}>
           {close && (
             <div className={style.closeIcon} onClick={close}>
-              <span className="icon-close" tabIndex={10} />
+              <Icon type="close" tabIndex={10} />
             </div>
           )}
           {this.props.children}

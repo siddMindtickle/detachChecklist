@@ -1,4 +1,5 @@
 import { resolve } from "path";
+import { sha256 } from "js-sha256";
 const urlAssembler = require("url-assembler");
 
 const getHeaders = (headers = {}) => {
@@ -9,6 +10,22 @@ const getHeaders = (headers = {}) => {
     ...additionalHeaders,
     ...headers
   };
+};
+
+export const generateCheckSum = data => {
+  var chksmStr = "";
+  if (typeof data == "object") {
+    // treat as object
+    for (var i = 0; i < data.length; i++) {
+      chksmStr += String(data[i]);
+    }
+  } else {
+    // treat as string
+    chksmStr += String(data);
+  }
+  var hash = sha256.create();
+  hash.update(chksmStr);
+  return hash.hex();
 };
 
 const checkStatus = async (response, url) => {

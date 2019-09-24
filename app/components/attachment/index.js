@@ -125,7 +125,7 @@ function getMediaTracks(media) {
 const AttachmentNote = ({ text }) => (
   <StyledAttachmentNote>
     <span className="snapsotNoteIcon">
-      <span className="icon-attachment" />
+      <Icon type="attachment" />
     </span>
     <span title={text} className="snapsotNote">
       {text}

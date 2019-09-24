@@ -27,9 +27,8 @@ const MarkCompleteButton = ({ frozen, onClick, isCompleted, updatingTask }) => {
       <Row className="floatR">
         {!updatingTask && (
           <Col xs={6} sm={6} md={2} lg={2} xl={2} xxl={2}>
-            <div className="icon-tickedOutline F16 marginT1 paddingL1 paddingR1" />
-            <Icon type={"edit"} />
-            <Icon type={"signOut"} />
+            <div className="F16 marginT1 paddingL1 paddingR1" />
+            <Icon type={"right"} />
           </Col>
         )}
         <Col xs={0} sm={0} md={22} lg={22} xl={22} xxl={22}>
@@ -74,7 +73,8 @@ const MoveButton = ({ type, messageId, to, onClick, disabled }) => {
       <Row>
         {type == TASK_NAVIGATION.PREV && (
           <Col xs={24} sm={24} md={24} lg={4} xl={4} xxl={4} className={classes.text}>
-            <div className="icon-ddArrowLeft F12 paddingR7" style={{ lineHeight: "30px" }} />
+            <div className="F12 paddingR7" style={{ lineHeight: "30px" }} />
+            <Icon type="left_caret" className={"displayIB"} />
           </Col>
         )}
         <Col xs={0} sm={0} md={0} lg={20} xl={20} xxl={20} className="textalign_L">
@@ -85,12 +85,12 @@ const MoveButton = ({ type, messageId, to, onClick, disabled }) => {
         {(type === TASK_NAVIGATION.NEXT || type === TASK_NAVIGATION.EXIT) && (
           <Col xs={24} sm={24} md={24} lg={4} xl={4} xxl={4} className="textalign_L">
             <div
-              className={
-                (type === TASK_NAVIGATION.NEXT ? "icon-ddArrowRight" : "icon-signOut") +
-                " F12 paddingL5"
-              }
+              className={(type !== TASK_NAVIGATION.NEXT ? "icon-signOut" : "") + ""}
               style={{ lineHeight: "30px" }}
             />
+            {type === TASK_NAVIGATION.NEXT ? (
+              <Icon type={"right_caret"} className={"displayIB paddingL5"} />
+            ) : null}
           </Col>
         )}
       </Row>

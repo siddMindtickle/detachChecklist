@@ -1,5 +1,4 @@
-import { put, takeEvery, call, all, select } from "redux-saga/effects";
-import { delay } from "redux-saga";
+import { put, takeEvery, call, all, select, delay } from "redux-saga/effects";
 import { getActions } from "@core/helpers";
 import GlobalService from "@api/index";
 import { prune } from "@utils";

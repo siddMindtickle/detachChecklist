@@ -6,7 +6,7 @@ import MtButton from "@uielements/button";
 import MtSearch from "@uielements/searchInput";
 import { getDueDateText } from "@utils/dateFormatter";
 import { intlShape, injectIntl, FormattedHTMLMessage, FormattedMessage } from "react-intl";
-
+import Icon from "@mindtickle/mt-ui-components/Icon";
 import st from "./index.scss";
 
 const { Header } = Layout;
@@ -89,7 +89,8 @@ class CheckListHeader extends Component {
               ghost
               onClick={this.handleMobileBackBtn}
             >
-              <span className="icon-ddArrowLeft F13" style={{ color: "#000" }} />
+              <span className="F13" style={{ color: "#000" }} />
+              <Icon type="ddArrowLeft" />
               <span className="marginL5 F13 blackColor">Back</span>
             </MtButton>
           </div>

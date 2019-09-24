@@ -21,6 +21,7 @@
     "promise-polyfill": "^7.1.0",
     "prop-types": "^15.6.1",
     "query-string": "^6.0.0",
+    "js-sha256": "^0.9.0",
     "react": "^16.8.0",
     "react-intl": "^2.4.0",
     "react-bootstrap": "^0.32.1",

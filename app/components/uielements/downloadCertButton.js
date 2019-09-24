@@ -3,6 +3,7 @@ import { FormattedMessage } from "react-intl";
 import PropTypes from "prop-types";
 import { Modal } from "antd";
 import { intlShape } from "react-intl";
+import Icon from "@mindtickle/mt-ui-components/Icon";
 
 import { deepEqual } from "@utils";
 import MtButton from "@uielements/button";
@@ -103,7 +104,8 @@ class DownloadCertButton extends React.Component {
           {...this.state.buttonProps}
           {...this.state.certButtonState}
         >
-          <div className="icon-downloadCertificate floatL F20 marginR8 marginT4" />
+          <div className="floatL F20 marginR8 marginT4" />
+          <Icon type="downloadCertificate" />
           <div className="floatL lineHeight28">
             <FormattedMessage id="MSG_DOWNLOAD_CERT" />
           </div>
