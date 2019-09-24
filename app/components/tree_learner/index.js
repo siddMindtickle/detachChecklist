@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import classNames from "classnames";
 import { injectIntl, FormattedMessage } from "react-intl";
 import { Menu, Layout, Tooltip } from "antd";
-
+import Icon from "@mindtickle/mt-ui-components/Icon";
 import InnerHTML from "@components/innerHTML";
 import MtButton from "@uielements/button";
 
@@ -31,8 +31,7 @@ const LeafStateButton = ({ node, lockedMessage }) => {
     {
       [style.success]: isCompleted,
       "icon-oval": isLocked,
-      "icon-tickedFilled completedColor": isCompleted && !isLocked,
-      "icon-tickedOutline": !isLocked && !isCompleted
+      "icon-tickedFilled completedColor": isCompleted && !isLocked
     }
   );
   return (
@@ -44,6 +43,7 @@ const LeafStateButton = ({ node, lockedMessage }) => {
           </Tooltip>
         )}
       </div>
+      {!isLocked && !isCompleted ? <Icon type={"right"} /> : null}
     </MtButton>
   );
 };
