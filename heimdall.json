@@ -1,0 +1,10 @@
+{
+  "checklist-ui" : {
+    "build_cmd": "echo 'nothing to build'",
+    "build_vars" : {
+      "assets_bucket": "$ASSETS_BUCKET",
+      "s3_base_domain": "$S3_BASE_DOMAIN",
+      "cf_assets_base_domain": "$CF_ASSETS_BASE_DOMAIN"
+    }
+  }
+}
