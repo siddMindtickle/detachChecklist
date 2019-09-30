@@ -10,7 +10,7 @@ RUN apt-get update && \
 RUN pip install awscli
 
 # install application
-ARG app="allaboard-ui"
+ARG app="checklist-ui"
 ENV APPLICATION=$app
 
 ARG track="local"
