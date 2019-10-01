@@ -15,7 +15,7 @@ echo $public_path
 cd /app/dist
 
 # compressed + cachable
-aws s3 sync --acl public-read --cache-control max-age=25012345 --content-encoding assests-ui/ $s3Url/assests-ui/
+aws s3 sync --acl public-read --cache-control max-age=25012345 assests-ui/ $s3Url/assests-ui/
 
 #static
 aws s3 cp --acl public-read --cache-control max-age=0,no-cache,no-store,must-revalidate index.html $s3Url/index.html
