@@ -5,7 +5,7 @@ import { POLLING_DELAY } from "@config/global.config";
 
 function* poll({ handler, params }) {
   while (true) {
-    yield call(delay, POLLING_DELAY);
+    yield delay(POLLING_DELAY);
     yield call(handler, params);
   }
 }

@@ -64,7 +64,7 @@ function* checkPollingStatus({ processIds = [], companyId }) {
 
 function* poll(params) {
   while (true) {
-    yield call(delay, POLLING_DELAY);
+    yield delay(POLLING_DELAY);
     yield call(checkPollingStatus, params);
   }
 }
