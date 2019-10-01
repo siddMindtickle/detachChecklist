@@ -21,6 +21,7 @@ class CompletionModal extends Component {
       <Modal
         visible={true}
         title={<FormattedMessage id="RM_YOUR_TASK_CHECKLIST_COMPLETE" />}
+        closable={false}
         footer={[
           <div key="asd" className="textalign_C lineHeight30 blueColor">
             <MtButton
