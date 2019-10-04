@@ -27,7 +27,7 @@ jobName="checklist_${dates}"
 
 sleep 5s
 
-curl -H "Accept: application/json" -H "Content-type: application/json" -X POST -d '{"jobName":"'"$jobName"'","dataEndpointIds":[7]}'  http://webpagetest.checklist.mindtickle.com/app/createJob
+curl -H "Accept: application/json" -H "Content-type: application/json" -X POST -d '{"jobName":"'"$jobName"'","dataEndpointIds":[9]}'  http://webpagetest.checklist.mindtickle.com/app/createJob
 
 
 set +ex
