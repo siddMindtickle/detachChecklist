@@ -21,4 +21,13 @@ aws s3 sync --acl public-read --cache-control max-age=25012345 assests-ui/ $s3Ur
 aws s3 cp --acl public-read --cache-control max-age=0,no-cache,no-store,must-revalidate index.html $s3Url/index.html
 aws s3 cp --acl public-read favicon.ico $s3Url/favicon.ico
 
+
+dates=$(date +%D-%T)
+jobName="checklist_${dates}"
+
+sleep 5s
+
+curl -H "Accept: application/json" -H "Content-type: application/json" -X POST -d '{"jobName":"'"$jobName"'","dataEndpointIds":[7]}'  http://webpagetest.checklist.mindtickle.com/app/createJob
+
+
 set +ex
