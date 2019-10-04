@@ -7,6 +7,24 @@
   }
 }
 
+.locked{
+  border-radius: 50%;
+  border: 1px solid #999;
+  padding:3px;
+  font-size: 8px;
+  color: #999;
+
+}
+
+.lockedCompleted{
+  border-radius: 50%;
+  border: 1px solid #6bcb65;
+  padding:3px;
+  font-size: 8px;
+  color: #fff;
+  background-color: #6bcb65;
+}
+
 .taskCompltedIcon {
   color: #77bf86;
 }

@@ -20,20 +20,7 @@ const getSectionId = data => {
 
 const LeafStateButton = ({ node, lockedMessage }) => {
   const { isLocked, isCompleted } = node;
-  const iconClass = classNames(
-    "floatR",
-    "F16",
-    "marginT12",
-    "pos_rel",
-    "paddingL1",
-    "paddingR1",
-    style.taskIcon,
-    {
-      [style.success]: isCompleted,
-      "icon-oval": isLocked,
-      "icon-tickedFilled completedColor": isCompleted && !isLocked
-    }
-  );
+  const iconClass = classNames("floatR", "F16", "marginT12", "pos_rel", "paddingL1", "paddingR1");
   return (
     <MtButton className="floatR cursor" style={{ padding: "0" }} type="noborderPrimary" ghost>
       <div className={iconClass}>
@@ -43,7 +30,14 @@ const LeafStateButton = ({ node, lockedMessage }) => {
           </Tooltip>
         )}
       </div>
-      {!isLocked && !isCompleted ? <Icon type={"right"} /> : null}
+      {!isLocked && !isCompleted ? (
+        <Icon className={`F16 ${style.taskIcon}`} type={"confirmOutline"} />
+      ) : null}
+      {!isLocked && isCompleted ? (
+        <Icon className={"F16 completedColor "} type={"Confirm"} />
+      ) : null}
+      {isLocked && !isCompleted ? <Icon className={style.locked} type={"locked"} /> : null}
+      {isLocked && isCompleted ? <Icon className={style.lockedCompleted} type={"locked"} /> : null}
     </MtButton>
   );
 };
