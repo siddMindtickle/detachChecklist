@@ -7,7 +7,7 @@ import { Route } from "react-router-dom";
 
 import { getActions, injectSaga } from "@core/helpers";
 import { MT_ENTITIES } from "@config/global.config";
-import { deepEqual, deepmerge } from "@utils";
+import { deepEqual, deepmerge, deepmergeOverwriteArrays } from "@utils";
 import { errorToast as ErrorToast } from "@utils/toast";
 
 import Tree from "@components/tree";
@@ -280,12 +280,22 @@ class ChecklistBuild extends Component {
     return [type, data];
   };
 
-  updateState = (newState, merge = true) => {
+  /*  updateState = (newState, merge = true) => {
     merge ? this.setState(deepmerge(this.state, newState)) : this.setState(newState);
   };
 
   updateDetails = (type, data) => {
     data = deepmerge(this.state.node.newData, { data });
+    this.updateState({ node: { type, newData: data } });
+  };*/
+
+  updateState = (newState, merge = true) => {
+    const testMerge = deepmergeOverwriteArrays(this.state, newState);
+    merge ? this.setState(testMerge) : this.setState(newState);
+  };
+
+  updateDetails = (type, data) => {
+    data = deepmergeOverwriteArrays(this.state.node.newData, { data });
     this.updateState({ node: { type, newData: data } });
   };
 
@@ -400,6 +410,7 @@ class ChecklistBuild extends Component {
         selectedNode: newData && newData.data
       });
       return [
+        //todo: autosave???
         <AutoSave
           key="autoSave"
           processor={manipulateData}
@@ -409,6 +420,7 @@ class ChecklistBuild extends Component {
           ref={el => (this.autoSaveRef = el)}
         />,
         loaded && (
+          //todo: ???
           <Route
             key="subPath"
             path={`${match.url}/:entityId`}
@@ -480,6 +492,7 @@ const withConnect = connect(
   mapStateToProps,
   mapDispatchToProps
 );
+
 const withSaga = injectSaga({ name: "checklistBuild", saga: saga });
 
 export default compose(

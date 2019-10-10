@@ -47,12 +47,23 @@ class TaskDetails extends Component {
 
   addAttachment = attachmentToAdd => {
     const { type, update } = this.props;
-    update(type, { attachments: { [attachmentToAdd.id]: attachmentToAdd } });
+    let {
+      data: { attachments = [] }
+    } = this.props.node;
+    update(type, { attachments: [...attachments, attachmentToAdd] });
   };
+
   removeAttachment = attachmentToRemove => {
     const { type, update } = this.props;
-    update(type, { attachments: { [attachmentToRemove.id]: undefined } });
+    let {
+      data: { attachments = [] }
+    } = this.props.node;
+    attachments = attachments.filter(attachment => {
+      return attachment.id != attachmentToRemove.id;
+    });
+    update(type, { attachments: attachments });
   };
+
   toggleAddDesc = (show = false) => {
     this.setState({
       showAddDesc: show
@@ -144,18 +155,8 @@ class TaskDetails extends Component {
         className={classnames(attachments.length && style.task_attachmented, style.task_attach)}
       >
         <Attachments
-          attachmentClassName="attachDocument"
           className={classnames("overflow", "marginB10 marginT15")}
-          attachedMedia={attachments}
-          truncateCount={4}
-          maxUpload={100}
-          add={this.addAttachment}
-          remove={this.removeAttachment}
-        />
-
-        <Attachments
-          className={classnames("overflow", "marginB10 marginT15")}
-          attachments={Object.values(attachments)}
+          attachments={attachments}
           truncateCount={4}
           showThumbnails={true}
           showPreview={true}

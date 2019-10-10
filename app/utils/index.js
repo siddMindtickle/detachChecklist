@@ -1,4 +1,3 @@
-export deepmerge from "deepmerge";
 import { RECORDER_TYPES, OBJECT_TYPES } from "@config/constants";
 import ErrorCodes from "@config/error.codes";
 import isPlainObject from "is-plain-object";
@@ -7,6 +6,16 @@ import { Defaults_learner as Defaults } from "@config/env.config";
 import emailValidator from "email-validator";
 import moment from "moment";
 import Routes from "@config/base.routes";
+
+//eslint-disable-next-line no-unused-vars
+const overrideArrayMerge = (destination, source) => source;
+import deepmerge from "deepmerge";
+export deepmerge from "deepmerge";
+export const deepmergeOverwriteArrays = (oldObj, newObj) => {
+  return deepmerge(oldObj, newObj, {
+    arrayMerge: overrideArrayMerge
+  });
+};
 
 // begin common-utils-with-allaboard
 export const identity = val => val;
@@ -148,7 +157,6 @@ export const parseMedia = media => {
     vttSubtitlePath = ""
   } = media;
   let tracks = undefined;
-  // TODO Check for vttSubtitlePath vs subtitleTrackSrc
   if (type === OBJECT_TYPES.VIDEO) {
     tracks = parseMediaTracks(media, type);
   }
@@ -244,6 +252,18 @@ export const parseAttachments = medias => {
     result[media.obj.id] = parseMedia(media.obj);
     return result;
   }, {}); // {} is the starting value of accumulator(named result here)
+};
+
+export const parseAttachments_admin = medias => {
+  if (!medias) return undefined;
+  return medias.reduce((result, media) => {
+    if (!(media && media.obj && media.obj.id) || media.originalUrl || media.obj.originalUrl) {
+      // Unexpected event, implies data corruption
+      return result;
+    }
+    result.push(parseMedia(media.obj));
+    return result;
+  }, []); // [] is the starting value of accumulator(named result here)
 };
 
 export const getFileExtension = str => {

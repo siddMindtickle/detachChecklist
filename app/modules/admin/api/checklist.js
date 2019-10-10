@@ -1,5 +1,5 @@
 import { get, put, post } from "@utils/apiUtils";
-import { isEmpty, parseAttachments } from "@utils";
+import { isEmpty, parseAttachments_admin } from "@utils";
 import ApiUrls from "../config/api.config";
 import { MT_ENTITY_TYPE_ID, MT_ENTITIES } from "@config/global.config";
 
@@ -25,7 +25,7 @@ const parseTasks = (tasks = []) => {
         staticId,
         maxScore,
         description,
-        attachments: parseAttachments(attachments),
+        attachments: parseAttachments_admin(attachments),
         displayIndex: index
       }
     };
