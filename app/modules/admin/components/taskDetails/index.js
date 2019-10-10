@@ -152,6 +152,17 @@ class TaskDetails extends Component {
           add={this.addAttachment}
           remove={this.removeAttachment}
         />
+
+        <Attachments
+          className={classnames("overflow", "marginB10 marginT15")}
+          attachments={Object.values(attachments)}
+          truncateCount={4}
+          showThumbnails={true}
+          showPreview={true}
+          uploadLimit={100}
+          onAddAttachment={this.addAttachment}
+          onRemoveAttachment={this.removeAttachment}
+        />
       </div>
     ];
   };
