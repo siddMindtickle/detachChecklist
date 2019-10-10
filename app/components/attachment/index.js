@@ -1,19 +1,19 @@
-import classnames from "classnames";
-import Icon from "@components/icon";
-import PropTypes from "prop-types";
 import React, { Component } from "react";
 import Button from "@components/button";
-import Uploader from "@components/uploader";
+import classnames from "classnames";
+import defaultThumbnail from "./images/defaultThumbnail.png";
+import Icon from "@components/icon";
+import PropTypes from "prop-types";
+import Uploader from "mt-ui-core/components/Uploader";
 
 import {
-  StyledAddNewAttachment,
-  StyledAttachmentNote,
-  StyledAttachmentSection,
-  StyledAttachmentView,
   StyledAttachmentGridItem,
-  StyledModal,
+  StyledAttachmentView,
   StyledCarouselItem,
-  StyledGridModal
+  StyledGridModal,
+  StyledModal,
+  StyledSimpleAttachment,
+  StyledUploaderArea
 } from "./css";
 
 import { Carousel, FileViewer } from "@mindtickle/mt-ui-components";
@@ -21,7 +21,6 @@ import { Carousel, FileViewer } from "@mindtickle/mt-ui-components";
 import {
   isMobile,
   downloadURI,
-  getFileTypeIcon,
   isIpad,
   isIpadPro,
   noop,
@@ -29,41 +28,35 @@ import {
   smartEllipsis
 } from "@app/utils";
 
-const AttachmentPreview = ({ attachment, onClick, removeAttachment }) => {
-  // Note: do not use 'background:' explicitly https://github.com/facebook/react/pull/4661
+const AttachmentThumbnail = ({ attachment, onClick, removeAttachment }) => {
   let thumbStyle = {
     position: "relative",
     width: "100%",
     height: "84px",
-    borderRadius: "6px",
-    backgroundSize: "contain",
-    backgroundRepeat: "no-repeat",
-    backgroundPosition: "50%",
-    // get this done from img tag
-    backgroundColor: "rgb(235,235,235)",
-    backgroundImage: "url('" + attachment.thumbPath + "')"
+    borderRadius: "6px"
   };
-  // clone object
-  let fallbackStyle = JSON.parse(JSON.stringify(thumbStyle));
-  fallbackStyle.zIndex = "-1";
-  fallbackStyle.position = "absolute";
-  fallbackStyle.top = 0;
-  fallbackStyle.left = 0;
-  fallbackStyle.backgroundImage =
-    "url('https://s3-ap-southeast-1.amazonaws.com/mtapps-cdn.mindtickle.com/selfserve/prod/images/error_page_logo.png')";
-  (fallbackStyle.backgroundColor = "rgb(235,235,235"), (fallbackStyle.height = "100%");
-  fallbackStyle.width = "100%";
+
   return (
     <StyledAttachmentGridItem>
       <div onClick={onClick} style={thumbStyle}>
-        <div className="fallBackImage" style={fallbackStyle} />
-        <span className="downloadLink">{attachment.title}</span>
+        <img
+          key={attachment.id}
+          className="thumbnailImage"
+          src={attachment.thumbPath}
+          onError={e => {
+            e.target.onerror = null;
+            e.target.src = defaultThumbnail;
+          }}
+        />
+        <span className="hoverTitle">{attachment.title}</span>
         <Icon
-          type="delete"
-          className="deleteLinkStyle"
+          type={removeAttachment ? "delete" : "Download"}
+          className="actionIcon"
           onClick={e => {
             e.stopPropagation();
-            removeAttachment(attachment.id);
+            removeAttachment
+              ? removeAttachment(attachment.id)
+              : downloadURI(attachment.downloadUrl, attachment.title);
           }}
         />
       </div>
@@ -72,18 +65,15 @@ const AttachmentPreview = ({ attachment, onClick, removeAttachment }) => {
   );
 };
 
-AttachmentPreview.propTypes = {
+AttachmentThumbnail.propTypes = {
   attachment: PropTypes.object,
   onClick: PropTypes.func,
   removeAttachment: PropTypes.func
 };
 
 function getMediaTracks(media) {
-  const { tracks, title, originalUrl, uuid, id } = media;
+  const { tracks, title, originalUrl, downloadUrl, uuid, id } = media;
   const { primaryTracks = [], secondaryTracks = [], defaultTrack } = tracks || {};
-  const download = () => {
-    downloadURI(originalUrl, title);
-  };
   let style = {
     height: isMobile() ? 232 : 486,
     width: "100%"
@@ -103,7 +93,7 @@ function getMediaTracks(media) {
     <StyledCarouselItem key={id}>
       <div className="carouselItemHeader">
         <div className="carouselItemName">{title}</div>
-        <div className="carouselItemDownload" onClick={download}>
+        <div className="carouselItemDownload" onClick={() => downloadURI(downloadUrl, title)}>
           <Icon type="Download" className="icon-Download" />
         </div>
       </div>
@@ -122,25 +112,10 @@ function getMediaTracks(media) {
   );
 }
 
-const AttachmentNote = ({ text }) => (
-  <StyledAttachmentNote>
-    <span className="snapsotNoteIcon">
-      <Icon type="attachment" />
-    </span>
-    <span title={text} className="snapsotNote">
-      {text}
-    </span>
-  </StyledAttachmentNote>
-);
-
-AttachmentNote.propTypes = {
-  text: PropTypes.string.isRequired
-};
-
-const AttachmentGrid = ({ attachments = [], onItemClick, removeAttachment, title, onClose }) => {
+const AttachmentGrid = ({ attachments = [], onClose, onItemClick, removeAttachment, title }) => {
   const content = attachments.map((attachment, index) => {
     return (
-      <AttachmentPreview
+      <AttachmentThumbnail
         key={attachment.id}
         attachment={attachment}
         onClick={() => {
@@ -158,7 +133,7 @@ const AttachmentGrid = ({ attachments = [], onItemClick, removeAttachment, title
 };
 
 AttachmentGrid.propTypes = {
-  attachments: PropTypes.array,
+  attachments: PropTypes.array.isRequired,
   onItemClick: PropTypes.func,
   removeAttachment: PropTypes.func.isRequired,
   title: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
@@ -213,13 +188,13 @@ AttachmentsCarousel.propTypes = {
   initialSlide: PropTypes.number
 };
 
-const AttachmentViewSnippet = ({
+const AttachmentsArea = ({
   attachments = [],
   truncateCount = 0,
   className,
   onClick = noop,
-  removeAttachment,
-  preview
+  filePreview = true,
+  removeAttachment
 }) => {
   const __attachments = attachments.slice(0, truncateCount > 0 ? truncateCount : undefined);
   const isMore = attachments.length - __attachments.length;
@@ -227,39 +202,24 @@ const AttachmentViewSnippet = ({
   return (
     <StyledAttachmentView className={className}>
       {__attachments.map((attachment, index) => {
-        const { render } = attachment;
         return (
           <React.Fragment key={"attachment" + index}>
-            {render && render(attachment)}
-            {!render &&
-              preview && (
-                <AttachmentPreview
-                  attachment={attachment}
-                  onClick={() => {
-                    onClick({
+            <AttachmentThumbnail
+              attachment={attachment}
+              removeAttachment={removeAttachment}
+              onClick={() => {
+                filePreview
+                  ? onClick({
                       isMoreClicked: false,
                       index
-                    });
-                  }}
-                  removeAttachment={removeAttachment}
-                />
-              )}
-            {!preview &&
-              !render && (
-                <a href={attachment.originalUrl} download>
-                  <AttachmentNote text={attachment.title} />
-                </a>
-              )}{" "}
-            {!preview && (
-              <Icon
-                type="delete"
-                className="deleteLinkStyle"
-                onClick={() => removeAttachment(attachment.id)}
-              />
-            )}
+                    })
+                  : downloadURI(attachment.downloadUrl, attachment.title);
+              }}
+            />
           </React.Fragment>
         );
       })}
+
       {isMore > 0 && (
         <span
           className="attachmentMore"
@@ -276,24 +236,24 @@ const AttachmentViewSnippet = ({
   );
 };
 
-AttachmentViewSnippet.propTypes = {
-  attachments: PropTypes.array,
+AttachmentsArea.propTypes = {
+  attachments: PropTypes.array.isRequired,
   truncateCount: PropTypes.number,
   className: PropTypes.string,
   onClick: PropTypes.func,
-  removeAttachment: PropTypes.func.isRequired,
-  preview: PropTypes.bool
+  filePreview: PropTypes.bool,
+  removeAttachment: PropTypes.func
 };
 
-const _AttachmentView = class AttachmentView extends Component {
+export class AttachmentView extends Component {
   static propTypes = {
-    attachments: PropTypes.array,
-    removeAttachment: PropTypes.func.isRequired,
-    preview: PropTypes.bool
+    attachments: PropTypes.array.isRequired,
+    filePreview: PropTypes.bool,
+    removeAttachment: PropTypes.func
   };
   state = {
-    showCarousel: false,
-    showAttachmentGrid: false,
+    showingCarousel: false,
+    showingAttachmentGrid: false,
     startIndex: 0
   };
 
@@ -303,195 +263,190 @@ const _AttachmentView = class AttachmentView extends Component {
       return;
     }
     this.setState({
-      showAttachmentGrid: true
+      showingAttachmentGrid: true
     });
   };
 
   openCarousel = index => {
     this.setState({
-      showCarousel: true,
+      showingCarousel: true,
       startIndex: index,
-      showAttachmentGrid: false
+      showingAttachmentGrid: false
     });
   };
 
   onCarouselClose = () => {
     this.setState({
-      showCarousel: false,
+      showingCarousel: false,
       startIndex: 0,
-      showAttachmentGrid: false
+      showingAttachmentGrid: false
     });
   };
 
   render() {
-    const { showCarousel, startIndex, showAttachmentGrid } = this.state;
-    const { attachments, preview } = this.props;
+    const { showingCarousel, startIndex, showingAttachmentGrid } = this.state;
+    const { attachments, removeAttachment, filePreview } = this.props;
     return (
       <React.Fragment>
-        <AttachmentViewSnippet {...this.props} onClick={this.onClick} />
-
-        {preview &&
-          showCarousel && (
-            <AttachmentsCarousel
-              attachments={attachments}
-              initialSlide={startIndex}
-              onClose={this.onCarouselClose}
-            />
-          )}
-        {showAttachmentGrid && (
+        <AttachmentsArea {...this.props} onClick={this.onClick} />
+        {showingCarousel && (
+          <AttachmentsCarousel
+            attachments={attachments}
+            initialSlide={startIndex}
+            onClose={this.onCarouselClose}
+          />
+        )}
+        {showingAttachmentGrid && (
           <AttachmentGrid
             attachments={attachments}
-            title={"Attached Files"}
-            onItemClick={this.openCarousel}
-            removeAttachment={this.props.removeAttachment}
             onClose={this.onCarouselClose}
+            onItemClick={
+              filePreview ? this.openCarousel : index => downloadURI(attachments[index].downloadUrl)
+            }
+            removeAttachment={removeAttachment}
+            title={"Attached Files"}
           />
         )}
       </React.Fragment>
     );
   }
-};
-
-export const AttachmentView = _AttachmentView;
-
-const AttachedItem = ({ attachment, removeAttachment, attachmentClassName }) => {
-  if (!attachment) return null;
-  const { render, title, thumbPath, originalUrl } = attachment;
-  return (
-    <StyledAttachmentSection className={attachmentClassName}>
-      <span className="attached-item">
-        {render && render(attachment)}
-        {!render && (
-          <div className="styleAttachments">
-            <a href={attachment.originalUrl} download={title}>
-              {thumbPath ? (
-                <img src={thumbPath} />
-              ) : (
-                <Icon type={getFileTypeIcon(originalUrl)} className="unSupportedFile" />
-              )}
-              {title}
-            </a>
-          </div>
-        )}
-      </span>
-      <Icon
-        type="delete"
-        className="deleteLinkStyle"
-        onClick={() => removeAttachment(attachment.id)}
-      />
-    </StyledAttachmentSection>
-  );
-};
-AttachedItem.propTypes = {
-  removeAttachment: PropTypes.func.isRequired,
-  attachment: PropTypes.object,
-  attachmentClassName: PropTypes.string
-};
-
-const AddNewAttachment = ({ text }) => {
-  return (
-    <StyledAddNewAttachment>
-      <Button type="PrimarySm" className="uploadBtn">
-        {text}
-      </Button>
-    </StyledAddNewAttachment>
-  );
-};
-
-AddNewAttachment.propTypes = {
-  text: PropTypes.oneOfType([PropTypes.string, PropTypes.node])
-};
-
-AddNewAttachment.defaultProps = {
-  text: "Upload Attachment(s)"
-};
-class Attachments extends Component {
+}
+export class SimpleAttachmentList extends Component {
   static propTypes = {
-    add: PropTypes.func,
-    attachedMedia: PropTypes.object.isRequired,
-    attachmentClassName: PropTypes.string,
-    className: PropTypes.string,
-    isView: PropTypes.bool,
-    maxUpload: PropTypes.number,
-    onError: PropTypes.func,
-    pollMediaStatus: PropTypes.bool,
-    preview: PropTypes.bool,
-    remove: PropTypes.func,
-    target: PropTypes.node,
-    text: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
-    title: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
-    truncateCount: PropTypes.number
-  };
-  static defaultProps = {
-    add: () => {},
-    attachedMedia: {},
-    isView: true,
-    maxUpload: 0,
-    preview: true,
-    remove: () => {},
-    title: "Attached Files",
-    truncateCount: 0
-  };
-  addAttachment = ({ mediaInfo }) => {
-    const attachmentToAdd = parseMedia(mediaInfo);
-    this.props.add(attachmentToAdd);
-  };
-  removeAttachment = id => {
-    const attachmentToRemove = Object.values(this.props.attachedMedia).filter(
-      (attachment = {}) => attachment.id == id
-    )[0];
-    this.props.remove(attachmentToRemove);
+    attachments: PropTypes.array.isRequired,
+    removeAttachment: PropTypes.func
   };
 
   render() {
+    const { attachments, removeAttachment } = this.props;
+    return attachments.map((attachment, index) => {
+      return (
+        <StyledSimpleAttachment key={index}>
+          <div className="floatL icon-attachment marginR10 marginT5" />
+          <a
+            href={attachment.downloadUrl}
+            download={attachment.title}
+            className="fileName"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {attachment.title}
+          </a>
+          {removeAttachment && (
+            <Icon
+              type="delete"
+              className="pointer marginL5"
+              onClick={() => removeAttachment(attachment.id)}
+            />
+          )}
+        </StyledSimpleAttachment>
+      );
+    });
+  }
+}
+
+class Attachments extends Component {
+  static propTypes = {
+    attachments: PropTypes.array,
+    attachmentClassName: PropTypes.string,
+    className: PropTypes.string,
+    filePreview: PropTypes.bool,
+    inlineUploader: PropTypes.bool,
+    onAddAttachment: PropTypes.func,
+    onRemoveAttachment: PropTypes.func,
+    onUploadError: PropTypes.func,
+    sectionTitle: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
+    showThumbnails: PropTypes.bool,
+    truncateCount: PropTypes.number,
+    uploaderTarget: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
+    uploadLimit: PropTypes.number
+  };
+  static defaultProps = {
+    onAddAttachment: () => {},
+    attachments: [],
+    filePreview: true,
+    inlineUploader: false,
+    uploadLimit: 0, // uploader is enabled only if uploadLimit > 0
+    onRemoveAttachment: () => {},
+    showThumbnails: true,
+    sectionTitle: "Attached Files",
+    uploaderTarget: "Add Attachment",
+    truncateCount: 0 // 0 means do not truncate
+  };
+
+  uploadedAttachment = ({ mediaInfo }) => {
+    const attachmentToAdd = parseMedia(mediaInfo);
+    this.props.onAddAttachment(attachmentToAdd);
+  };
+
+  removeAttachment = id => {
+    const attachmentToRemove = this.props.attachments.filter(
+      (attachment = {}) => attachment.id == id
+    )[0];
+    this.props.onRemoveAttachment(attachmentToRemove);
+  };
+  uploaderProps = {};
+  attachmentProps = {};
+  render() {
     const {
-      attachedMedia,
+      attachments,
       attachmentClassName,
       className,
-      isView,
-      maxUpload,
-      onError,
-      pollMediaStatus,
-      target,
-      text,
-      title
+      filePreview,
+      inlineUploader,
+      sectionTitle,
+      showThumbnails,
+      truncateCount,
+      uploadLimit
     } = this.props;
 
-    // remove undefined media
-    Object.keys(attachedMedia).forEach(
-      key => attachedMedia[key] === undefined && delete attachedMedia[key]
-    );
-    const attachments = Object.values(attachedMedia);
+    this.attachmentProps = {
+      attachments,
+      className: attachmentClassName,
+      filePreview,
+      sectionTitle,
+      truncateCount
+    };
+
+    if (this.props.uploadLimit > 0) {
+      const { onUploadError, uploaderTarget } = this.props;
+
+      this.attachmentProps = {
+        ...this.attachmentProps,
+        uploadLimit,
+        removeAttachment: this.removeAttachment
+      };
+      this.uploaderProps = {
+        inline: inlineUploader,
+        onError: onUploadError,
+        pollMediaStatus: true,
+        target: inlineUploader ? (
+          undefined
+        ) : typeof uploaderTarget !== "string" ? (
+          uploaderTarget
+        ) : (
+          <Button type="PrimarySm" className="marginT5 uploadBtn">
+            {uploaderTarget}
+          </Button>
+        ),
+        type: "DOCUMENT",
+        update: this.uploadedAttachment
+      };
+    }
+
     return (
       <div className={classnames(className)}>
-        {(attachments.length > 0 || maxUpload > 0) && title}
-
-        {isView && (
-          <AttachmentView
-            {...this.props}
-            attachments={attachments}
-            removeAttachment={this.removeAttachment}
-          />
-        )}
-        {!isView &&
-          attachments.map((attachment, index) => {
-            return (
-              <AttachedItem
-                key={index}
-                attachmentClassName={attachmentClassName}
-                attachment={attachment}
-                removeAttachment={() => this.removeAttachment(attachment.id)}
-              />
-            );
-          })}
-        {attachments.length < maxUpload && (
-          <Uploader
-            onError={onError}
-            pollMediaStatus={pollMediaStatus}
-            target={target ? target : <AddNewAttachment text={text} />}
-            type="DOCUMENT"
-            update={this.addAttachment}
-          />
+        {(attachments.length > 0 || uploadLimit > 0) && sectionTitle}
+        {showThumbnails && <AttachmentView {...this.attachmentProps} />}
+        {!showThumbnails && <SimpleAttachmentList {...this.attachmentProps} />}
+        <div className="clear" />
+        {attachments.length < uploadLimit && (
+          <StyledUploaderArea>
+            <Uploader
+              className={classnames({ inlineUploader: inlineUploader })}
+              {...this.uploaderProps}
+            />
+          </StyledUploaderArea>
         )}
       </div>
     );

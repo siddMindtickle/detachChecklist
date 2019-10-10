@@ -1,91 +1,7 @@
 import styled from "styled-components";
 import theme from "@mindtickle/mt-ui-components/styles/theme";
 import mixins from "@mindtickle/mt-ui-components/styles/mixins";
-import "@mindtickle/mt-ui-components/styles/index.scss";
 import { Modal } from "@mindtickle/mt-ui-components";
-
-const StyledAttachmentNote = styled.div`
-  ${mixins.smallActiveLink()};
-  ${mixins.clearfix()};
-
-  .snapsotNoteIcon {
-    width: 15px;
-    float: left;
-    color: ${theme.colors.INDIGO};
-    line-height: 24px;
-    margin-right: 8px;
-  }
-  .snapsotNote {
-    color: ${theme.colors.INDIGO};
-    line-height: 22px;
-    word-break: break-all;
-  }
-`;
-
-const StyledAttachmentSection = styled.div`
-  display: block;
-  cursor: pointer;
-  font-size: 14px;
-
-  .styleAttachments {
-    border: 1px solid ${theme.colors.ALTO};
-    border-radius: 8px;
-    text-align: center;
-    padding: 6px 42px;
-  }
-  .snapsotNoteIcon {
-    margin-right: 8px;
-    ${mixins.displayIB()};
-    color: ${theme.colors.SHARK};
-  }
-  .attached-item {
-    ${mixins.displayIB()};
-    margin-right: 15px;
-    max-width: 400px;
-    ${mixins.truncate()};
-    float: left;
-    line-height: 20px;
-    a {
-      color: ${theme.colors.SHARK};
-      cursor: pointer;
-      font-size: 14px;
-    }
-  }
-
-  .deleteLinkStyle {
-    ${mixins.displayIB()};
-    color: ${theme.colors.OUTER_SPACE};
-    cursor: pointer;
-    font-size: 14px;
-    margin-top: -2px;
-  }
-`;
-
-const StyledAddNewAttachment = styled.div`
-  ${mixins.displayIB};
-  margin: 0px;
-  ${mixins.clearfix};
-  cursor: pointer;
-
-  .snapsotNoteIcon {
-    ${mixins.displayIB};
-    margin-right: 5px;
-    color: ${theme.colors.OUTER_SPACE};
-  }
-  .snapsotNote {
-    ${mixins.displayIB};
-    color: ${theme.colors.OUTER_SPACE};
-    font-size: 13px;
-  }
-`;
-const StyledAttachmentView = styled.div`
-  .attachmentMore {
-    cursor: pointer;
-    ${mixins.actionLink()};
-    text-align: center;
-  }
-`;
-
 const StyledAttachmentGridItem = styled.div`
   float: left;
   cursor: pointer;
@@ -93,143 +9,81 @@ const StyledAttachmentGridItem = styled.div`
   margin: "0 24px 24px 0";
   padding: 6px 6px;
 
-  .fileName {
-    visibility: visible;
-    cursor: default;
-    ${mixins.whiteText()};
-    ${mixins.truncate("152px")};
-    border-radius: 0 0 6px 6px;
-    background-color: rgba(0, 0, 0, 0.5);
-    text-align: center;
-  }
-  .unSupportedFileIcon {
-    ${mixins.darkText()};
-    font-size: 50px;
-  }
   @media (max-width: 768px) {
     width: 138px;
     margin: 0 10px 10px 0;
   }
 
-  .deleteLinkStyle {
-    position: absolute;
-    bottom: -15px;
-    right: -2px;
-    cursor: pointer;
-    ${mixins.displayIB()};
-    color: ${theme.colors.OUTER_SPACE};
-    font-size: 14px;
+  .thumbnailImage {
+    display: block;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    max-width: 100%;
+    max-height: 100%;
+    transform: translateY(-50%) translateX(-50%);
+    background-color: rgba(235, 235, 235, 0.5);
+    border-radius: 6px;
   }
-  .downloadLink {
-    display: none;
+  .hoverTitle {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    display: inline-block;
+    opacity: 0;
+    ${mixins.whiteBoldText()};
+    font-family: Arial, sans-serif !important;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 6px;
+    padding: 6px;
+    text-align: center;
+    word-break: break-word;
+  }
+  .fileName {
+    visibility: visible;
+    cursor: default;
+    ${mixins.whiteText()};
+    ${mixins.truncate("152px")};
+    font-family: Arial, sans-serif !important;
+    border-radius: 0 0 6px 6px;
+    background-color: rgba(0, 0, 0, 0.5);
+    text-align: center;
+  }
+
+  .actionIcon {
+    opacity: 0;
+    cursor: pointer;
+    position: absolute;
+    bottom: 5px;
+    right: 10px;
+    ${mixins.displayIB()};
+    color: ${theme.colors.WHITE};
+    font-size: 14px;
+    font-weight: bold;
   }
   :hover {
     .fileName {
       visibility: hidden;
     }
-    .downloadLink {
-      width: inherit;
-      height: inherit;
-      display: inline-block;
-      background-color: rgba(0, 0, 0, 0.5);
-      ${mixins.whiteBoldText()};
-      word-break: break-word;
-      border-radius: 6px;
-      padding: 6px;
-      text-align: center;
+    .hoverTitle {
+      opacity: 1;
+    }
+    .actionIcon {
+      opacity: 1;
     }
   }
 `;
 
-const StyledModal = styled(Modal)`
-  &.modalVideo .ant-modal-mask {
-    z-index: ${mixins.zIndex.GET_SUPPORT - 2} !important;
-  }
-  &.modalVideo .ant-modal-wrap {
-    z-index: ${mixins.zIndex.GET_SUPPORT - 1} !important;
-  }
-
-  &.modalVideo.ant-modal .ant-modal-content {
-    border-radius: 0px;
-    background-color: transparent;
-    box-shadow: none;
-
-    .ant-modal-body {
-      height: 540px;
-    }
-  }
-  &.modalVideo.ant-modal .ant-modal-content button.ant-modal-close {
-    right: -100px;
-    top: -100px;
-    .ant-modal-close-icon {
-      color: ${theme.colors.WHITE};
-      font-size: 35px;
-    }
-  }
-  .topSubmissionCarousel {
-    padding: 0;
-  }
-  .ant-carousel {
-    .slick-slider {
-      padding: 0 5em;
-      .slick-arrow.slick-prev,
-      .slick-arrow.slick-next {
-        background-color: transparent;
-        font-size: 60px;
-        width: 60px;
-        height: 45px;
-      }
-      .slick-arrow.slick-next {
-        right: -25px;
-      }
-      :after,
-      :before {
-        display: none;
-      }
-    }
-    .slick-slide {
-      height: 540px;
-      & > div {
-        height: inherit;
-      }
-    }
-  }
-
-  @media (max-width: 576px) {
-    &.modalVideo.ant-modal .ant-modal-content button.ant-modal-close {
-      right: 0;
-      top: -3px;
-      margin: 12px;
-      .ant-modal-close-icon {
-        color: ${theme.colors.ICON};
-        font-size: 20px;
-      }
-    }
-    &.modalVideo.ant-modal .ant-modal-content .ant-modal-body {
-      height: auto;
-    }
-    .ant-carousel {
-      .slick-slider {
-        padding: 0;
-      }
-      .slick-slide {
-        height: 100vh;
-      }
-    }
-  }
-  @media screen and (max-width: 1024px) and (min-width: 577px) {
-    &.modalVideo.ant-modal .ant-modal-content button.ant-modal-close {
-      right: -74px;
-      top: -94px;
-    }
-    .ant-carousel {
-      .slick-slide {
-        height: 540px;
-        & > div {
-          height: inherit;
-        }
-      }
-    }
+const StyledAttachmentView = styled.div`
+  .attachmentMore {
+    cursor: pointer;
+    font-family: Arial, sans-serif !important;
+    ${mixins.actionLink()};
+    text-align: center;
   }
 `;
 
@@ -245,6 +99,7 @@ const StyledCarouselItem = styled.div`
   .carouselItemName {
     ${mixins.truncate("400px")};
     ${mixins.whiteBoldText()};
+    font-family: Arial, sans-serif !important;
     font-weight: 500;
     float: left;
   }
@@ -271,6 +126,7 @@ const StyledCarouselItem = styled.div`
     .carouselItemName {
       ${mixins.truncate("250px")};
       ${mixins.darkText()};
+      font-family: Arial, sans-serif !important;
       margin-bottom: 0;
     }
     .carouselItemDownload {
@@ -304,17 +160,129 @@ const StyledGridModal = styled(Modal)`
   }
   &.ant-modal .ant-modal-body {
     ${mixins.clearfix()};
-    padding: 0px 32px 32px;
+    padding: 0px 32px 32px !important;
+  }
+`;
+
+const StyledModal = styled(Modal)`
+  &.modalVideo .ant-modal-mask {
+    z-index: ${mixins.zIndex.GET_SUPPORT - 2} !important;
+  }
+  &.modalVideo .ant-modal-wrap {
+    z-index: ${mixins.zIndex.GET_SUPPORT - 1} !important;
+  }
+
+  &.modalVideo.ant-modal .ant-modal-content {
+    border-radius: 0px;
+    background-color: transparent;
+    box-shadow: none;
+
+    .ant-modal-body {
+      height: 540px;
+    }
+  }
+  .topSubmissionCarousel {
+    padding: 0;
+  }
+  .ant-carousel {
+    .slick-slider {
+      padding: 0 5em;
+      .slick-arrow.slick-prev,
+      .slick-arrow.slick-next {
+        background-color: transparent;
+        font-size: 60px;
+        width: 60px;
+        height: 45px;
+      }
+      .slick-arrow.slick-next {
+        right: -25px;
+      }
+      :after,
+      :before {
+        display: none;
+      }
+    }
+    .slick-slide {
+      height: 540px;
+      & > div {
+        height: inherit;
+      }
+    }
+  }
+
+  &.modalVideo.ant-modal .ant-modal-content button.ant-modal-close {
+    display: block;
+    right: -30px;
+    top: -35px;
+    .ant-modal-close-icon {
+      color: ${theme.colors.WHITE};
+      font-size: 35px;
+    }
+    .ant-modal-close-icon::after {
+      display: none;
+    }
+    svg {
+      display: inline-block;
+    }
+  }
+  @media (max-width: 576px) {
+    &.modalVideo.ant-modal .ant-modal-content button.ant-modal-close {
+      right: 0;
+      top: -3px;
+      margin: 12px;
+      .ant-modal-close-icon::after {
+        display: none;
+      }
+      .ant-modal-close-icon {
+        color: ${theme.colors.ICON};
+        font-size: 20px;
+      }
+    }
+    &.modalVideo.ant-modal .ant-modal-content .ant-modal-body {
+      height: auto;
+    }
+    .ant-carousel {
+      .slick-slider {
+        padding: 0;
+      }
+      .slick-slide {
+        height: 100vh;
+      }
+    }
+  }
+  @media screen and (max-width: 1024px) and (min-width: 577px) {
+    &.modalVideo.ant-modal .ant-modal-content button.ant-modal-close {
+      right: -74px;
+      top: -94px;
+    }
+    .ant-carousel {
+      .slick-slide {
+        height: 540px;
+        & > div {
+          height: inherit;
+        }
+      }
+    }
+  }
+`;
+const StyledSimpleAttachment = styled.div`
+  .fileName {
+    ${mixins.actionLink()};
+  }
+`;
+const StyledUploaderArea = styled.div`
+  .inlineUploader {
+    width: 582px;
+    height: 400px;
   }
 `;
 
 export {
-  StyledAddNewAttachment,
   StyledAttachmentGridItem,
-  StyledAttachmentNote,
-  StyledAttachmentSection,
   StyledAttachmentView,
   StyledCarouselItem,
+  StyledGridModal,
   StyledModal,
-  StyledGridModal
+  StyledSimpleAttachment,
+  StyledUploaderArea
 };
