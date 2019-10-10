@@ -24,6 +24,13 @@ export const ACCESS_LINK_URL = {
   HELP_CENTER: "HELP_CENTER"
 };
 
+export const getSeriesUrl_learner = seriesId => {
+  if (seriesId) {
+    return `/#/courses/series/${seriesId}?series=${seriesId}`;
+  }
+  return null;
+};
+
 export const getSeriesUrl = (seriesId, isNewDashboard) => {
   if (!seriesId) return null;
 
