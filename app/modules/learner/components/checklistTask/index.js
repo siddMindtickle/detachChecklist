@@ -4,8 +4,8 @@ import { OVERVIEW_ID } from "@config/env.config";
 import { TASK_NAVIGATION } from "../../config/constants";
 
 import Icon from "@mindtickle/mt-ui-components/Icon";
-import Attachments from "@components/attachment";
-import classnames from "classnames";
+import Attachments from "@components/attachments_learner";
+//import classnames from "classnames";
 import MtButton from "@uielements/button";
 import PropTypes from "prop-types";
 import React from "react";
@@ -28,7 +28,7 @@ const MarkCompleteButton = ({ frozen, onClick, isCompleted, updatingTask }) => {
         {!updatingTask && (
           <Col xs={6} sm={6} md={2} lg={2} xl={2} xxl={2}>
             <div className="F16 marginT1 paddingL1 paddingR1" />
-            <Icon type={"right"} />
+            <Icon className={"F16"} type={"confirmOutline"} />
           </Col>
         )}
         <Col xs={0} sm={0} md={22} lg={22} xl={22} xxl={22}>
@@ -111,22 +111,24 @@ MoveButton.defaultProps = {
 const ChecklistTask = ({
   actions,
   nextId,
+  medias,
   prevId,
   frozen,
-  attachments,
   isCompleted,
   updatingTask,
   isSequentiallyLocked
 }) => {
   return [
-    <Divider key="headerDivider" style={{ margin: "30px 0 10px" }} />,
     <div key="taskMedia" className={"paddingL20"}>
-      <Attachments
-        attachmentClassName="attachDocument"
-        className={classnames("overflow", "marginB30 marginT15")}
-        attachedMedia={attachments}
-        truncateCount={4}
-      />
+      {medias && (
+        <Attachments
+          className="overflow marginB10 marginT15"
+          attachedMedia={medias}
+          truncateCount={4}
+          showThumbnails={true}
+          showPreview={true}
+        />
+      )}
     </div>,
     <Divider key="btnDivider" style={{ margin: "30px 0 10px" }} />,
     <Row key="footerBtns">

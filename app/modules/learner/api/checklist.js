@@ -15,7 +15,7 @@ export const parseTask = (task = {}, { sectionId } = {}) => {
     type,
     name,
     score,
-    attachments: attachedMedia && parseAttachments(attachedMedia),
+    medias: attachedMedia && parseAttachments(attachedMedia),
     maxScore,
     sectionId,
     description,
