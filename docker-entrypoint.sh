@@ -29,7 +29,7 @@ jobName="Build_triggered_checklist_${dates}"
 
 sleep 5s
 
-curl -H "Accept: application/json" -H "Content-type: application/json" -X POST -d '{"jobName":"'"$jobName"'","dataEndpointIds":[9]}'  http://webpagetest.internal.checklist.mindtickle.com/app/createJob
+curl -H "Accept: application/json" -H "Content-type: application/json" -X POST -d '{"jobName":"'"$jobName"'","dataEndpointIds":[11]}'  http://webpagetest.internal.checklist.mindtickle.com/app/createJob
 
 
 set +ex
