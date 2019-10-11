@@ -22,11 +22,10 @@ aws s3 cp --acl public-read --cache-control max-age=0,no-cache,no-store,must-rev
 aws s3 cp --acl public-read favicon.ico $s3Url/favicon.ico
 
 
-
 utcTime=$(date +%s)
 istTime=$(($utcTime+19800))
 dates=$(date -r $istTime +%D-%T)
-jobName="checklist_${dates}"
+jobName="Build_triggered_checklist_${dates}"
 
 sleep 5s
 
