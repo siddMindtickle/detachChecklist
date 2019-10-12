@@ -7,7 +7,7 @@ import { injectIntl, intlShape } from "react-intl";
 import { hideLoader } from "@utils/loader";
 import Alert from "@utils/alert";
 import { reload, isWebView } from "@utils";
-import { getSeriesUrl } from "@utils/generateUrls";
+import { getSeriesUrl_learner as getSeriesUrl } from "@utils/generateUrls";
 
 import { injectReducer, injectSaga, getActions } from "@core/helpers";
 import { OVERVIEW_ID } from "@config/env.config";
