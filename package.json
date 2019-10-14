@@ -171,8 +171,8 @@
   "directories": {
     "test": "test"
   },
-  "name": "detachchecklist",
-  "description": "Boilerplate for react",
+  "name": "checklist-ui",
+  "description": "mono repo for checklist",
   "version": "1.0.0",
   "main": "start_proxy.js",
   "author": ""
