@@ -101,10 +101,9 @@ class SideBar extends Component {
           </div>
 
           {!!name && [
-            <div
-              key="overviewArrow"
-              className={classNames("floatR icon-ddArrowRight F13 blackColor marginT14 marginL10")}
-            />,
+            <div key="overviewArrow" className={classNames("floatR F13 blackColor ")}>
+              <Icon type={"right_arrow"} className={"marginL8"} />
+            </div>,
             <div key="overviewDescription" className={style.sidebarMenu}>
               <InnerHTML id="description_html" content={name ? name : ""} />
             </div>
