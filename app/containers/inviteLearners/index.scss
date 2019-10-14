@@ -10,7 +10,7 @@
 :global {
   .ac_styleCustom {
     .ac_wrapper {
-      @include z-index(accordian);
+      @include z-index(inviteTrigger);
       .panel-group {
         background: #fff;
         list-style: none;
