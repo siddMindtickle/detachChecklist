@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { compose } from "redux";
 import { connect } from "react-redux";
 import { injectIntl, intlShape } from "react-intl";
-
+import { Helmet } from "react-helmet";
 import { hideLoader } from "@utils/loader";
 import Alert from "@utils/alert";
 import { reload, isWebView } from "@utils";
@@ -176,6 +176,7 @@ class Checklist extends Component {
 
   render() {
     const {
+      company,
       tasks,
       levels,
       loaded,
@@ -199,6 +200,7 @@ class Checklist extends Component {
     };
     return loaded && !hasError ? (
       [
+        <Helmet key={company.data.title} title={company.data.title} />,
         <ChecklistWrapper
           key="checklistwrapper"
           {...params}
@@ -237,6 +239,7 @@ const mapStateToProps = state => {
     sections,
     tasks
   } = state.checklist;
+  const { company } = state.auth;
   return {
     isLoaded,
     hasError,
@@ -248,7 +251,8 @@ const mapStateToProps = state => {
     seriesData,
     levels,
     sections,
-    tasks
+    tasks,
+    company
   };
 };
 
