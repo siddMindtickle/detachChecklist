@@ -78,7 +78,8 @@ const handleErrors = () => [
 const performance = () => [
   new ScriptExtHtmlWebpackPlugin({
     defaultAttribute: "defer"
-  })
+  }),
+  new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/)
 ];
 
 const duplicate = () => [

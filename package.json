@@ -5,6 +5,7 @@
     "start:spa:prod": "better-npm-run start:spa:prod",
     "build:clean": "rimraf ./dist",
     "build": "better-npm-run build",
+    "stats": "better-npm-run stats",
     "build:prod": "better-npm-run build:prod",
     "build:prod:analyse": "better-npm-run build:prod:analyse",
     "precommit": "lint-staged"
@@ -47,6 +48,7 @@
     "@babel/plugin-proposal-export-namespace-from": "^7.0.0",
     "@babel/plugin-proposal-function-bind": "^7.0.0",
     "@babel/plugin-proposal-function-sent": "^7.0.0",
+    "babel-plugin-transform-imports": "^2.0.0",
     "@babel/plugin-proposal-json-strings": "^7.0.0",
     "@babel/plugin-proposal-logical-assignment-operators": "^7.0.0",
     "@babel/plugin-proposal-nullish-coalescing-operator": "^7.0.0",
@@ -67,10 +69,10 @@
     "babel-loader": "^8.0.0",
     "babel-plugin-import": "^1.8.0",
     "babel-plugin-module-alias": "^1.6.0",
-    "babel-plugin-root-import": "^5.1.0",
-    "babel-plugin-syntax-async-functions": "^6.13.0",
     "babel-plugin-react-intl": "^3.0.1",
     "babel-plugin-react-intl-auto": "^1.1.1",
+    "babel-plugin-root-import": "^5.1.0",
+    "babel-plugin-syntax-async-functions": "^6.13.0",
     "better-npm-run": "^0.1.0",
     "circular-dependency-plugin": "^5.0.1",
     "compression-webpack-plugin": "^1.1.11",
@@ -110,6 +112,7 @@
     "style-loader": "^0.20.3",
     "url-loader": "^1.0.1",
     "webpack": "^4.2.0",
+    "webpack-bundle-analyzer": "^3.5.2",
     "webpack-cli": "^2.0.13",
     "webpack-dev-server": "^3.1.1"
   },
@@ -124,6 +127,17 @@
   },
   "pre-commit": "precommit",
   "betterScripts": {
+    "stats": {
+      "command": " npm run build:clean && webpack -p --config ./webpack/webpack.config.js --progress --profile --json > abc.json",
+      "env": {
+        "NODE_ENV": "production",
+        "MOCK": false,
+        "HASHING": true,
+        "OPTIMISE": true,
+        "CHUNKING": true,
+        "UGLIFY": true
+      }
+    },
     "build:prod": {
       "command": "npm run build:clean && webpack --config ./webpack/webpack.config.js --progress --hide-modules",
       "env": {

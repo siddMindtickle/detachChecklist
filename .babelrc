@@ -10,6 +10,23 @@
   ],
   "plugins": [
     [
+      "transform-imports",
+      {
+        "@MindTickle/mt-ui-components$": {
+          "transform": "mt-ui-components/${member}",
+          "preventFullImport": true
+        },
+        "mt-ui-components$": {
+          "transform": "mt-ui-components/${member}",
+          "preventFullImport": true
+        },
+        "lodash": {
+          "transform": "lodash/${member}",
+          "preventFullImport": true
+        }
+      }
+    ],
+    [
       "react-intl-auto",
       {
         "removePrefix": "app/",

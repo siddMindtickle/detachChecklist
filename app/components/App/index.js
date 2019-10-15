@@ -12,14 +12,16 @@ import { asyncComponent as GetAsyncComponent } from "mt-ui-core/core/helpers";
 import PrivateRoute from "@components/privateRoute";
 import Routes, { ROUTES } from "@config/Routes";
 
-const Admin = GetAsyncComponent(() => import(/* webpackChunkName: "checklist" */ "@modules/admin"));
+const Admin = GetAsyncComponent(() =>
+  import(/* webpackChunkName: "checklist-admin" */ "@modules/admin")
+);
 
 const Learner = GetAsyncComponent(() =>
-  import(/* webpackChunkName: "checklist" */ "@modules/learner")
+  import(/* webpackChunkName: "checklist-learner" */ "@modules/learner")
 );
 
 const AdminHeader = GetAsyncComponent(() =>
-  import(/* webpackChunkName: "coaching-AdminHeader", webpackPrefetch: true */ "mt-ui-core/components/AdminHeader")
+  import(/* webpackChunkName: "admin-header" */ "mt-ui-core/components/AdminHeader")
 );
 
 class App extends Component {

@@ -16,6 +16,11 @@
 		"require": true,
 		"UploadeManager": true
 	},
+	"settings": {
+    "react": {
+      "version": "detect"
+    }
+  },
 	"parser": "babel-eslint",
 	"env": {
 		"browser": true,
