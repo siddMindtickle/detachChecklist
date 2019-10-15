@@ -68,7 +68,7 @@ config.resolve = {
     "@ant-design/icons": resolve(
      __dirname,
      "../node_modules",
-     "@MindTickle/mt-ui-components/src/Icon/antIcons.js"
+     "@mindTickle/mt-ui-components/src/Icon/antIcons.js"
    )
   }
 };
