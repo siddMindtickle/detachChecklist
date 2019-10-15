@@ -12,7 +12,7 @@
     [
       "transform-imports",
       {
-        "@MindTickle/mt-ui-components$": {
+        "@mindtickle/mt-ui-components$": {
           "transform": "mt-ui-components/${member}",
           "preventFullImport": true
         },
