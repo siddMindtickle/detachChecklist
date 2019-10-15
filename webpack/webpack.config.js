@@ -65,11 +65,6 @@ config.resolve = {
     "@mixpanel": resolve(__dirname, "../app/mixpanel"),
     "@containers": resolve(__dirname, "../app/containers"),
     "@uielements": resolve(__dirname, "../app/components/uielements"),
-    "@ant-design/icons": resolve(
-     __dirname,
-     "../node_modules",
-     "@mindtickle/mt-ui-components/src/Icon/antIcons.js"
-   )
   }
 };
 
