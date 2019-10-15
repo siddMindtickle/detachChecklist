@@ -207,9 +207,11 @@
     padding-right: 30px !important;
   }
 
-  .ant-card-meta-description{
-    list-style-position: inside;
-    color:#000;
+  .ant-card {
+    .ant-card-meta-description {
+      list-style-position: inside;
+      color: #000;
+    }
   }
 
   .ant-menu-submenu-inline > .ant-menu-submenu-title .ant-menu-submenu-arrow:before,
