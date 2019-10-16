@@ -37,6 +37,14 @@
     line-height: 36px;
   }
 
+  .cursor{
+    cursor: pointer;
+  }
+
+  .pointer{
+     cursor: pointer;
+
+  }
 
   a{color:$link-color}
   a:hover{color:$link-color-hover}
