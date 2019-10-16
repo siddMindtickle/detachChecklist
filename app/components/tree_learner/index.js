@@ -22,12 +22,7 @@ const LeafStateButton = ({ node, lockedMessage }) => {
   const { isLocked, isCompleted } = node;
   const iconClass = classNames("floatR", "F16", "marginT12", "pos_rel", "paddingL1", "paddingR1");
   return (
-    <MtButton
-      className="floatR cursor lineHeight40"
-      style={{ padding: "0" }}
-      type="noborderPrimary"
-      ghost
-    >
+    <MtButton className="floatR cursor" style={{ padding: "0" }} type="noborderPrimary" ghost>
       <div className={iconClass}>
         {isLocked && (
           <Tooltip title={lockedMessage}>
@@ -36,13 +31,17 @@ const LeafStateButton = ({ node, lockedMessage }) => {
         )}
       </div>
       {!isLocked && !isCompleted ? (
-        <Icon className={`F16 ${style.taskIcon}`} type={"confirmOutline"} />
+        <Icon className={`F16 ${style.taskIcon} lineHeight40`} type={"confirmOutline"} />
       ) : null}
       {!isLocked && isCompleted ? (
-        <Icon className={"F16 completedColor "} type={"Confirm"} />
+        <Icon className={"F16 completedColor lineHeight40"} type={"Confirm"} />
       ) : null}
-      {isLocked && !isCompleted ? <Icon className={style.locked} type={"locked"} /> : null}
-      {isLocked && isCompleted ? <Icon className={style.lockedCompleted} type={"locked"} /> : null}
+      {isLocked && !isCompleted ? (
+        <Icon className={`${style.locked} lineHeight40`} type={"locked"} />
+      ) : null}
+      {isLocked && isCompleted ? (
+        <Icon className={`${style.lockedCompleted} lineHeight40`} type={"locked"} />
+      ) : null}
     </MtButton>
   );
 };

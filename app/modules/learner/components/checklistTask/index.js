@@ -74,7 +74,7 @@ const MoveButton = ({ type, messageId, to, onClick, disabled }) => {
         {type == TASK_NAVIGATION.PREV && (
           <Col xs={24} sm={24} md={24} lg={4} xl={4} xxl={4} className={classes.text}>
             <div className="F12 paddingR7" style={{ lineHeight: "30px" }} />
-            <Icon type="left_caret" className={"displayIB"} />
+            <Icon type="left_caret" className={"displayIB lineHeight30"} />
           </Col>
         )}
         <Col xs={0} sm={0} md={0} lg={20} xl={20} xxl={20} className="textalign_L">
@@ -89,7 +89,7 @@ const MoveButton = ({ type, messageId, to, onClick, disabled }) => {
               style={{ lineHeight: "30px" }}
             />
             {type === TASK_NAVIGATION.NEXT ? (
-              <Icon type={"right_caret"} className={"displayIB paddingL5"} />
+              <Icon type={"right_caret"} className={"displayIB paddingL5 lineHeight30"} />
             ) : null}
           </Col>
         )}
