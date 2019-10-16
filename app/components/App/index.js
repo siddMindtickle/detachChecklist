@@ -4,7 +4,7 @@ import { isAdminSite } from "mt-ui-core/utils";
 import withUserAuth from "mt-ui-core/hocs/withUserAuth";
 import { asyncComponent as GetAsyncComponent } from "mt-ui-core/core/helpers";
 import PrivateRoute from "@components/privateRoute";
-import Routes, { ROUTES } from "@config/routes";
+import Routes, { ROUTES } from "@config/Routes";
 
 const Admin = GetAsyncComponent(() =>
   import(/* webpackChunkName: "checklist-admin" */ "@modules/admin")
