@@ -33,7 +33,7 @@ config.output = {
   chunkFilename: "assests-ui/[name].chunk.js",
   crossOriginLoading: "anonymous"
 };
-config.devtool = "inline-source-map"; // Env.NODE_ENV !== "production" ? "inline-source-map" : false;
+config.devtool = Env.NODE_ENV !== "production" ? "inline-source-map" : false;
 config.stats = "normal";
 
 config.resolve = {
