@@ -25,6 +25,19 @@
     line-height: 20px;
   }
 
+  .lineHeight40{
+    line-height: 40px;
+  }
+
+  .lineHeight30{
+    line-height: 30px;
+  }
+
+  .lineHeight36{
+    line-height: 36px;
+  }
+
+
   a{color:$link-color}
   a:hover{color:$link-color-hover}
 
@@ -307,7 +320,6 @@
   }
   .completedColor::before{
     color:#6bcb65 !important;
-    background: #fff !important;
   }
 
   .width500{

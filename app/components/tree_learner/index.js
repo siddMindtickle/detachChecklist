@@ -22,7 +22,12 @@ const LeafStateButton = ({ node, lockedMessage }) => {
   const { isLocked, isCompleted } = node;
   const iconClass = classNames("floatR", "F16", "marginT12", "pos_rel", "paddingL1", "paddingR1");
   return (
-    <MtButton className="floatR cursor" style={{ padding: "0" }} type="noborderPrimary" ghost>
+    <MtButton
+      className="floatR cursor lineHeight40"
+      style={{ padding: "0" }}
+      type="noborderPrimary"
+      ghost
+    >
       <div className={iconClass}>
         {isLocked && (
           <Tooltip title={lockedMessage}>
