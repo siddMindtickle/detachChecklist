@@ -76,7 +76,7 @@ config.devServer = {
 };
 
 config.module = {
-  rules: [ImagesLoaders, FontsLoaders, ScriptsLoaders, StylesLoaders, LibStylesLoaders]
+  rules: [ImagesLoaders, FontsLoaders, ScriptsLoaders, LibStylesLoaders, StylesLoaders]
 };
 
 config.plugins = [...AddGlobalsPlugin, ...CreateTemplatePlugins, ...HandleErrorsPlugins];
