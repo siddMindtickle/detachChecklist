@@ -113,7 +113,7 @@ const createRelevanceMap = (
   const { ids, groups, learners } = userReq;
   switch (type) {
     case INVITE_TYPE.INVITE_EXISTING:
-      if (ids) {
+      if (ids && ids.length > 0) {
         ids.forEach(id => {
           entityRelevance.push({
             settingTypeEnum: RELEVANCE_SETTING_ENUM.USER,

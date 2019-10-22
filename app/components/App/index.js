@@ -1,11 +1,5 @@
 import React, { Component } from "react";
-//import { Route, Switch } from "react-router-dom";
-//import Routes, { ROUTES } from "~/config/Routes";
-//import { withHeader } from "../../modules/auth/utils/hoc";
-
-//import { withHeader } from "../utils/hoc";
 import PropTypes from "prop-types";
-import { Switch, withRouter } from "react-router-dom";
 import { isAdminSite } from "mt-ui-core/utils";
 import withUserAuth from "mt-ui-core/hocs/withUserAuth";
 import { asyncComponent as GetAsyncComponent } from "mt-ui-core/core/helpers";
@@ -21,7 +15,7 @@ const Learner = GetAsyncComponent(() =>
 );
 
 const AdminHeader = GetAsyncComponent(() =>
-  import(/* webpackChunkName: "admin-header" */ "mt-ui-core/components/AdminHeader")
+  import(/* webpackChunkName: "adminHeader", webpackPrefetch: true */ "mt-ui-core/components/AdminHeader")
 );
 
 class App extends Component {
@@ -29,9 +23,7 @@ class App extends Component {
     userAuth: PropTypes.shape({
       isLoggedIn: PropTypes.bool
     }),
-    logout: PropTypes.func,
-
-    location: PropTypes.object
+    logout: PropTypes.func
   };
 
   static defaultProps = {
@@ -41,34 +33,29 @@ class App extends Component {
   render() {
     const { userAuth = {}, logout } = this.props;
     const { isLoggedIn } = userAuth;
+    if (isAdminSite()) {
+      return (
+        <>
+          <AdminHeader userAuth={userAuth} logout={logout} />
+          <PrivateRoute
+            path={Routes[ROUTES.CHECKLIST]}
+            render={props => <Admin props={props} pageType="" />}
+            authenticated={isLoggedIn}
+          />
+        </>
+      );
+    }
     return (
-      <React.Fragment>
-        {isAdminSite() ? (
-          <div>
-            <AdminHeader userAuth={userAuth} logout={logout} />
-            <Switch>
-              <PrivateRoute
-                path={Routes[ROUTES.CHECKLIST]}
-                render={props => <Admin props={props} pageType="" />}
-                authenticated={isLoggedIn}
-              />
-            </Switch>
-          </div>
-        ) : (
-          <Switch>
-            <PrivateRoute
-              path={Routes[ROUTES.CHECKLIST]}
-              component={Learner}
-              style={{ height: "100%" }}
-              authenticated={isLoggedIn}
-            />
-          </Switch>
-        )}
-      </React.Fragment>
+      <PrivateRoute
+        path={Routes[ROUTES.CHECKLIST]}
+        component={Learner}
+        style={{ height: "100%" }}
+        authenticated={isLoggedIn}
+      />
     );
   }
 }
 
-let component = withUserAuth(withRouter(App));
+let component = withUserAuth(App);
 
 export default component;

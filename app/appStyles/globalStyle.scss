@@ -21,6 +21,31 @@
     line-height: 18px;
   }
 
+  .lineHeight20{
+    line-height: 20px;
+  }
+
+  .lineHeight40{
+    line-height: 40px;
+  }
+
+  .lineHeight30{
+    line-height: 30px;
+  }
+
+  .lineHeight36{
+    line-height: 36px;
+  }
+
+  .cursor{
+    cursor: pointer;
+  }
+
+  .pointer{
+     cursor: pointer;
+
+  }
+
   a{color:$link-color}
   a:hover{color:$link-color-hover}
 
@@ -227,6 +252,10 @@
     right:22px;
   }
 
+  .ant-menu.ant-menu-vertical .ant-menu-item:after, .ant-menu-vertical-left .ant-menu-item:after, .ant-menu-vertical-right .ant-menu-item:after, .ant-menu-inline .ant-menu-item:after {
+    border-right: 0px;
+  }
+
   .ant-menu-submenu .ant-menu-submenu-title{
     font-weight: bold;
     color: #000;
@@ -237,7 +266,7 @@
     background: #f9f9f9;
   }
 
-  .ant-menu:not(.ant-menu-horizontal) .ant-menu-item-selected{
+  .ant-menu:not(.ant-menu-horizontal) .ant-menu-item.ant-menu-item-selected{
     background: #f5f5f5;
     color: #000;
   }
@@ -299,7 +328,6 @@
   }
   .completedColor::before{
     color:#6bcb65 !important;
-    background: #fff !important;
   }
 
   .width500{
