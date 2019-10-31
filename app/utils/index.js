@@ -164,6 +164,7 @@ export const parseMedia = media => {
     id,
     title,
     originalUrl: (urls && urls.pdf) || mp4Path || processed_path || original_path,
+    downloadUrl: original_path,
     uuid,
     type,
     mp4PathList,
@@ -244,17 +245,6 @@ export function parseMediaTracks(mediaObj, type) {
 }
 
 export const parseAttachments = medias => {
-  return medias.reduce((result, media) => {
-    if (!(media && media.obj && media.obj.id)) {
-      // Unexpected event, implies data corruption
-      return result;
-    }
-    result[media.obj.id] = parseMedia(media.obj);
-    return result;
-  }, {}); // {} is the starting value of accumulator(named result here)
-};
-
-export const parseAttachments_admin = medias => {
   if (!medias) return undefined;
   return medias.reduce((result, media) => {
     if (!(media && media.obj && media.obj.id) || media.originalUrl || media.obj.originalUrl) {
@@ -309,7 +299,7 @@ export const getThumbPathFromMedia = (media = {}) => {
       break;
   }
 
-  if (thumbPath.startsWith("//")) {
+  if (thumbPath && thumbPath.startsWith("//")) {
     //prefix https if not present, case for video thumbPaths
     thumbPath = "https:" + thumbPath;
   }
@@ -319,11 +309,21 @@ export const getThumbPathFromMedia = (media = {}) => {
 export const downloadURI = (uri, name) => {
   var link = document.createElement("a");
   link.style.display = "none";
-  document.body.appendChild(link);
   link.download = name;
   link.target = "_blank";
   link.href = uri;
+  document.body.appendChild(link);
   link.click();
+};
+
+export const isIEOrEdge = () => {
+  const ua = window.navigator.userAgent;
+  const msie = ua.indexOf("MSIE ");
+  const msie11 = ua.indexOf("Trident/");
+  const msedge = ua.indexOf("Edge/");
+  const isIE = msie > 0 || msie11 > 0;
+  const isEdge = msedge > 0;
+  return isIE || isEdge;
 };
 
 export const isMobile = () => {
