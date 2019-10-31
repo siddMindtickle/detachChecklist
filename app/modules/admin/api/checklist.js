@@ -1,5 +1,5 @@
 import { get, put, post } from "@utils/apiUtils";
-import { isEmpty, parseAttachments_admin } from "@utils";
+import { isEmpty, parseAttachments } from "@utils";
 import ApiUrls from "../config/api.config";
 import { MT_ENTITY_TYPE_ID, MT_ENTITIES } from "@config/global.config";
 
@@ -13,7 +13,7 @@ const parseTasks = (tasks = []) => {
     const {
       staticNode: {
         id: staticId,
-        obj: { taskName: name, taskDesc: description, attachedMedia: attachments = [] }
+        obj: { taskName: name, taskDesc: description, attachedMedia: attachments }
       },
       id,
       maxScore
@@ -25,7 +25,7 @@ const parseTasks = (tasks = []) => {
         staticId,
         maxScore,
         description,
-        attachments: parseAttachments_admin(attachments),
+        attachments: parseAttachments(attachments),
         displayIndex: index
       }
     };
