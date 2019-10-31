@@ -209,12 +209,12 @@ class ChecklistBuild extends Component {
       case EXPAND:
         tasks = tasks.reduce((result, newData) => {
           const oldData = tasksMap[newData.data.id] || {};
-          result[newData.data.id] = deepmerge(oldData, newData);
+          result[newData.data.id] = deepmergeOverwriteArrays(oldData, newData);
           return result;
         }, {});
         sections = sections.reduce((result, newData) => {
           const oldData = sectionsMap[newData.data.id] || {};
-          result[newData.data.id] = deepmerge(oldData, newData);
+          result[newData.data.id] = deepmergeOverwriteArrays(oldData, newData);
           return result;
         }, {});
         response.actions.push({
@@ -279,15 +279,6 @@ class ChecklistBuild extends Component {
     });
     return [type, data];
   };
-
-  /*  updateState = (newState, merge = true) => {
-    merge ? this.setState(deepmerge(this.state, newState)) : this.setState(newState);
-  };
-
-  updateDetails = (type, data) => {
-    data = deepmerge(this.state.node.newData, { data });
-    this.updateState({ node: { type, newData: data } });
-  };*/
 
   updateState = (newState, merge = true) => {
     const testMerge = deepmergeOverwriteArrays(this.state, newState);

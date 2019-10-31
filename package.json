@@ -12,7 +12,7 @@
   },
   "license": "ISC",
   "dependencies": {
-    "@mindtickle/mt-ui-components": "git+ssh://git@github.com/MindTickle/mt-ui-components.git#track/volmir",
+    "@mindtickle/mt-ui-components": "git+ssh://git@github.com/MindTickle/mt-ui-components.git#1.0.119",
     "antd": "^3.9.0",
     "axios": "^0.18.0",
     "classnames": "^2.2.5",

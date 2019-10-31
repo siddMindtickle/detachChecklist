@@ -4,7 +4,7 @@ import classnames from "classnames";
 
 import ScoreDropdown from "@components/scoreDropdown";
 import Description from "@components/description";
-import Attachments from "@components/attachment";
+import Attachments from "@components/attachments";
 import Input from "@components/input";
 
 import { errorToast as ErrorToast } from "@utils/toast";
@@ -141,7 +141,7 @@ class TaskDetails extends Component {
 
   renderTask = () => {
     const {
-      data: { attachments = {} }
+      data: { attachments = [] }
     } = this.props.node;
     return [
       this.renderName({
