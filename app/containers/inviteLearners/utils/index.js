@@ -65,12 +65,14 @@ export const downloadSample = (csvFields, cname) => {
   openWindow(getDownloadUrl(cname, queryParam));
 };
 
-const getModuleRelevance = val => {
-  const relevanceKey = MODULE_RELEVANCE_KEYS[val.toUpperCase()];
-  return relevanceKey ? relevanceKey : MODULE_RELEVANCE_KEYS["UNMARKED"];
+const getModuleRelevance = (val, defaultModuleRelevance) => {
+  const relevanceKey = MODULE_RELEVANCE_KEYS[val.trim().toUpperCase()];
+  return relevanceKey
+    ? relevanceKey
+    : MODULE_RELEVANCE_KEYS[defaultModuleRelevance];
 };
 
-export const handleData = (parsedData, shortKeyToDisplayType) => {
+export const handleData = (parsedData, shortKeyToDisplayType, defaultModuleRelevance) => {
   const regex = new RegExp(/profile\.|managers\./);
   const formattedObject = parsedData.map(obj => {
     return Object.keys(obj).reduce(
@@ -84,7 +86,7 @@ export const handleData = (parsedData, shortKeyToDisplayType) => {
           }
           acc[field][newKey] = obj[key];
         } else {
-          acc[newKey] = newKey === "moduleRelevance" ? getModuleRelevance(obj[key]) : obj[key];
+          acc[newKey] = newKey === "moduleRelevance" ? getModuleRelevance(obj[key],defaultModuleRelevance) : obj[key];
         }
         return acc;
       },
