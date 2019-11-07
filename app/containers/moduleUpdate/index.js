@@ -163,10 +163,11 @@ class PublishHistory extends Component {
       loaded,
       hasError,
       isLoading,
-      error: { errorCode } = {}
+      error: { errorCode, operation: errorOperation } = {}
     } = this.props.operationStatus;
     if (prevLoaded !== loaded) {
-      switch (operation) {
+      let op = errorOperation || operation;
+      switch (op) {
         case PUBLISH:
         case DISCARD:
           isLoading && infoToast({ message: MESSAGES[operation].loading });
@@ -174,7 +175,7 @@ class PublishHistory extends Component {
             successToast({ message: MESSAGES[operation].sucess });
             this.onSuccess(operation);
           } else if (loaded && hasError) {
-            errorToast({ message: GET_ERROR_MESSAGES[errorCode] });
+            errorToast({ message: GET_ERROR_MESSAGES({ errorCode }) });
           }
           break;
       }
