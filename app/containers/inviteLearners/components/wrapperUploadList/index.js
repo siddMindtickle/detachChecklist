@@ -63,12 +63,13 @@ export default class WrapperUploadList extends Component {
 
   render() {
     const { csvData = {} } = this.state;
-    const { invite, close, loaded, hasError, inviteToSeries, enabledFeatures } = this.props;
+    const { invite, close, loaded, hasError, inviteToSeries, enabledFeatures, defaultModuleRelevance } = this.props;
     return loaded && !hasError ? (
       <UploadLearnerList
         invite={invite}
         close={close}
         csvData={csvData}
+        defaultModuleRelevance={defaultModuleRelevance}
         downloadSample={this.downloadSample}
         inviteToSeries={inviteToSeries}
         enabledFeatures={enabledFeatures}

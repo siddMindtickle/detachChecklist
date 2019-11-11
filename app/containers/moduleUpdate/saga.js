@@ -134,7 +134,7 @@ function* manageData({ payload: { operation, moduleId, seriesId, companyId, vers
     }
     yield put(SUCCESS({ data: { operation, postData: rest, context } }));
   } catch (error) {
-    yield put(FAIL(error, { globalError: true }));
+    yield put(FAIL({ ...error, operation }, { globalError: true }));
   }
 }
 

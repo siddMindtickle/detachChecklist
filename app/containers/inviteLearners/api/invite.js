@@ -113,7 +113,7 @@ const createRelevanceMap = (
   const { ids, groups, learners } = userReq;
   switch (type) {
     case INVITE_TYPE.INVITE_EXISTING:
-      if (ids) {
+      if (ids && ids.length > 0) {
         ids.forEach(id => {
           entityRelevance.push({
             settingTypeEnum: RELEVANCE_SETTING_ENUM.USER,
@@ -244,13 +244,22 @@ InviteService.addToPlatform = async ({
     if (inviteToSeries || !moduleRelevanceEnabled) {
       moduleRelevance = undefined;
     } else {
-      seriesEntities.forEach(seriesEntry => {
-        seriesEntry.moduleInvitationPropertiesMap = {
-          [seriesEntry.series]: {
-            moduleRelevance: moduleRelevance
-          }
-        };
-      });
+      if (
+        seriesEntities &&
+        seriesEntities[0] &&
+        seriesEntities[0].entities &&
+        seriesEntities[0].entities.length > 0
+      ) {
+        seriesEntities = seriesEntities.map(seriesEntry => {
+          let newSeriesEntry = { ...seriesEntry };
+          newSeriesEntry.moduleInvitationPropertiesMap = {
+            [seriesEntry.entities[0]]: {
+              moduleRelevance: moduleRelevance
+            }
+          };
+          return newSeriesEntry;
+        });
+      }
     }
 
     const resultLearner = {
@@ -259,7 +268,8 @@ InviteService.addToPlatform = async ({
       email
     };
 
-    if (moduleRelevanceEnabled && !inviteToSeries) resultLearner.moduleRelevance = moduleRelevance;
+    if (moduleRelevanceEnabled && !inviteToSeries)
+      resultLearner.moduleRelevance = moduleRelevance;
 
     return resultLearner;
   });

@@ -171,8 +171,9 @@ export default class UploadLearnerList extends Component {
   };
 
   handleData = parsedData => {
+    const { defaultModuleRelevance } = this.props;
     const map = { ...this.props.csvData.shortKeyToDisplayType };
-    const uniqueUsers = handleData(parsedData, map);
+    const uniqueUsers = handleData(parsedData, map, defaultModuleRelevance);
     const learnersWithoutError = filterLearnersWithoutError(uniqueUsers);
     const disableInvite = !learnersWithoutError.length;
     const uploaded = uniqueUsers && uniqueUsers.length;
