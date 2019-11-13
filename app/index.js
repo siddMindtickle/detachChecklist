@@ -5,5 +5,5 @@ import { POLYFILL } from "mt-ui-core/config/polyfill";
 
 bootstrap("root", {
   Application: <Root />,
-  polyfillList: [POLYFILL.FETCH, POLYFILL.INTL, POLYFILL.FOREACH]
+  polyfillList: [POLYFILL.FETCH, POLYFILL.FOREACH]
 });
