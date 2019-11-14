@@ -9,9 +9,11 @@ class InnerHTML extends Component {
     className: PropTypes.string
   };
   componentDidMount() {
-    document.querySelectorAll(`#${this.props.id} script`).forEach(script => {
-      window.eval(script.text);
-    });
+    let elements = document.querySelectorAll(`#${this.props.id} script`);
+
+    for (let i = 0; i < elements.length; i++) {
+      window.eval(elements[i].text);
+    }
   }
   render() {
     const { id, className, content } = this.props;
