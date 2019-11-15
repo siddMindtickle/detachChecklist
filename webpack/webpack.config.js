@@ -19,8 +19,7 @@ const {
 } = require("./plugins");
 
 const config = {};
-//config.mode = Env.NODE_ENV;
-config.mode = "development";
+config.mode = Env.NODE_ENV;
 
 config.entry = {
   app: resolve(Dir.APP, "index.js")
@@ -33,8 +32,7 @@ config.output = {
   chunkFilename: "assests-ui/[name].chunk.js",
   crossOriginLoading: "anonymous"
 };
-//config.devtool = Env.NODE_ENV !== "production" ? "inline-source-map" : false;
-config.devtool = "inline-source-map";
+config.devtool = Env.NODE_ENV !== "production" ? "inline-source-map" : false;
 config.stats = "normal";
 
 config.resolve = {
