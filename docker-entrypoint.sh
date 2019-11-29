@@ -30,16 +30,16 @@ jobName="Build_triggered_checklist_${dates}"
 
 
 if[[env == 'prod']]
-  then env=''
+  then env='.'
 else
   env=".$env."
 fi
 
-endpoint="http://webpagetest${env}mindtickle.com/app/testChecklist"
+endpoint="https://webpagetest${env}mindtickle.com/app/testChecklist"
 
 sleep 5s
 
-curl -H "Accept: application/json" -H "Content-type: application/json" -X POST -d '{"jobName":"'"$jobName"'","dataEndpoint":"'"$endpoint"'"}'  "http://webpagetest${env}mindtickle.com/app/createInternalJob"
+curl -LH "Accept: application/json" -H "Content-type: application/json" -X POST -d '{"jobName":"'"$jobName"'","dataEndpoint":"'"$endpoint"'"}'  "http://webpagetest${env}mindtickle.com/app/createInternalJob"
 
 
 
