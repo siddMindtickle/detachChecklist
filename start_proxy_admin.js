@@ -10,7 +10,7 @@ const localUrl = `http://localhost:${process.env.SERVER_PORT}`;
 
 const proxyRules = new HttpProxyRules({
   rules: {
-    "/ui": localUrl,
+    "/ui/checklist": localUrl,
     "/assests-ui": `${localUrl}/assests-ui`,
     "/favicon.ico": `${localUrl}/favicon.ico`,
     "/([0-9a-z]+).hot-update": `${localUrl}/$1.hot-update.json`,
