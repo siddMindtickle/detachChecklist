@@ -37,8 +37,6 @@ fi
 
 endpoint="https://webpagetest${env}mindtickle.com/app/testChecklist"
 
-sleep 5s
-
 curl -LH "Accept: application/json" -H "Content-type: application/json" -X POST -d '{"jobName":"'"$jobName"'","dataEndpoint":"'"$endpoint"'"}'  "http://webpagetest${env}mindtickle.com/app/createInternalJob"
 
 
