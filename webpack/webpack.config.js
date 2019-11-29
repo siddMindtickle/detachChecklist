@@ -19,8 +19,7 @@ const {
 } = require("./plugins");
 
 const config = {};
-//config.mode = Env.NODE_ENV;
-config.mode = "development";
+config.mode = Env.NODE_ENV;
 
 config.entry = {
   app: resolve(Dir.APP, "index.js")
