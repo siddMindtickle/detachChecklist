@@ -3,7 +3,7 @@
 set -ex
 
 #echo environment variables
-env = $TRACK
+env=$TRACK
 
 # deploy allaboard assets
 public_path="//${ASSETS_BUCKET}/${APPLICATION}/${TRACK}"
