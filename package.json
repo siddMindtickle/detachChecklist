@@ -14,7 +14,7 @@
     "deepmerge": "^2.1.0",
     "@mindtickle/mt-ui-components": "git+ssh://git@github.com/MindTickle/mt-ui-components.git#track/volmir",
     "antd": "^3.8.4",
-    "axios": "^0.18.0",
+    "axios": "^1.8.2",
     "classnames": "^2.2.5",
     "mt-ui-core": "git+ssh://git@github.com/MindTickle/mt-ui-core.git#track/prod",
     "node-sass-utils": "^1.1.2",
